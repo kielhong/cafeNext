@@ -1,0 +1,36 @@
+package net.kiel.cafe.domain;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+public class Comment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter
+    private Integer id;
+    
+    @Getter @Setter
+    private String content;
+
+    @ManyToOne
+    @Getter @Setter
+    private Article article;
+    
+    @ManyToOne
+    @Getter @Setter
+    private Member member;
+    
+    @Column(name = "created_at")
+    @Getter @Setter
+    private LocalDateTime createdAt = LocalDateTime.now();
+}
