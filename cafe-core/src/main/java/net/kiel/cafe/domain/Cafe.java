@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +31,7 @@ public class Cafe {
     
     private String description;
     
-    @OneToMany(cascade={CascadeType.ALL})
+    @OneToMany(mappedBy = "cafe", fetch = FetchType.EAGER, cascade={CascadeType.ALL})
     private Set<Board> boards;
     
 //    @OneToMany

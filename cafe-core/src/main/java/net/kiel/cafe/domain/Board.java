@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.domain.converter.LocalDateTimePersistenceConverter;
@@ -23,6 +25,7 @@ public class Board {
     
     @ManyToOne
     @Getter @Setter
+    @JsonIgnore
     private Cafe cafe;
     
     @Column(nullable = false)

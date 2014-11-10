@@ -10,6 +10,7 @@ import net.kiel.cafe.config.RepositoryConfig;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,14 @@ public class CafeTest {
     @Autowired
     private SessionFactory sessionFactory;
     
+    private Session session;
+    
+    @Before
+    public void setUp() {
+        session = sessionFactory.getCurrentSession();
+    }
+    
+    
     @Test
     public void testInsert() {
         Cafe cafe = new Cafe();
@@ -30,7 +39,6 @@ public class CafeTest {
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
         
-        Session session = sessionFactory.getCurrentSession();
         session.save(cafe);
         
         assertNotNull(cafe.getId());
@@ -43,8 +51,6 @@ public class CafeTest {
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
         
-        Session session = sessionFactory.getCurrentSession();
-        
         session.save(cafe);
         
         @SuppressWarnings("unchecked")
@@ -52,6 +58,19 @@ public class CafeTest {
         
         assertNotNull(cafes);
     }
-
+    
+    @Test
+    public void testSelectById() {
+        Cafe cafe = new Cafe();
+        cafe.setName("test");
+        cafe.setNickname("testcafe");
+        cafe.setDescription("test description");
+        
+        session.save(cafe);
+        
+        Cafe cafe2 = (Cafe)session.get(Cafe.class, cafe.getId());
+        
+        assertNotNull(cafe2);
+    }
     
 }

@@ -1,5 +1,6 @@
 ext {
     springVersion = "4.1.1.RELEASE"
+    jacksonVersion = "2.4.3"
 }
 
 allprojects {
@@ -20,42 +21,12 @@ subprojects {
     dependencies {
         compile "org.springframework:spring-core:$springVersion"
         compile "org.springframework:spring-context:$springVersion"
+        
+        ['jackson-core', 'jackson-databind', 'jackson-annotations'].each {
+            compile "com.fasterxml.jackson.core:$it:$jacksonVersion"
+        }
 
         testCompile "org.springframework:spring-test:$springVersion"
         testCompile "junit:junit:4.11"
-    }
-}
-
-project(":cafe-web") {
-    //apply plugin: org.springframework.boot.gradle.SpringBootPlugin
-
-    buildscript {
-        repositories {
-            mavenCentral()
-            jcenter()
-        }
-        dependencies {
-            classpath "org.springframework.boot:spring-boot-gradle-plugin:1.1.8.RELEASE"
-        }
-    }
-
-    dependencies {
-        compile project(':cafe-core')
-        // Spring Boot
-        compile "org.springframework.boot:spring-boot-starter-web:1.1.8.RELEASE"
-        compile("org.springframework.boot:spring-boot-starter-web") {
-            exclude module: "spring-boot-starter-tomcat"
-        }
-        compile "org.springframework.boot:spring-boot-starter-jetty"
-        compile "org.springframework.boot:spring-boot-starter-velocity"
-    }
-}
-
-project(":cafe-api") {
-    dependencies {
-        compile project(':cafe-core')
-
-        compile "com.mangofactory:swagger-springmvc:0.8.8"
-        compile "org.ajar:swagger-spring-mvc-ui:0.2"
     }
 }
