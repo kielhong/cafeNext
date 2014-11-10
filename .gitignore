@@ -1,0 +1,7 @@
+.classpath
+.project
+/.gradle
+*/.settings
+*/build
+*/bin
+resources/database/cafe.mwb.bak
