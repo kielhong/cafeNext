@@ -1,1 +1,1 @@
-include ":cafe-core", ":cafe-web", ":cafe-api", ":cafe-batch"
+include ":cafe-core", ":cafe-cafeweb", ":cafe-sectionweb", ":cafe-api", ":cafe-batch"
