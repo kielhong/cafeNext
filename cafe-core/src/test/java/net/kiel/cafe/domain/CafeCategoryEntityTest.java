@@ -3,6 +3,7 @@ package net.kiel.cafe.domain;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
+import net.kiel.cafe.entity.CafeCategoryEntity;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RepositoryConfig.class})
 @Transactional
-public class CafeCategoryTest {
+public class CafeCategoryEntityTest {
     @Autowired
     private SessionFactory sessionFactory;
     
@@ -29,7 +30,7 @@ public class CafeCategoryTest {
     
     @Test
     public void testInsert() {
-        CafeCategory category = new CafeCategory();
+        CafeCategoryEntity category = new CafeCategoryEntity();
         category.setId(100);
         category.setName("test category");
         

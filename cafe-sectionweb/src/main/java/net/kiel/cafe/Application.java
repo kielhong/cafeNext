@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("net.kiel.cafe.web")
+@ComponentScan("net.kiel.cafe")
 public class Application {
 
     public static void main(String[] args) {

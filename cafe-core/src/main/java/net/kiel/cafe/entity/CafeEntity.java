@@ -1,4 +1,4 @@
-package net.kiel.cafe.domain;
+package net.kiel.cafe.entity;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -7,19 +7,22 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.Data;
-import net.kiel.cafe.domain.converter.LocalDateTimePersistenceConverter;
+import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "cafe")
 @Data
-public class Cafe {
+public class CafeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -33,9 +36,10 @@ public class Cafe {
     private String description;
     
     @ManyToOne
-    private CafeCategory category;
+    @JsonIgnore
+    private CafeCategoryEntity category;
     
-    @OneToMany(mappedBy = "cafe", fetch = FetchType.EAGER, cascade={CascadeType.ALL})
+    @OneToMany(mappedBy = "cafe", cascade={CascadeType.ALL})
     private Set<Board> boards;
     
 //    @OneToMany

@@ -61,7 +61,7 @@ public class RepositoryConfig {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setHibernateProperties(hibernateProperties());
-        sessionFactory.setPackagesToScan(new String[] {"net.kiel.cafe.domain"});
+        sessionFactory.setPackagesToScan(new String[] {"net.kiel.cafe.entity"});
         
         return sessionFactory;
     }

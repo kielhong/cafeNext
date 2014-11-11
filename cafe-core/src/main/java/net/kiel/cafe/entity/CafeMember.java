@@ -1,4 +1,4 @@
-package net.kiel.cafe.domain;
+package net.kiel.cafe.entity;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +9,7 @@ import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import net.kiel.cafe.domain.id.CafeMemberId;
+import net.kiel.cafe.entity.id.CafeMemberId;
 import lombok.Setter;
 import lombok.Getter;
 
@@ -25,7 +25,7 @@ public class CafeMember {
     @Id
     @ManyToOne
     @Getter @Setter
-    private Cafe cafe;
+    private CafeEntity cafe;
 
     @Column(name = "joined_at")
     @Getter @Setter

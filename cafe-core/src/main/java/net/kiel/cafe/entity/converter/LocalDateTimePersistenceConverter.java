@@ -1,4 +1,4 @@
-package net.kiel.cafe.domain.converter;
+package net.kiel.cafe.entity.converter;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;

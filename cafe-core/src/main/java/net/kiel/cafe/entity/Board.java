@@ -1,4 +1,4 @@
-package net.kiel.cafe.domain;
+package net.kiel.cafe.entity;
 
 import java.time.LocalDateTime;
 
@@ -9,14 +9,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.domain.converter.LocalDateTimePersistenceConverter;
+import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 @Entity
+@Table(name = "board")
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +28,7 @@ public class Board {
     @ManyToOne
     @Getter @Setter
     @JsonIgnore
-    private Cafe cafe;
+    private CafeEntity cafe;
     
     @Column(nullable = false)
     @Getter @Setter

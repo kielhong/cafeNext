@@ -12,16 +12,16 @@
     </div> 
   </div>
   <div class="cafemake">
-    <a href="#" class="_click(CafeSection|CafeCreate|false) N=a:cst.make _stopDefault"><img src="http://cafeimgs.naver.net/img/section/btn_cafemake_20140509.gif" width="250" height="36" alt="카페 만들기"></a>
+    <a href="#"><img src="http://cafeimgs.naver.net/img/section/btn_cafemake_20140509.gif" width="250" height="36" alt="카페 만들기"></a>
   </div>
   <div id="denyNamelessLayer" class="cafetype_layer2" style="width:356px;top:15px;left:0px; display:none;"> 
                 <img src="http://cafeimgs.naver.net/img/realname/ico_layer.gif" width="25" height="24" alt="">
                 <h3>카페 만들기는 실명 확인 회원만 사용 가능 합니다.</h3> 
                 <p class="layer_txt">카페를 만드시려면 실명 확인을 해주세요.</p>
                 <div class="btn_box">
-                    <a href="#" class="_click(LayerManager|CloseLayer|denyNamelessLayer) _stopDefault"><img src="http://cafeimgs.naver.net/img/realname/btn_clse_lay.gif" width="47" height="26" alt="닫기"></a> <a href="#" class="_click(CafeSection|ToCertPage) _stopDefault"><img src="http://cafeimgs.naver.net/img/realname/btn_cfm_lay.gif" width="105" height="26" alt="실명 확인 하기"></a>
+                    <a href="#"><img src="http://cafeimgs.naver.net/img/realname/btn_clse_lay.gif" width="47" height="26" alt="닫기"></a> <a href="#"><img src="http://cafeimgs.naver.net/img/realname/btn_cfm_lay.gif" width="105" height="26" alt="실명 확인 하기"></a>
                 </div>
-                <a href="#" class="btn_close _click(LayerManager|CloseLayer|denyNamelessLayer) _stopDefault"><img src="http://cafeimgs.naver.net/img/btn_close_layer3.gif" width="19" height="19" alt="닫기"></a> 
+                <a href="#"><img src="http://cafeimgs.naver.net/img/btn_close_layer3.gif" width="19" height="19" alt="닫기"></a> 
                 <iframe frameborder="0" scrolling="no" title="빈프레임" style="width:400px;height:168px;"></iframe>
   </div>
   <div id="cafeNoticeSideArea" class="notice" >
@@ -29,12 +29,12 @@
                 <ul>
 
                 </ul>
-                <a href="/SectionNoticeList.nhn" class="btn_more N=a:not.more" title="카페서비스 공지사항 더보기">더보기</a>
+                <a href="/SectionNoticeList.nhn" class="btn_more" title="카페서비스 공지사항 더보기">더보기</a>
   </div>
   <div id="cafeSupportSideArea" class="notice">
                 <h2><img src="http://cafeimgs.naver.net/img/section/h_center_notice.gif" width="105" height="11" alt="카페지원센터 공지사항"></h2>
                 <ul>                
                 </ul>
-                <a href="http://cafe.naver.com/ArticleList.nhn?search.clubid=12048475&search.menuid=1&search.boardtype=L" class="btn_more N=a:not.smore" target="_blank" title="카페지원센터 공지사항 더보기">더보기</a>
+                <a href="http://cafe.naver.com/ArticleList.nhn?search.clubid=12048475&search.menuid=1&search.boardtype=L" class="btn_more" target="_blank" title="카페지원센터 공지사항 더보기">더보기</a>
   </div>        
 </div>

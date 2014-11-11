@@ -1,4 +1,4 @@
-package net.kiel.cafe.domain;
+package net.kiel.cafe.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

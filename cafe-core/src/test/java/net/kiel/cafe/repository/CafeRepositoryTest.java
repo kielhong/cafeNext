@@ -1,5 +1,6 @@
 package net.kiel.cafe.repository;
 
+import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 
@@ -9,7 +10,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.AppConfig;
 import net.kiel.cafe.config.RepositoryConfig;
-import net.kiel.cafe.domain.Cafe;
+import net.kiel.cafe.entity.CafeEntity;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,8 +27,19 @@ public class CafeRepositoryTest {
     
     @Test
     public void testSelectAll() {
-        List<Cafe> cafes = cafeRepository.selectAll();
+        List<CafeEntity> cafes = cafeRepository.selectAll();
         
         assertThat(cafes, notNullValue());
+    }
+    
+    @Test
+    public void testSelectByCategoryId() {
+        final Integer categoryId = 11;
+        List<CafeEntity> cafes = cafeRepository.selectByCategoryId(categoryId);
+        
+        assertThat(cafes, notNullValue());
+        for (CafeEntity cafeEntity : cafes) {
+            assertThat(cafeEntity.getCategory().getId(), is(categoryId));
+        }
     }
 }

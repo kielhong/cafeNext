@@ -1,4 +1,4 @@
-package net.kiel.cafe.domain;
+package net.kiel.cafe.entity;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.domain.converter.LocalDateTimePersistenceConverter;
+import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;

@@ -1,4 +1,4 @@
-package net.kiel.cafe.domain;
+package net.kiel.cafe.entity;
 
 import java.util.Set;
 
@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "cafe_category")
-public class CafeCategory {
+public class CafeCategoryEntity {
     @Id
     @Getter @Setter
     private Integer id;
@@ -24,7 +24,7 @@ public class CafeCategory {
     
     @OneToMany(mappedBy = "category")
     @Getter @Setter
-    private Set<Cafe> cafes;
+    private Set<CafeEntity> cafes;
     
     
 }

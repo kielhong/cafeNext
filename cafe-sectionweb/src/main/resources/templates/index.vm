@@ -14,14 +14,13 @@
 
     ## #parse("tiles/spot.vm")
   
-    #parse("tiles/volumn_message.vm")
+    ## #parse("tiles/volumn_message.vm")
         
-    <div id="content"> 
-      <h2 class="blind">주제별 카페</h2> 
+    <div id="content">  
       <ul class="tab_cafe"> 
-      <li class="t1 on"><a id="focusTop" href="/SectionHome.nhn?t=1" class="N=a:cnt.tab1"><span>주제별 카페</span><em class="blind">선택됨</em></a></li> 
-      <li class="t2 "><a href="/AreaPowerCafeHome.nhn?t=2" class="N=a:cnt.tab2"><span>지역별 카페</span></a></li>
-      <li class="t3"><a href="#" class="_click(CategoryCafe|ShowLogInLayer) _stopDefault N=a:cnt.tab3,t:1"><span>가입카페 새글 소식</span></a></li> 
+      <li class="t1 on"><a id="focusTop" href="/SectionHome.nhn?t=1"><span>주제별 카페</span><em class="blind">선택됨</em></a></li> 
+      <li class="t2 "><a href="/AreaPowerCafeHome.nhn?t=2"><span>지역별 카페</span></a></li>
+      <li class="t3"><a href="#"><span>가입카페 새글 소식</span></a></li> 
       </ul> 
 
       #parse("tiles/category_cafe_list.vm")
@@ -36,4 +35,5 @@
   
 </div>
 </body>
+
 </html>

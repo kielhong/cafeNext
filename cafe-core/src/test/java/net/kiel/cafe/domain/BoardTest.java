@@ -5,6 +5,9 @@ import static org.junit.Assert.assertNotNull;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
+import net.kiel.cafe.entity.Board;
+import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeEntity;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,11 +35,11 @@ public class BoardTest {
     
     @Test
     public void testInsert() {
-        Cafe cafe = new Cafe();
+        CafeEntity cafe = new CafeEntity();
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test cafe description");
-        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
+        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         
         session.save(cafe);
         
@@ -49,8 +52,6 @@ public class BoardTest {
         session.save(board);
         
         assertNotNull(board.getId());
-        
-        System.out.println(board);
     }
 
 }

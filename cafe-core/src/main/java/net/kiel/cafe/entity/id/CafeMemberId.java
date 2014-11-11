@@ -1,9 +1,9 @@
-package net.kiel.cafe.domain.id;
+package net.kiel.cafe.entity.id;
 
 import java.io.Serializable;
 
-import net.kiel.cafe.domain.Cafe;
-import net.kiel.cafe.domain.Member;
+import net.kiel.cafe.entity.CafeEntity;
+import net.kiel.cafe.entity.Member;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,5 +13,5 @@ public class CafeMemberId implements Serializable {
     private Member member;
     
     @Getter @Setter
-    private Cafe cafe;
+    private CafeEntity cafe;
 }

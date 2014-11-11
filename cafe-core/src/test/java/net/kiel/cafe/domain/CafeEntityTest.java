@@ -7,6 +7,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
+import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeEntity;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,7 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RepositoryConfig.class})
 @Transactional
-public class CafeTest {
+public class CafeEntityTest {
     @Autowired
     private SessionFactory sessionFactory;
     
@@ -34,11 +36,11 @@ public class CafeTest {
     
     @Test
     public void testInsert() {
-        Cafe cafe = new Cafe();
+        CafeEntity cafe = new CafeEntity();
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
+        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         
         session.save(cafe);
         
@@ -47,31 +49,31 @@ public class CafeTest {
     
     @Test
     public void testSelectAll() {
-        Cafe cafe = new Cafe();
+        CafeEntity cafe = new CafeEntity();
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
+        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         
         session.save(cafe);
         
         @SuppressWarnings("unchecked")
-        List<Cafe> cafes = (List<Cafe>)session.createCriteria(Cafe.class).list();
+        List<CafeEntity> cafes = (List<CafeEntity>)session.createCriteria(CafeEntity.class).list();
         
         assertNotNull(cafes);
     }
     
     @Test
     public void testSelectById() {
-        Cafe cafe = new Cafe();
+        CafeEntity cafe = new CafeEntity();
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
+        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         
         session.save(cafe);
         
-        Cafe cafe2 = (Cafe)session.get(Cafe.class, cafe.getId());
+        CafeEntity cafe2 = (CafeEntity)session.get(CafeEntity.class, cafe.getId());
         
         assertNotNull(cafe2);
     }

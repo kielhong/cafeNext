@@ -1,9 +1,9 @@
 <div id="VolumeMessage" class="message">
-    <p class="makecafe">
-                <img src="http://cafeimgs.naver.net/img/section/txt2_message_5.gif" width="46" height="11" alt="오늘 하루" class="from">
-                <span class="_number _param(2) num_0">2</span><span class="point">,</span><span class="_number _param(1) num_0">1</span><span class="_number _param(1) num_0">1</span><span class="_number _param(3) num_0">3</span>
-            <img src="http://cafeimgs.naver.net/img/section/txt2_message_6.gif" width="116" height="11" alt="개의 카페가 개설되어 총" class="from">
-        <span class="_number _param(9) num_0">9</span><span class="point">,</span><span class="_number _param(7) num_0">7</span><span class="_number _param(9) num_0">9</span><span class="_number _param(4) num_0">4</span><span class="point">,</span><span class="_number _param(4) num_0">4</span><span class="_number _param(0) num_0">0</span><span class="_number _param(5) num_0">5</span>
-            <img src="http://cafeimgs.naver.net/img/section/txt2_message_7.gif" width="103" height="11" alt="개의 카페가 있습니다!">
-    </p>
+  <p class="makecafe">
+    <img src="http://cafeimgs.naver.net/img/section/txt2_message_5.gif" width="46" height="11" alt="오늘 하루" class="from">
+    <span class="_number _param(2) num_0">2</span><span class="point">,</span><span class="_number _param(1) num_0">1</span><span class="_number _param(1) num_0">1</span><span class="_number _param(3) num_0">3</span>
+    <img src="http://cafeimgs.naver.net/img/section/txt2_message_6.gif" width="116" height="11" alt="개의 카페가 개설되어 총" class="from">
+    <span class="_number _param(9) num_0">9</span><span class="point">,</span><span class="_number _param(7) num_0">7</span><span class="_number _param(9) num_0">9</span><span class="_number _param(4) num_0">4</span><span class="point">,</span><span class="_number _param(4) num_0">4</span><span class="_number _param(0) num_0">0</span><span class="_number _param(5) num_0">5</span>
+    <img src="http://cafeimgs.naver.net/img/section/txt2_message_7.gif" width="103" height="11" alt="개의 카페가 있습니다!">
+  </p>
 </div>

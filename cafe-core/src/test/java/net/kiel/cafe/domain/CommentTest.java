@@ -6,6 +6,12 @@ import static org.junit.Assert.assertThat;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
+import net.kiel.cafe.entity.Article;
+import net.kiel.cafe.entity.Board;
+import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeEntity;
+import net.kiel.cafe.entity.Comment;
+import net.kiel.cafe.entity.Member;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,7 +32,7 @@ public class CommentTest {
     private Session session;
     
     private Member member;
-    private Cafe cafe;
+    private CafeEntity cafe;
     private Board board;
     private Article article;
     
@@ -38,11 +44,11 @@ public class CommentTest {
         member.setNickname("testmember");
         session.save(member);
         
-        cafe = new Cafe();
+        cafe = new CafeEntity();
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
+        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         session.save(cafe);
         
         board = new Board();

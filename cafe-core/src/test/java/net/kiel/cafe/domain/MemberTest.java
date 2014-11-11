@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
+import net.kiel.cafe.entity.Member;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
