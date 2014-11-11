@@ -1,7 +1,5 @@
 package net.kiel.cafe.domain;
 
-import static org.junit.Assert.assertNotNull;
-
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
@@ -18,8 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RepositoryConfig.class})
 @Transactional
-public class BoardTest {
-
+public class CafeCategoryTest {
     @Autowired
     private SessionFactory sessionFactory;
     
@@ -32,25 +29,11 @@ public class BoardTest {
     
     @Test
     public void testInsert() {
-        Cafe cafe = new Cafe();
-        cafe.setName("test");
-        cafe.setNickname("testcafe");
-        cafe.setDescription("test cafe description");
-        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
+        CafeCategory category = new CafeCategory();
+        category.setId(100);
+        category.setName("test category");
         
-        session.save(cafe);
-        
-        Board board = new Board();
-        board.setTitle("board");
-        board.setDescription("test board description");
-        board.setType(Board.Type.GENERAL);
-        board.setCafe(cafe);
-        
-        session.save(board);
-        
-        assertNotNull(board.getId());
-        
-        System.out.println(board);
+        session.save(category);
     }
 
 }

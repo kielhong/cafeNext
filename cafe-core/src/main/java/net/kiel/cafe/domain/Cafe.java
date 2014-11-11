@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
@@ -30,6 +31,9 @@ public class Cafe {
     private String name;
     
     private String description;
+    
+    @ManyToOne
+    private CafeCategory category;
     
     @OneToMany(mappedBy = "cafe", fetch = FetchType.EAGER, cascade={CascadeType.ALL})
     private Set<Board> boards;

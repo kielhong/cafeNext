@@ -46,6 +46,7 @@ public class ArticleTest {
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         session.save(cafe);
         
         board = new Board();
@@ -85,8 +86,6 @@ public class ArticleTest {
         article2.setMember(member);
         article2.setBoard(board);
         session.save(article2);
-        
-        System.out.println("board id : " + board.getId());
         
         Query query = session.createQuery("FROM Article as article WHERE article.board.id = :boardId")
                                 .setInteger("boardId", board.getId());

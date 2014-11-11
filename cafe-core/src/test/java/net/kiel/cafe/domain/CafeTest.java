@@ -38,6 +38,7 @@ public class CafeTest {
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         
         session.save(cafe);
         
@@ -50,6 +51,7 @@ public class CafeTest {
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         
         session.save(cafe);
         
@@ -65,6 +67,7 @@ public class CafeTest {
         cafe.setName("test");
         cafe.setNickname("testcafe");
         cafe.setDescription("test description");
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         
         session.save(cafe);
         
