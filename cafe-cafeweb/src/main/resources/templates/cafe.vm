@@ -1,0 +1,37 @@
+<html lang="ko">
+<head>
+<title>$cafe.name : CafeNext</title>
+
+<link rel="stylesheet" href="/css/mycafe-common.css" type="text/css">
+<link rel="stylesheet" href="/css/mycafe-layout.css" type="text/css">
+<link rel="stylesheet" href="/css/mycafe-main.css" type="text/css">
+<link rel="stylesheet" href="/css/mycafe-sub.css" type="text/css">
+</head>
+
+<body>
+
+<h1 class="d-none">$cafe.name</h1>
+
+<div id="cafe-body-skin" > 
+    <div id="cafe-body">
+        #parse("tiles/special_menu.vm")
+        
+        #parse("tiles/div_search.vm")
+
+        <div id="content-area">
+            <div id="group-area" class="fr">
+                #parse("tiles/div_cafeinfo.vm")            
+                
+                #parse("tiles/div_cafemenu.vm")       
+            </div>
+
+            #parse("tiles/div_cafemain.vm")   
+
+        </div>
+    </div>
+    
+    #parse("tiles/div_cafefooter.vm")
+</div>
+
+</body>
+</html>

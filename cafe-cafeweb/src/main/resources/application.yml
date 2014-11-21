@@ -29,6 +29,6 @@ hibernate:
 logging:
     level:
         org:
-            springframework: WARN
+            springframework: INFO
         net:
             kiel: INFO                
