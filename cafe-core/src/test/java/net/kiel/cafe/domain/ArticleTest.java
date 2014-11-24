@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
 import net.kiel.cafe.entity.Article;
-import net.kiel.cafe.entity.Board;
+import net.kiel.cafe.entity.BoardEntity;
 import net.kiel.cafe.entity.CafeCategoryEntity;
 import net.kiel.cafe.entity.CafeEntity;
 import net.kiel.cafe.entity.Member;
@@ -37,7 +37,7 @@ public class ArticleTest {
     
     private Member member;
     private CafeEntity cafe;
-    private Board board;
+    private BoardEntity board;
     
     @Before
     public void setUp() {
@@ -54,11 +54,11 @@ public class ArticleTest {
         cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         session.save(cafe);
         
-        board = new Board();
+        board = new BoardEntity();
         board.setCafe(cafe);
         board.setTitle("board");
         board.setDescription("test board description");
-        board.setType(Board.Type.GENERAL);
+        board.setType(BoardEntity.Type.GENERAL);
         session.save(board);
     }
     

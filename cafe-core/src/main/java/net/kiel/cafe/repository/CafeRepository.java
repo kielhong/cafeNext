@@ -5,6 +5,7 @@ import java.util.List;
 import net.kiel.cafe.entity.CafeEntity;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -27,9 +28,15 @@ public class CafeRepository {
                             .list();        
     }
     
-    public CafeEntity selectById(Integer cafeId) {
+    public CafeEntity selectById(Integer id) {
         return (CafeEntity)sessionFactory.getCurrentSession()
-                        .get(CafeEntity.class, cafeId);
+                        .get(CafeEntity.class, id);
     }   
-
+    
+    public CafeEntity selectByNickname(String nickname) {
+        return (CafeEntity)sessionFactory.getCurrentSession()
+                        .createCriteria(CafeEntity.class)
+                        .add(Restrictions.eq("nickname", nickname))
+                        .uniqueResult();
+    }
 }

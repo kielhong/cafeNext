@@ -1,149 +1,19 @@
-
-
-
-
-
-
-
-
-
-
 <div id="cafe-menu">
-    <div class="box-g-t"></div>
-    <div class="box-g-m">
-        <!-- 즐겨찾는 게시판 그룹 -->
-        
-        
-
-<div class="cafe-menu-tit frst">
-    <h3><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="14" height="13" class="ico-bookmark"><a href="#" onclick="toggleFavoriteMenuGroup();clickcr(this, 'mnu.favgroup', '', '', event);return false;" title="즐겨찾는 게시판" class="gm-tcol-t" href="#">즐겨찾는 게시판</a></h3>
-    <p id="favoriteMenuGroupBtn" class="down-btn"><a onclick="toggleFavoriteMenuGroup();return false;" href="#"><img width="13" height="13" alt="" src="http://cafeimgs.naver.net/cafe4/hidden.gif"></a></p>
-</div>
-<ul id="favoriteMenuGroup" style="display:none" class="cafe-menu-list">
-</ul>
-<div class="cafe-menu-space" id="gend141"></div>
-
-        
-        <!-- //즐겨찾는 게시판 그룹 -->  
-        <ul class="cafe-menu-list">
-        <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-list" alt=""><a href="/ArticleList.nhn?search.clubid=10000001&search.boardtype=L" target="cafe_main"  onclick="goMenu('0');clickcr(this, 'mnu.all','','',event);targetCleaner(this);" class="gm-tcol-c" id="menuLink0">전체글보기</a> 
-        <span class="gm-tcol-c p11" style="padding-right:2px;">(<strong>2</strong>)</span></li>
-        
-            
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-tag" alt=""><a href="/CafeTagCloudList.nhn?search.clubId=10000001" target="cafe_main"  onclick="goMenu('-10');clickcr(this, 'mnu.tag','','',event);targetCleaner(this);" class="gm-tcol-c" id="menuLink-10">카페태그보기</a></li>
-            
-            
-                
-            
-            
-            
-            
-        
-            
-            
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-list" alt=""><a href="/BestArticleList.nhn?clubid=10000001&period=week&listtype=commentcount" target="cafe_main"  onclick="goMenu('-1');clickcr(this, 'mnu.best','','',event);targetCleaner(this);" class="gm-tcol-c" id="menuLink-1">베스트게시물</a></li>
-            
-                
-            
-            
-            
-            
-        
-            
-            
-            
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-calendar" alt=""><a href="/CalendarView.nhn?clubid=10000001&search.type=view&search.registCalendar=true" target="cafe_main"  onclick="goMenu('-4');clickcr(this,'mnu.cal', '', '', event);targetCleaner(this);" class="gm-tcol-c" id="menuLink-4">카페 캘린더</a></li>       
-                
-            
-            
-            
-            
-        
-            
-            
-                
-            
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-book" alt=""><a href="/BookShelf.nhn?clubid=10000001&sortBy=byDate" target="cafe_main" onClick="goMenu('-15');clickcr(this, 'mnu.shelf','','',event);targetCleaner(this);" class="gm-tcol-c" id="menuLink-15">카페북 책꽂이</a></li>
-            
-            
-            
-            
-        
-            
-            
-                
-            
-            
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="11" height="11" class="ico-cafe-kin" alt=""><a href="/KinActivityNewQuestionList.nhn?search.clubid=10000001" target="cafe_main" onClick="goMenu(-25);clickcr(this,'mnu.kact', '', '', event);targetCleaner(this);" class="gm-tcol-c" id="menuLink-25">카페지식활동</a></li>
-            
-            
-            
-        
-            
-            
-                
-            
-            
-            
-            
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-map" alt=""><a href="/CafeMapView.nhn?clubid=10000001" target="cafe_main" onClick="goMenu(-7);clickcr(this,'mnu.map', '', '', event);targetCleaner(this);" class="gm-tcol-c" id="menuLink-7">우리카페지도</a>
-                  <img src='http://cafeimgs.naver.net/img/ic_map_new3.png' width="20" height="11"  alt="우리카페지도" title="우리카페지도"></li>
-            
-        
-        </ul>
-        
-        <div class="cafe-menu-space"></div><ul class="cafe-menu-list">
-                    
-        
-        
-            
-            
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                    
-                    
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-list" alt=""><a href="/ArticleList.nhn?search.clubid=10000001&search.menuid=3&search.boardtype=L" target="cafe_main"  onclick="goMenu('3');clickcr(this, 'mnu.normal','','',event);targetCleaner(this);" class="gm-tcol-c " id="menuLink3">1호 카페 만세</a></li>
-                
-                
-            
-        
-            
-            
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                    
-                    
-                <li><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-list" alt=""><a href="/ArticleList.nhn?search.clubid=10000001&search.menuid=4&search.boardtype=L" target="cafe_main"  onclick="goMenu('4');clickcr(this, 'mnu.normal','','',event);targetCleaner(this);" class="gm-tcol-c " id="menuLink4">1호 카페를 칭송하라</a></li>
-                
-                
-            
-        
-        </ul>
-    </div>
-    <div id="menu_restirction_tip" class="appr_rst_ly" style="position:absolute;display:none;">
-        <p>이 게시판은 카페 멤버들의 접근이<br />제한되었습니다.</p>
-    </div>
-    <div class="box-g-b"></div>
+  <div class="box-g-t"></div>
+  <div class="box-g-m">      
+    <ul class="cafe-menu-list">
+      <li>
+        <img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-list" alt="">
+        <a href="/ArticleList.nhn?search.clubid=10000001&search.boardtype=L" target="cafe_main" class="gm-tcol-c" id="menuLink0">전체글보기</a> 
+        <span class="gm-tcol-c p11" style="padding-right:2px;">(<strong>2</strong>)</span>
+      </li>
+      #foreach ( $board in $cafe.boards )
+        <li>
+          <img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="10" height="11" class="ico-list" alt="">
+          <a href="/CafeTagCloudList.nhn?search.clubId=10000001" class="gm-tcol-c">$board.title</a>
+        </li>
+      #end
+    </ul>
+  </div>
+  <div class="box-g-b"></div>
 </div>

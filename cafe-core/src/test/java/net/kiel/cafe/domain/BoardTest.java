@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
-import net.kiel.cafe.entity.Board;
+import net.kiel.cafe.entity.BoardEntity;
 import net.kiel.cafe.entity.CafeCategoryEntity;
 import net.kiel.cafe.entity.CafeEntity;
 
@@ -43,10 +43,10 @@ public class BoardTest {
         
         session.save(cafe);
         
-        Board board = new Board();
+        BoardEntity board = new BoardEntity();
         board.setTitle("board");
         board.setDescription("test board description");
-        board.setType(Board.Type.GENERAL);
+        board.setType(BoardEntity.Type.GENERAL);
         board.setCafe(cafe);
         
         session.save(board);

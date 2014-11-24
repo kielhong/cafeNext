@@ -40,7 +40,7 @@ public class CafeEntity {
     private CafeCategoryEntity category;
     
     @OneToMany(mappedBy = "cafe", cascade={CascadeType.ALL})
-    private Set<Board> boards;
+    private Set<BoardEntity> boards;
     
 //    @OneToMany
 //    private Set<Article> articles;

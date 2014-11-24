@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import net.kiel.cafe.entity.BoardEntity;
 import net.kiel.cafe.entity.CafeEntity;
 import net.kiel.cafe.repository.CafeRepository;
 import net.kiel.cafe.vo.Cafe;
@@ -53,17 +54,36 @@ public class CafeService {
         return results;
     }
     
-    public Cafe findById(Integer cafeId) {
-        CafeEntity cafeEntity= cafeRepository.selectById(cafeId);
-        
+    private Cafe findBy(CafeEntity cafeEntity) {       
         Cafe cafeVO = new Cafe();
+        
+        if (cafeEntity == null) {
+            return cafeVO; 
+        }
+        
+        
         cafeVO.setId(cafeEntity.getId());
         cafeVO.setName(cafeEntity.getName());
         cafeVO.setNickname(cafeEntity.getNickname());
         cafeVO.setDescription(cafeEntity.getDescription());
         cafeVO.setCreatedAt(cafeEntity.getCreatedAt());
-        cafeVO.setBoards(cafeEntity.getBoards());
+        for (BoardEntity boardEntity : cafeEntity.getBoards()) {
+            cafeVO.getBoards().add(boardEntity.toBoard());
+        }
         
         return cafeVO;
     }
+    public Cafe findById(Integer id) {
+        Cafe cafe = findBy(cafeRepository.selectById(id));
+        
+        return cafe;
+    }
+    
+    public Cafe findByNickname(String nickname) {
+        Cafe cafe = findBy(cafeRepository.selectByNickname(nickname));
+        
+        return cafe;
+    }
+    
+    
 }

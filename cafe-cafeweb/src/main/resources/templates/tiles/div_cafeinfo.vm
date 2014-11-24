@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="gm-tcol-c">
-                <div class="thm"><a href="/CafeHistoryView.nhn?clubid=10000001" class="gm-tcol-c" target="cafe_main">since 2013.11.11</a></div>
+                <div class="thm"><a href="/CafeHistoryView.nhn?clubid=10000001" class="gm-tcol-c" target="cafe_main">since $cafe.since</a></div>
                 <div class="info-view"><a href="#" class="u gm-tcol-c">카페소개</a></div>
             </li>
             <li>

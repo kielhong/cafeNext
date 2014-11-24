@@ -16,10 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
+import net.kiel.cafe.vo.Board;
 
 @Entity
 @Table(name = "board")
-public class Board {
+public class BoardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
@@ -61,5 +62,16 @@ public class Board {
     public String toString() {
         return "Board [id=" + id + ", cafe.id=" + cafe.getId() + ", title=" + title + ", description=" + description + ", type="
                 + type + ", createdAt=" + createdAt + "]";
+    }
+    
+    public Board toBoard() {
+        Board board = new Board();
+        board.setId(this.id);
+        board.setTitle(title);
+        board.setDescription(description);
+        board.setType(type);
+        board.setCreatedAt(createdAt);
+        
+        return board;
     }
 }

@@ -40,7 +40,7 @@ public class Article {
     
     @ManyToOne
     @Getter @Setter
-    private Board board;
+    private BoardEntity board;
 
     @OneToMany(mappedBy = "article")
     @Cascade({CascadeType.SAVE_UPDATE})

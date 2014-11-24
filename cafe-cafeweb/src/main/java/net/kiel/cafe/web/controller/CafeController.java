@@ -21,12 +21,12 @@ public class CafeController {
         return "index";
     }
     
-    @RequestMapping(value = "/{cafeId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{nickname}", method = RequestMethod.GET)
     public String findById(
-            @PathVariable Integer cafeId,
+            @PathVariable String nickname,
             Model model) {
         
-        Cafe cafe = cafeService.findById(cafeId);
+        Cafe cafe = cafeService.findByNickname(nickname);
         model.addAttribute("cafe", cafe);
         
         return "cafe";

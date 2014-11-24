@@ -24,9 +24,9 @@
                 
                 #parse("tiles/div_cafemenu.vm")       
             </div>
-
-            #parse("tiles/div_cafemain.vm")   
-
+            <div id="main-area" class="fl">
+                #parse("tiles/div_cafemain.vm")            
+            </div>
         </div>
     </div>
     

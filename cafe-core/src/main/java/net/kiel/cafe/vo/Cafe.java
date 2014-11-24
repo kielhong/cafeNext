@@ -1,11 +1,12 @@
 package net.kiel.cafe.vo;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.Set;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.entity.Board;
 
 public class Cafe {
     @Getter @Setter
@@ -21,8 +22,13 @@ public class Cafe {
     private String description;
     
     @Getter @Setter
-    private Set<Board> boards;
+    private Set<Board> boards = new HashSet<Board>();
     
     @Getter @Setter
-    private LocalDateTime createdAt; 
+    private LocalDateTime createdAt = LocalDateTime.now();
+    
+    public String getSince() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return createdAt.format(formatter);
+    }
 }
