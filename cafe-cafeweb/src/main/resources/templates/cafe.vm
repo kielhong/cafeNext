@@ -20,12 +20,12 @@
 
         <div id="content-area">
             <div id="group-area" class="fr">
-                #parse("tiles/div_cafeinfo.vm")            
+                #parse("tiles/cafe_info.vm")            
                 
-                #parse("tiles/div_cafemenu.vm")       
+                #parse("tiles/cafe_menu.vm")       
             </div>
             <div id="main-area" class="fl">
-                #parse("tiles/div_cafemain.vm")            
+                #parse("tiles/cafe_article.vm")            
             </div>
         </div>
     </div>

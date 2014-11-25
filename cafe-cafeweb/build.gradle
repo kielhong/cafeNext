@@ -21,7 +21,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-jetty"
     compile "org.springframework.boot:spring-boot-starter-velocity"
 
-    compile "org.apache.velocity:velocity-tools:2.0"
+    compile "velocity-tools:velocity-tools-generic:1.4"
 
 }
 

@@ -2,8 +2,8 @@ package net.kiel.cafe.vo;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +22,7 @@ public class Cafe {
     private String description;
     
     @Getter @Setter
-    private Set<Board> boards = new HashSet<Board>();
+    private List<Board> boards = new ArrayList<Board>();
     
     @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now();

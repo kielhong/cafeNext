@@ -262,7 +262,7 @@ body {background-color: #ffffff;background-image: none;background-repeat: repeat
 #cafe-menu .cafe-menu-tit .down-btn {background-image:url(http://cafeimgs.naver.net/design/menubox/menubox-296-1/btn-down-menu.gif);}
 #cafe-menu .cafe-menu-space {height:2px;margin-top:0;margin-right:3px;margin-bottom:0;margin-left:3px;border-top-style:solid;border-top-width:1px;border-color:#e7e7e7;}
 #cafe-menu .cafe-menu-list {margin-top:6px;margin-left:15px;margin-right:8px;}
-#cafe-menu .ico-list {background-image:url(http://cafeimgs.naver.net/design/menubox/menubox-296-1/ico-m-list.gif);}
+#cafe-menu .ico-list {width:10px;height:11px;background-image:url(http://cafeimgs.naver.net/design/menubox/menubox-296-1/ico-m-list.gif);}
 #cafe-menu .ico-attendance {background-image:url(http://cafeimgs.naver.net/design/menubox/menubox-296-1/ico-m-attendance.png);}
 #cafe-menu .ico-best {background-image:url(http://cafeimgs.naver.net/design/menubox/menubox-296-1/ico-m-best.gif);}
 #cafe-menu .ico-link {background-image:url(http://cafeimgs.naver.net/design/menubox/menubox-296-1/ico-m-link.gif);}

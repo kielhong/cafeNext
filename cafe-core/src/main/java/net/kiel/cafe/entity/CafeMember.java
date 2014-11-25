@@ -20,7 +20,7 @@ public class CafeMember {
     @Id
     @ManyToOne
     @Getter @Setter
-    private Member member;
+    private MemberEntity member;
     
     @Id
     @ManyToOne

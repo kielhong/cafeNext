@@ -10,11 +10,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.config.RepositoryConfig;
-import net.kiel.cafe.entity.Article;
+import net.kiel.cafe.entity.ArticleEntity;
 import net.kiel.cafe.entity.BoardEntity;
 import net.kiel.cafe.entity.CafeCategoryEntity;
 import net.kiel.cafe.entity.CafeEntity;
-import net.kiel.cafe.entity.Member;
+import net.kiel.cafe.entity.MemberEntity;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -35,7 +35,7 @@ public class ArticleTest {
     
     private Session session;
     
-    private Member member;
+    private MemberEntity member;
     private CafeEntity cafe;
     private BoardEntity board;
     
@@ -43,7 +43,7 @@ public class ArticleTest {
     public void setUp() {
         session = sessionFactory.getCurrentSession();
         
-        member = new Member();
+        member = new MemberEntity();
         member.setNickname("testmember");
         session.save(member);
         
@@ -64,7 +64,7 @@ public class ArticleTest {
     
     @Test
     public void testInsert() {        
-        Article article = new Article();
+        ArticleEntity article = new ArticleEntity();
         article.setTitle("article title");
         article.setContent("content");
         article.setMember(member);
@@ -78,14 +78,14 @@ public class ArticleTest {
     
     @Test
     public void testSelectByBoard() {
-        Article article = new Article();
+        ArticleEntity article = new ArticleEntity();
         article.setTitle("article title");
         article.setContent("content");
         article.setMember(member);
         article.setBoard(board);
         session.save(article);
         
-        Article article2 = new Article();
+        ArticleEntity article2 = new ArticleEntity();
         article2.setTitle("article title 2");
         article2.setContent("content 2");
         article2.setMember(member);
@@ -96,7 +96,7 @@ public class ArticleTest {
                                 .setInteger("boardId", board.getId());
         
         @SuppressWarnings("unchecked")
-        List<Article> articles = (List<Article>)query.list();
+        List<ArticleEntity> articles = (List<ArticleEntity>)query.list();
         
         assertThat(articles, notNullValue());
         assertThat(articles.size(), is(2));

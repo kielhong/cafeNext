@@ -12,16 +12,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
+import net.kiel.cafe.vo.Article;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
-public class Article {
+@Table(name = "article")
+public class ArticleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
@@ -36,7 +39,7 @@ public class Article {
 
     @ManyToOne
     @Getter @Setter
-    private Member member;    
+    private MemberEntity member;    
     
     @ManyToOne
     @Getter @Setter
@@ -52,7 +55,17 @@ public class Article {
     @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
     
-    public int getCommentCount() {
-        return comments.size();
+    
+    public Article toArticleVO() {
+        Article article = new Article();
+        article.setId(id);
+        article.setBoard(board.toBoardVO());
+        article.setTitle(title);
+        article.setContent(content);
+        article.setCreatedAt(createdAt);
+        article.setMember(member.toMemberVO());
+        //article.setComments(comments);
+        
+        return article;
     }
 }

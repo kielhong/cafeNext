@@ -64,7 +64,7 @@ public class BoardEntity {
                 + type + ", createdAt=" + createdAt + "]";
     }
     
-    public Board toBoard() {
+    public Board toBoardVO() {
         Board board = new Board();
         board.setId(this.id);
         board.setTitle(title);

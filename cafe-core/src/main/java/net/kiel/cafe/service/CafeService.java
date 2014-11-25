@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.BoardEntity;
 import net.kiel.cafe.entity.CafeEntity;
 import net.kiel.cafe.repository.CafeRepository;
 import net.kiel.cafe.vo.Cafe;
@@ -24,12 +23,7 @@ public class CafeService {
         
         List<CafeEntity> cafes = cafeRepository.selectAll();
         for (CafeEntity cafeEntity : cafes) {
-            Cafe cafeVO = new Cafe();
-            cafeVO.setId(cafeEntity.getId());
-            cafeVO.setName(cafeEntity.getName());
-            cafeVO.setNickname(cafeEntity.getNickname());
-            cafeVO.setDescription(cafeEntity.getDescription());
-            cafeVO.setCreatedAt(cafeEntity.getCreatedAt());
+            results.add(cafeEntity.toCafeVO(false));
         }
         
         return results;
@@ -40,50 +34,23 @@ public class CafeService {
         
         List<CafeEntity> cafes = cafeRepository.selectByCategoryId(categoryId);
         
-        for (CafeEntity cafeEntity : cafes) {
-            Cafe cafeVO = new Cafe();
-            cafeVO.setId(cafeEntity.getId());
-            cafeVO.setName(cafeEntity.getName());
-            cafeVO.setNickname(cafeEntity.getNickname());
-            cafeVO.setDescription(cafeEntity.getDescription());
-            cafeVO.setCreatedAt(cafeEntity.getCreatedAt());
-            
-            results.add(cafeVO);
+        for (CafeEntity cafeEntity : cafes) {            
+            results.add(cafeEntity.toCafeVO(false));
         }
         
         return results;
     }
     
-    private Cafe findBy(CafeEntity cafeEntity) {       
-        Cafe cafeVO = new Cafe();
-        
-        if (cafeEntity == null) {
-            return cafeVO; 
-        }
-        
-        
-        cafeVO.setId(cafeEntity.getId());
-        cafeVO.setName(cafeEntity.getName());
-        cafeVO.setNickname(cafeEntity.getNickname());
-        cafeVO.setDescription(cafeEntity.getDescription());
-        cafeVO.setCreatedAt(cafeEntity.getCreatedAt());
-        for (BoardEntity boardEntity : cafeEntity.getBoards()) {
-            cafeVO.getBoards().add(boardEntity.toBoard());
-        }
-        
-        return cafeVO;
-    }
+
     public Cafe findById(Integer id) {
-        Cafe cafe = findBy(cafeRepository.selectById(id));
+        Cafe cafe = cafeRepository.selectById(id).toCafeVO(true);
         
         return cafe;
     }
     
     public Cafe findByNickname(String nickname) {
-        Cafe cafe = findBy(cafeRepository.selectByNickname(nickname));
+        Cafe cafe = cafeRepository.selectByNickname(nickname).toCafeVO(true);
         
         return cafe;
     }
-    
-    
 }

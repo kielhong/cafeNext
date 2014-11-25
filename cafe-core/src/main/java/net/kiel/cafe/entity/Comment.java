@@ -24,11 +24,11 @@ public class Comment {
 
     @ManyToOne
     @Getter @Setter
-    private Article article;
+    private ArticleEntity article;
     
     @ManyToOne
     @Getter @Setter
-    private Member member;
+    private MemberEntity member;
     
     @Column(name = "created_at")
     @Getter @Setter
