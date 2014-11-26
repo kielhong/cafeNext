@@ -1,7 +1,7 @@
 <div class="cafe-info-action" id="cafe-info-action">
   <div id="cafe-info-data">
     
-    ## tab menu
+    <#-- tab menu -->
     <ul class="info-action-tab">
       <li class="tit-info-on" id="ia-info">
         <p class="gm-tcol-t">카페정보</p>
@@ -14,7 +14,7 @@
       </li>
     </ul>
         
-    ## cafe info
+    <#-- cafe info -->
     <div class="box-g">
       <h4 class="d-none">카페정보</h4>
         <div class="ia-info-data" id="ia-info-data">
@@ -22,11 +22,11 @@
             <li class="gm-tcol-c">
                 <div class="ball"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="27" height="13" class="ico-manager" alt="매니저"></div>
                 <a href="#"class="id mlink gm-tcol-c">
-                  <div class="ellipsis gm-tcol-c">키엘</div>
+                  <div class="ellipsis gm-tcol-c">${cafeManager.member.nickname}</div>
                 </a>
             </li>
             <li class="gm-tcol-c">
-                <div class="thm"><a href="/CafeHistoryView.nhn?clubid=10000001" class="gm-tcol-c" target="cafe_main">since $cafe.since</a></div>
+                <div class="thm"><a href="/CafeHistoryView.nhn?clubid=10000001" class="gm-tcol-c" target="cafe_main">since ${cafe.createdAt?string("yyy.MM.dd")}</a></div>
                 <div class="info-view"><a href="#" class="u gm-tcol-c">카페소개</a></div>
             </li>
             <li>
@@ -81,7 +81,7 @@
       </div>
     </div>
 
-    ## my action
+    <#-- my action -->
     <div id="member-action-data" style="display:none">
         <ul class="info-action-tab">
         <li class="tit-info" id="ia-info">
@@ -107,7 +107,5 @@
         <div class="cafe-write-btn">
             <a href="#" class="_rosRestrict" onclick="writeBoard();clickcr(this, 'mnu.write', '', '', event);return false;"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="171" height="34" alt="카페 글쓰기" class="btn-write"></a>
         </div>
-    
     </div>
-    <!-- //나의활동 -->
 </div>

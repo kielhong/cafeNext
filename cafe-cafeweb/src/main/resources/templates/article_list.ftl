@@ -1,7 +1,11 @@
+<#import "layout/cafe_layout.ftl" as layout>
+<#if board??><#assign title = board.title><#else><#assign title = "전체글보기"></#if> 
+<@layout.cafeLayout "${title} : ${cafe.name}">
+
 <div id="content-area" >
   <div id="main-area" class="fr">
     <div id="sub-tit">
-      <h3 class="sub-tit-color only-tit">#if ($board) $board.title #else 전체글보기 #end</h3>
+      <h3 class="sub-tit-color only-tit"><#if board??>${board.title}<#else>전체글보기</#if></h3>
     </div>
   <div class="sub-tit-bottom"></div>
   <div class="h-20"></div>
@@ -36,25 +40,25 @@
       <col width="45">
       <col width="45">
 
-      #foreach ( $article in $articles )
+      <#list articles as article>     
       <tr align="center">
         <td>
-          <span class="m-tcol-c list-count">$article.id</span>
+          <span class="m-tcol-c list-count">${article.id}</span>
         </td>
         <td align="left" class="board-list">
           <span class="aaa">
-            <a href="/$cafe.nickname/$article.id" class="m-tcol-c">$article.title </a>
+            <a href="/${cafe.nickname}/${article.id}" class="m-tcol-c">${article.title}</a>
           </span>
         </td>
         <td align="left">
-          <div class="pers_nick_area" style="padding-left:14px"><span class="wordbreak" id="article_demiru_0">$article.member.nickname</span></div>
+          <div class="pers_nick_area" style="padding-left:14px"><span class="wordbreak" id="article_demiru_0">${article.member.nickname}</span></div>
         </td>
-        <td class="view-count m-tcol-c">$article.createdAt</td>
-        <td class="view-count m-tcol-c _rosReadcount">$article.readCount</td>
-        <td class="view-count m-tcol-c">$article.recommendCount</td>
+        <td class="view-count m-tcol-c">${article.createdAt?string("yyyy.MM.dd")}</td>
+        <td class="view-count m-tcol-c">${article.readCount}</td>
+        <td class="view-count m-tcol-c">${article.recommendCount}</td>
       </tr>
       <tr><td colspan="6" class="board-line"></td></tr> 
-      #end   
+      </#list>   
     </table>
   </div>
  
@@ -80,3 +84,5 @@
 </div>
 
 <div style="height: 160px;">&nbsp;</div>
+
+</@layout.cafeLayout>

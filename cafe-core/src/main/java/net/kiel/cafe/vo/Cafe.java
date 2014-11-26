@@ -1,8 +1,9 @@
 package net.kiel.cafe.vo;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import lombok.Getter;
@@ -24,11 +25,9 @@ public class Cafe {
     @Getter @Setter
     private List<Board> boards = new ArrayList<Board>();
     
-    @Getter @Setter
+    @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
-    
-    public String getSince() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return createdAt.format(formatter);
+    public Date getCreatedAt() {
+        return Date.from(createdAt.atZone(ZoneId.systemDefault()).toInstant());
     }
 }

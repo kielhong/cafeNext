@@ -2,6 +2,7 @@ apply plugin: "spring-boot"
 
 buildscript {
     repositories {
+        maven { url "https://repo.spring.io/libs-release" }
         mavenCentral()
         jcenter()
     }
@@ -14,15 +15,11 @@ dependencies {
     compile project(':cafe-core')
  
     // Spring Boot
-    compile "org.springframework.boot:spring-boot-starter-web:1.1.8.RELEASE"
     compile("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
     }
     compile "org.springframework.boot:spring-boot-starter-jetty"
-    compile "org.springframework.boot:spring-boot-starter-velocity"
-
-    compile "velocity-tools:velocity-tools-generic:1.4"
-
+    compile "org.springframework.boot:spring-boot-starter-freemarker"
 }
 
 // for delegate system properties to bootRun

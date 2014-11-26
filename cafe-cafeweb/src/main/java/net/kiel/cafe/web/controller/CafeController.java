@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.kiel.cafe.service.ArticleService;
+import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
 import net.kiel.cafe.vo.Article;
 import net.kiel.cafe.vo.Board;
 import net.kiel.cafe.vo.Cafe;
+import net.kiel.cafe.vo.CafeMember;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CafeController {
     @Autowired
     private CafeService cafeService;
-    
+    @Autowired
+    private CafeMemberService cafeMemberService;
     @Autowired
     private ArticleService articleService;
     
@@ -36,9 +39,11 @@ public class CafeController {
             Model model) {
         
         Cafe cafe = cafeService.findByNickname(nickname);
+        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         List<Article> articles = articleService.findListByCafe(cafe.getId());
         
         model.addAttribute("cafe", cafe);
+        model.addAttribute("cafeManager", cafeManager);
         model.addAttribute("articles", articles);
         
         return "cafe";
@@ -50,6 +55,7 @@ public class CafeController {
             @PathVariable Integer boardId,
             Model model) {
         Cafe cafe = cafeService.findByNickname(nickname);
+        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         List<Article> articles = new ArrayList<Article>();
         
         for (Board board : cafe.getBoards()) {
@@ -59,9 +65,10 @@ public class CafeController {
             }
         }
         model.addAttribute("cafe", cafe);
+        model.addAttribute("cafeManager", cafeManager);
         model.addAttribute("articles", articles);
         
-        return "cafe";
+        return "article_list";
     }
     
     @RequestMapping(value = "/{nickname}/{articleId}", method = RequestMethod.GET)
@@ -70,12 +77,14 @@ public class CafeController {
             @PathVariable Integer articleId,
             Model model) {
         Cafe cafe = cafeService.findByNickname(nickname);
+        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         Article article = articleService.findById(articleId);
         
         model.addAttribute("cafe", cafe);
+        model.addAttribute("cafeManager", cafeManager);
         model.addAttribute("article", article);
         
-        return "article";
+        return "article_read";
     }
     
 }

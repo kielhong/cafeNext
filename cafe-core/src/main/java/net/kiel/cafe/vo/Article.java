@@ -1,6 +1,8 @@
 package net.kiel.cafe.vo;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +35,9 @@ public class Article {
     @Getter @Setter
     private Set<Comment> comments = new HashSet<Comment>();
 
-    @Getter @Setter
+    @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
+    public Date getCreatedAt() {
+        return Date.from(createdAt.atZone(ZoneId.systemDefault()).toInstant());
+    }
 }

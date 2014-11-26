@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,8 +19,6 @@ import javax.persistence.Table;
 import lombok.Data;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 import net.kiel.cafe.vo.Cafe;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "cafe")
@@ -37,8 +36,7 @@ public class CafeEntity {
     
     private String description;
     
-    @ManyToOne
-    @JsonIgnore
+    @ManyToOne(fetch=FetchType.LAZY)
     private CafeCategoryEntity category;
     
     @OneToMany(mappedBy = "cafe", cascade={CascadeType.ALL})

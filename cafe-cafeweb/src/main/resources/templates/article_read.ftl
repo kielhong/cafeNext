@@ -1,9 +1,10 @@
+<#import "layout/cafe_layout.ftl" as layout> 
+<@layout.cafeLayout "${article.title} : ${cafe.name}">
 <div id="content-area" >
   <div id="main-area">
     
     <div class="list-blog border-sub" id="post_6">
       <div class="inbox">
-        ## title
         <div class="tit-box">
             <div class="fl">
                 <table cellspacing="0" cellpadding="0" border="0">
@@ -11,13 +12,12 @@
                         <td>
                             <span class="b m-tcol-c">aaaa</span></td>
                         <td nowrap class="m-tcol-c filter-30">&#124;</td>
-                        <td nowrap class="m-tcol-c"><a href="/$cafe.nickname/board/$article.board.id" class="m-tcol-c">$article.board.title</a></td>
+                        <td nowrap class="m-tcol-c"><a href="/${cafe.nickname}/board/${article.board.id}" class="m-tcol-c">${article.board.title}</a></td>
                         </tr>
                  </table>
             </div>
             <div class="fr date">
-              $article.createdAt
-              ##2005.02.03 10:33
+              ${article.createdAt?string("yyyy.MM.dd hh:mm")}
             </div>
         </div>  
                 
@@ -25,13 +25,13 @@
                     
         <div class="etc-box">
           <div class="fl nick">
-            $article.member.nickname
+            ${article.member.nickname}
           </div>
         </div>
         <div class="h-10"></div>
         
         <div class="tbody m-tcol-c" id="tbody">
-          $article.content
+          ${article.content}
         </div>
                 
         <div class="h-35"></div>
@@ -68,7 +68,7 @@
         </div>
       </div>
       
-      ## comment list          
+      <#-- comment list -->          
       <div class="box-reply2 bg-color" id="P9NKn" style="display:none;">      
         <ul class="cmlist" id="cmt_list"></ul>
         <div style="clear: both; height: 0pt; font: 0pt/0pt arial;"></div>
@@ -96,9 +96,9 @@
         </table>
       </div>
     </div>
-  </div> ## main area :: end
+  </div> 
   
-  ## operation
+  <#-- operation -->
   <div class="list-btn-nor">
     <div class="fr">   
       <div id="writeFormBtn" class="btn _rosRestrict"><span></span><p><strong><a href="#" class="m-tcol-c b" ><img src="http://cafeimgs.naver.net/cafe4/ico-btn-write.gif" width="10" height="10" alt="">글쓰기</a></strong></p></div>
@@ -112,7 +112,7 @@
                       
   <div class="h-35"></div>
   
-  ## related articles
+  <#-- related articles -->
   <div class="article-board article_prenet">
     <table cellspacing="0" cellpadding="0" border="0" width="100%">
         <col width="81"><col width="*"><col width="120"><col width="92">
@@ -132,3 +132,5 @@
   </div>
   
 </div>
+ 
+</@layout.cafeLayout>

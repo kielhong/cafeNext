@@ -10,13 +10,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import net.kiel.cafe.entity.id.CafeMemberId;
+import net.kiel.cafe.vo.CafeMember;
 import lombok.Setter;
 import lombok.Getter;
 
 @Entity
 @Table(name = "cafe_member")
 @IdClass(CafeMemberId.class)
-public class CafeMember {
+public class CafeMemberEntity {
     @Id
     @ManyToOne
     @Getter @Setter
@@ -27,7 +28,21 @@ public class CafeMember {
     @Getter @Setter
     private CafeEntity cafe;
 
+    @ManyToOne
+    @Getter @Setter
+    private RoleEntity role;
+    
     @Column(name = "joined_at")
     @Getter @Setter
     private LocalDateTime joinedAt;
+    
+    public CafeMember toCafeMemberVO() {
+        CafeMember cafeMemberVO = new CafeMember();
+        cafeMemberVO.setMember(member.toMemberVO());
+        cafeMemberVO.setCafe(cafe.toCafeVO(false));
+        cafeMemberVO.setRole(role);
+        cafeMemberVO.setJoinedAt(joinedAt);
+        
+        return cafeMemberVO;
+    }
 }

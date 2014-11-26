@@ -1,7 +1,7 @@
+<#macro cafeLayout title="CafeNext">
 <html lang="ko">
 <head>
-<title>$cafe.name : CafeNext</title>
-
+<title>${title}</title>
 <link rel="stylesheet" href="/static/css/mycafe-common.css" type="text/css">
 <link rel="stylesheet" href="/static/css/mycafe-layout.css" type="text/css">
 <link rel="stylesheet" href="/static/css/mycafe-main.css" type="text/css">
@@ -14,24 +14,22 @@
 
 <div id="cafe-body-skin" > 
     <div id="cafe-body">
-        #parse("tiles/special_menu.vm")
-        
-        #parse("tiles/div_search.vm")
-
+        <#include "tiles/cafe_special_menu.ftl" />
+        <#include "tiles/cafe_search.ftl" />
         <div id="content-area">
             <div id="group-area" class="fr">
-                #parse("tiles/cafe_info.vm")            
-                
-                #parse("tiles/cafe_menu.vm")       
+                <#include "tiles/cafe_info.ftl" />            
+                <#include "tiles/cafe_menu.ftl" />       
             </div>
             <div id="main-area" class="fl">
-                #parse("tiles/article_list.vm")            
+                <#nested />     
             </div>
         </div>
     </div>
     
-    #parse("tiles/div_cafefooter.vm")
+    <#include "tiles/cafe_footer.ftl" />
 </div>
 
 </body>
 </html>
+</#macro>
