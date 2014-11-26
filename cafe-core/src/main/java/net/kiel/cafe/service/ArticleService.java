@@ -18,10 +18,10 @@ public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
     
-    public List<Article> findByCafe(Integer cafeId) {
+    public List<Article> findListByCafe(Integer cafeId) {
         List<Article> results = new ArrayList<Article>();
         
-        List<ArticleEntity> articles = articleRepository.selectByCafe(cafeId);
+        List<ArticleEntity> articles = articleRepository.selectListByCafe(cafeId);
         
         for (ArticleEntity articleEntity : articles) {
             results.add(articleEntity.toArticleVO());
@@ -30,16 +30,22 @@ public class ArticleService {
         return results;
     }
     
-    public List<Article> findByBoard(Integer boardId) {
+    public List<Article> findListByBoard(Integer boardId) {
         List<Article> results = new ArrayList<Article>();
         
-        List<ArticleEntity> articles = articleRepository.selectByBoard(boardId);
+        List<ArticleEntity> articles = articleRepository.selectListByBoard(boardId);
         
         for (ArticleEntity articleEntity : articles) {
             results.add(articleEntity.toArticleVO());
         }
         
         return results;
+    }
+    
+    public Article findById(Integer id) {
+        ArticleEntity article = articleRepository.selectById(id);
+        
+        return article.toArticleVO();
     }
     
 }

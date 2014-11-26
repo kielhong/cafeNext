@@ -43,7 +43,7 @@
         </td>
         <td align="left" class="board-list">
           <span class="aaa">
-            <a href="/ArticleRead.nhn?clubid=13566444&amp;page=1&amp;boardtype=L&articleid=571&referrerAllArticles=true" class="m-tcol-c">$article.title </a>
+            <a href="/$cafe.nickname/$article.id" class="m-tcol-c">$article.title </a>
           </span>
         </td>
         <td align="left">

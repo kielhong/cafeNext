@@ -15,7 +15,7 @@ public class ArticleRepository {
     
     
     @SuppressWarnings("unchecked")
-    public List<ArticleEntity> selectByCafe(Integer cafeId) {
+    public List<ArticleEntity> selectListByCafe(Integer cafeId) {
         
         return (List<ArticleEntity>)sessionFactory.getCurrentSession()
                 .createQuery("From ArticleEntity as article WHERE article.board.cafe.id = :cafeId ORDER BY id DESC")
@@ -24,12 +24,18 @@ public class ArticleRepository {
     }
     
     @SuppressWarnings("unchecked")
-    public List<ArticleEntity> selectByBoard(Integer boardId) {
+    public List<ArticleEntity> selectListByBoard(Integer boardId) {
         
         return (List<ArticleEntity>)sessionFactory.getCurrentSession()
                 .createQuery("From ArticleEntity as article WHERE article.board.id = :boardId ORDER BY id DESC")
                 .setParameter("boardId", boardId)
                 .list();        
     }
+    
+    public ArticleEntity selectById(Integer id) {
+        return (ArticleEntity)sessionFactory.getCurrentSession()
+                    .get(ArticleEntity.class, id);
+    }
+     
 
 }

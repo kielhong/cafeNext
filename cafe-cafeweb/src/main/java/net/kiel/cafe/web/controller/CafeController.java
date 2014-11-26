@@ -36,7 +36,7 @@ public class CafeController {
             Model model) {
         
         Cafe cafe = cafeService.findByNickname(nickname);
-        List<Article> articles = articleService.findByCafe(cafe.getId());
+        List<Article> articles = articleService.findListByCafe(cafe.getId());
         
         model.addAttribute("cafe", cafe);
         model.addAttribute("articles", articles);
@@ -55,7 +55,7 @@ public class CafeController {
         for (Board board : cafe.getBoards()) {
             if (board.getId().equals(boardId)) {
                 model.addAttribute("board", board);
-                articles = articleService.findByBoard(boardId);
+                articles = articleService.findListByBoard(boardId);
             }
         }
         model.addAttribute("cafe", cafe);
@@ -63,4 +63,19 @@ public class CafeController {
         
         return "cafe";
     }
+    
+    @RequestMapping(value = "/{nickname}/{articleId}", method = RequestMethod.GET)
+    public String findArticle(
+            @PathVariable String nickname,
+            @PathVariable Integer articleId,
+            Model model) {
+        Cafe cafe = cafeService.findByNickname(nickname);
+        Article article = articleService.findById(articleId);
+        
+        model.addAttribute("cafe", cafe);
+        model.addAttribute("article", article);
+        
+        return "article";
+    }
+    
 }

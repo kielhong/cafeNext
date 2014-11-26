@@ -25,7 +25,7 @@
                 #parse("tiles/cafe_menu.vm")       
             </div>
             <div id="main-area" class="fl">
-                #parse("tiles/article_list.vm")            
+                #parse("tiles/article_read.vm")            
             </div>
         </div>
     </div>

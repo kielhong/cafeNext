@@ -28,7 +28,7 @@ public class ArticleRepositoryTest {
     @Test
     public void testSelectByCafe() {
         final Integer cafeId = 1;
-        List<ArticleEntity> articles = articleRepository.selectByCafe(cafeId);
+        List<ArticleEntity> articles = articleRepository.selectListByCafe(cafeId);
         
         assertThat(articles, notNullValue());
         for (ArticleEntity articleEntity : articles) {
@@ -39,7 +39,7 @@ public class ArticleRepositoryTest {
     @Test
     public void testSelectByBoard() {
         final Integer boardId = 1;
-        List<ArticleEntity> articles = articleRepository.selectByBoard(boardId);
+        List<ArticleEntity> articles = articleRepository.selectListByBoard(boardId);
         
         assertThat(articles, notNullValue());
         for (ArticleEntity articleEntity : articles) {
