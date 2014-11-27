@@ -24,7 +24,7 @@ public class ArticleService {
         List<ArticleEntity> articles = articleRepository.selectListByCafe(cafeId);
         
         for (ArticleEntity articleEntity : articles) {
-            results.add(articleEntity.toArticleVO());
+            results.add(articleEntity.toArticleVO(false));
         }
         
         return results;
@@ -36,7 +36,7 @@ public class ArticleService {
         List<ArticleEntity> articles = articleRepository.selectListByBoard(boardId);
         
         for (ArticleEntity articleEntity : articles) {
-            results.add(articleEntity.toArticleVO());
+            results.add(articleEntity.toArticleVO(false));
         }
         
         return results;
@@ -45,7 +45,19 @@ public class ArticleService {
     public Article findById(Integer id) {
         ArticleEntity article = articleRepository.selectById(id);
         
-        return article.toArticleVO();
+        return article.toArticleVO(true);
     }
     
+    public Article read(Integer id) {
+        ArticleEntity article = articleRepository.selectById(id);
+        article.setReadCount(article.getReadCount() + 1);
+        articleRepository.update(article);
+        
+        return article.toArticleVO(true);
+    }
+    
+    public void update(Article article) {
+        ArticleEntity articleEntity = article.toArticleEntity();
+        articleRepository.update(articleEntity);
+    }
 }

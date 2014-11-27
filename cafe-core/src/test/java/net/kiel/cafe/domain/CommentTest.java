@@ -7,7 +7,7 @@ import net.kiel.cafe.entity.ArticleEntity;
 import net.kiel.cafe.entity.BoardEntity;
 import net.kiel.cafe.entity.CafeCategoryEntity;
 import net.kiel.cafe.entity.CafeEntity;
-import net.kiel.cafe.entity.Comment;
+import net.kiel.cafe.entity.CommentEntity;
 import net.kiel.cafe.entity.MemberEntity;
 
 import org.hibernate.Session;
@@ -67,7 +67,7 @@ public class CommentTest {
     public void testSaveUpdate() {        
         //int commentCount = article.getCommentCount();
         
-        Comment comment = new Comment();
+        CommentEntity comment = new CommentEntity();
         comment.setContent("test comment");
         comment.setMember(member);
         comment.setArticle(article);

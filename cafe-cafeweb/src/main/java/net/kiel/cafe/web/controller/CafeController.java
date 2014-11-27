@@ -72,13 +72,13 @@ public class CafeController {
     }
     
     @RequestMapping(value = "/{nickname}/{articleId}", method = RequestMethod.GET)
-    public String findArticle(
+    public String readArticle(
             @PathVariable String nickname,
             @PathVariable Integer articleId,
             Model model) {
         Cafe cafe = cafeService.findByNickname(nickname);
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
-        Article article = articleService.findById(articleId);
+        Article article = articleService.read(articleId);
         
         model.addAttribute("cafe", cafe);
         model.addAttribute("cafeManager", cafeManager);

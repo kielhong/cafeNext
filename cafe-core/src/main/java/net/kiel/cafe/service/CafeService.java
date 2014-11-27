@@ -49,8 +49,10 @@ public class CafeService {
     }
     
     public Cafe findByNickname(String nickname) {
-        Cafe cafe = cafeRepository.selectByNickname(nickname).toCafeVO(true);
+        CafeEntity cafe = cafeRepository.selectByNickname(nickname);
+        System.out.println("nickname : " + nickname);
+        //System.out.println("Cafe:" + cafe);
         
-        return cafe;
+        return cafe.toCafeVO(true);
     }
 }

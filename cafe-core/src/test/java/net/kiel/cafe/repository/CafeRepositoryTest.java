@@ -42,4 +42,13 @@ public class CafeRepositoryTest {
             assertThat(cafeEntity.getCategory().getId(), is(categoryId));
         }
     }
+    
+    @Test
+    public void testSelectByNickname() {
+        final String nickname = "first";
+        CafeEntity cafe = cafeRepository.selectByNickname(nickname);
+        
+        assertThat(cafe, notNullValue());
+        assertThat(cafe.getNickname(), is(nickname));
+    }
 }

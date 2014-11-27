@@ -32,5 +32,20 @@ public class CafeServiceTest {
         assertThat(cafes, notNullValue());
     }
     
+    @Test
+    public void testFindById() {
+        final Integer id = 1;
+        Cafe cafe = cafeService.findById(id);
+        
+        assertThat(cafe, notNullValue());
+    }
+    
+    @Test
+    public void testFindByNickname() {
+        final String nickname = "first";
+        Cafe cafe = cafeService.findByNickname(nickname);
+        
+        assertThat(cafe, notNullValue());
+    }
 
 }

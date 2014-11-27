@@ -38,59 +38,49 @@
                 
         <div class="reply-box" id="cmtMenu">
           <div class="fl">
-                        <table cellspacing="0" cellpadding="0" border="0">
-                        <tbody><tr style="vertical-align:top">
-                        
-                        <td class="reply">
-                            <span class="reply b m-tcol-p _totalCnt" >덧글 0개
-                            
-                            </span>
-                        </td>
-                        <td class="m-tcol-c filter-30">&#124;</td>
-                        <td class="_sortList" style="padding:0;">
-                            <div style="position:relative;_top:3px;"><a href="#" class="b m-tcol-c"><span>등록순</span><span style="display:none">최신순</span><span id="cafe-menu"><span class="cafe-menu-tit" style="background:none; width:12px; height:12px; margin:0;"><span class="down-btn" style="background-position:0 0; background-repeat:no-repeat"><img height="12" width="12" alt="" src="http://cafeimgs.naver.net/cafe4/hidden.gif"></span></span></span></a>
-                               <div class="perid-layer2" style="display:none;">
-                               <ul>
-                                   <li class="asc"><a href="#"><span>등록순</span></a></li>
-                                   <li class="desc"><a href="#"><span>최신순</span></a></li>
-                               </ul>
-                               </div>
-                           </div>
-                        </td>
-                        <td class="m-tcol-c filter-30">&#124;</td>
-                        
-                        <td><span class="b m-tcol-c reply ">조회수 </span><span class="b m-tcol-c reply _rosReadcount">0</span></td>
-                        
-                        </tr>
-                        </tbody>
-                        </table>
+            <table cellspacing="0" cellpadding="0" border="0">
+              <tbody>
+                <tr style="vertical-align:top">                        
+                  <td class="reply"><span class="reply b m-tcol-p _totalCnt" >덧글 ${article.comments?size}개</span></td>
+                  <td class="m-tcol-c filter-30">&#124;</td>
+                  <td><span class="b m-tcol-c reply ">조회수 ${article.readCount}</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
       
       <#-- comment list -->          
-      <div class="box-reply2 bg-color" id="P9NKn" style="display:none;">      
-        <ul class="cmlist" id="cmt_list"></ul>
-        <div style="clear: both; height: 0pt; font: 0pt/0pt arial;"></div>
-        <div style="display:none;" class="cc_paginate cmt" id="cmt_paginate"></div>                                 
+      <div class="box-reply2 bg-color" style="display:block;">      
+        <ul class="cmlist" id="cmt_list">
+          <#list article.comments as comment>
+          <li>
+            <div class="comm_cont">
+              <div class="h">             
+                <div class="pers_nick_area">                                                                    
+                  <p class="p-nick m-tcol-c _nickUI">${comment.member.nickname}</p>                         
+                </div>              
+                <span class="date m-tcol-c filter-50">${comment.createdAt?string("yyyy.MM.dd hh:mm")}</span>               
+                <span class="dsc_comm"><a href="#" class="m-tcol-c  _btnReply">답글</a></span>                
+                <p class="btn_edit m-tcol-c"><a href="#" class="filter-70 m-tcol-c _btnDelete">삭제</a></p>           
+              </div>            
+              <p class="comm  m-tcol-c"><span class="comm_body">${comment.content}</span></p>
+            </div>
+          </li>
+          <li class=" board-box-line-dashed"></li>
+          </#list>
+        </ul>
+        <div style="clear: both; height: 0pt; font: 0pt/0pt arial;"></div>                                 
         <table cellspacing="0" class="cminput">
           <tbody>
               <tr>
-                <td class="i1">
-                  <div class="reply-write-ico" id="refCmt_emoticon">
-                        <img src='http://itemimgs.naver.net/personacon/16/37/1433716.gif' style='cursor:pointer;' width='19' height='19' alt='' class='myemoticon'/>
-                  </div>                                                                                                                                  
-                  <span style="display:none;"></span>                     
-                </td>
                 <td class="i2">
                   <textarea id="comment_text" cols="50" rows="2" class="textarea m-tcol-c" maxlength="1000"></textarea>                       
                 </td>
                 <td class="i3">
                   <input type="image" name="" src="http://cafeimgs.naver.net/cafe4/btn_cmt_cfm_v1.gif"  alt="확인" class="_submitCmt" onclick="clickcr(this,'cmt.comment', '', '', event)">
                 </td>
-              </tr>
-              <tr>
-                <td colspan="3"></td>
               </tr>
           </tbody>
         </table>

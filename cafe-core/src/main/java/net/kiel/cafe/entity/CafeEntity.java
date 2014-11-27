@@ -16,35 +16,42 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 import net.kiel.cafe.vo.Cafe;
 
 @Entity
 @Table(name = "cafe")
-@Data
 public class CafeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter
     private Integer id;
     
     @Column(nullable = false)
+    @Getter @Setter
     private String nickname;
     
     @Column(nullable = false)
+    @Getter @Setter
     private String name;
     
+    @Getter @Setter
     private String description;
     
     @ManyToOne(fetch=FetchType.LAZY)
+    @Getter @Setter
     private CafeCategoryEntity category;
     
     @OneToMany(mappedBy = "cafe", cascade={CascadeType.ALL})
     @OrderBy("id")
+    @Getter @Setter
     private List<BoardEntity> boards;
     
     @Column(name = "created_at", nullable = false)
     @Convert(converter = LocalDateTimePersistenceConverter.class)
+    @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now(); 
     
     public Cafe toCafeVO(boolean includeBoard) {

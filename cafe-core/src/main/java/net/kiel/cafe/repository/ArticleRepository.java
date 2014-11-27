@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.kiel.cafe.entity.ArticleEntity;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -37,5 +38,9 @@ public class ArticleRepository {
                     .get(ArticleEntity.class, id);
     }
      
+    public void update(ArticleEntity article) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(article);
+    }
 
 }
