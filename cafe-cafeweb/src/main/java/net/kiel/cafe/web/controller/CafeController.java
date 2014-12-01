@@ -39,6 +39,7 @@ public class CafeController {
             Model model) {
         
         Cafe cafe = cafeService.findByNickname(nickname);
+        cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         List<Article> articles = articleService.findListByCafe(cafe.getId());
         
@@ -55,6 +56,7 @@ public class CafeController {
             @PathVariable Integer boardId,
             Model model) {
         Cafe cafe = cafeService.findByNickname(nickname);
+        cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         List<Article> articles = new ArrayList<Article>();
         
@@ -77,6 +79,7 @@ public class CafeController {
             @PathVariable Integer articleId,
             Model model) {
         Cafe cafe = cafeService.findByNickname(nickname);
+        cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         Article article = articleService.read(articleId);
         

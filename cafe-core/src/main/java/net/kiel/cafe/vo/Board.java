@@ -24,6 +24,9 @@ public class Board {
     private Type type;
 
     @Getter @Setter
+    private int articleCount;
+    
+    @Getter @Setter
     private LocalDateTime createdAt;
     
     public BoardEntity toBoardEntity() {

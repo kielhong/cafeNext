@@ -30,6 +30,10 @@ public class ArticleService {
         return results;
     }
     
+    public Long getArticleCountByCafe(Integer cafeId) {
+        return articleRepository.selectCountByCafe(cafeId);
+    }
+    
     public List<Article> findListByBoard(Integer boardId) {
         List<Article> results = new ArrayList<Article>();
         

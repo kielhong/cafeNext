@@ -1,6 +1,5 @@
 <#import "layout/cafe_layout.ftl" as layout> 
 <@layout.cafeLayout "${article.title} : ${cafe.name}">
-<div id="content-area" >
   <div id="main-area">
     
     <div class="list-blog border-sub" id="post_6">
@@ -55,6 +54,16 @@
       <div class="box-reply2 bg-color" style="display:block;">      
         <ul class="cmlist" id="cmt_list">
           <#list article.comments as comment>
+          <li style="margin-top:10px; padding:0; height:40px;">
+                                                                          
+              <span style="font-weight:bold">${comment.member.nickname}</span>    
+              <span class="m-tcol-c">${comment.createdAt?string("yyyy.MM.dd hh:mm")}</span>    
+              <span><a href="#" class="m-tcol-c">답글</a></span>                     
+            
+            <p class="comm m-tcol-c"><span class="comm_body">${comment.content}</span></p>
+          </li>
+          <li class="filter-30 board-box-line-dashed"></li>
+          <!--
           <li>
             <div class="comm_cont">
               <div class="h">             
@@ -69,6 +78,7 @@
             </div>
           </li>
           <li class=" board-box-line-dashed"></li>
+          -->
           </#list>
         </ul>
         <div style="clear: both; height: 0pt; font: 0pt/0pt arial;"></div>                                 
@@ -121,6 +131,5 @@
     </table>
   </div>
   
-</div>
  
 </@layout.cafeLayout>

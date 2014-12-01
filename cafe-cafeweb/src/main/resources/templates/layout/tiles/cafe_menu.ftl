@@ -5,7 +5,7 @@
       <li>
         <img src="http://cafeimgs.naver.net/cafe4/hidden.gif" class="ico-list" alt="">
         <a href="/${cafe.nickname}" class="gm-tcol-c">전체글보기</a> 
-        <span class="gm-tcol-c p11" style="padding-right:2px;">(<strong>2</strong>)</span>
+        <span class="gm-tcol-c p11" style="padding-right:2px;">(<strong>${cafe.articleCount}</strong>)</span>
       </li>
       <#list cafe.boards as board>
       <li>

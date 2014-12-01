@@ -108,4 +108,14 @@ public class ArticleRepositoryTest {
         assertThat(articleEntity.getTitle(), is(updatedArticleEntity.getTitle()));
     }
     
+    @Test
+    public void testSelectCountByCafe() {
+        final Integer cafeId = 1;
+        
+        List<ArticleEntity> articles = articleRepository.selectListByCafe(cafeId);
+        Long count = articleRepository.selectCountByCafe(cafeId);
+        
+        assertThat(count, is(new Long(articles.size())));
+    }
+    
 }

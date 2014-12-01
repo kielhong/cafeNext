@@ -25,6 +25,9 @@ public class Cafe {
     @Getter @Setter
     private List<Board> boards = new ArrayList<Board>();
     
+    @Getter @Setter
+    private Long articleCount = 0L;
+    
     @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
     public Date getCreatedAt() {
