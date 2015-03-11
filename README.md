@@ -31,10 +31,12 @@ Naver Cafe Simple Clone
 ### Section
 * cafe list by category
 * cafe create (to be)
+
 ### Individual Cafe
 * cafe all articles
 * cafe board
 * article read
 * artciel write (to be)
 * article update (to be)
+* comment to article (to be)
 * cafe member join (to be)
