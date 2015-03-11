@@ -20,7 +20,7 @@ public class RoleEntity {
     
     @ManyToOne
     @Getter @Setter
-    private CafeEntity cafe;
+    private Cafe cafe;
     
     @Getter @Setter
     private Role role;    

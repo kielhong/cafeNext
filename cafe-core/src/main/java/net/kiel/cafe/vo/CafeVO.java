@@ -9,7 +9,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Cafe {
+public class CafeVO {
     @Getter @Setter
     private Integer id;
     

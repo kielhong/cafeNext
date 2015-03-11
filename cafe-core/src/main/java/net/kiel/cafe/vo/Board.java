@@ -12,7 +12,7 @@ public class Board {
     private Integer id;
     
     @Getter @Setter
-    private Cafe cafe;
+    private CafeVO cafe;
     
     @Getter @Setter
     private String title;

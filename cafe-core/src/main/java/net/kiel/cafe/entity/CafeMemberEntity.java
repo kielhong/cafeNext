@@ -26,7 +26,7 @@ public class CafeMemberEntity {
     @Id
     @ManyToOne
     @Getter @Setter
-    private CafeEntity cafe;
+    private Cafe cafe;
 
     @ManyToOne
     @Getter @Setter

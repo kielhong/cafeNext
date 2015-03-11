@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.CafeEntity;
-import net.kiel.cafe.repository.CafeRepository;
-import net.kiel.cafe.vo.Cafe;
+import net.kiel.cafe.entity.Cafe;
+import net.kiel.cafe.repository.CafeRepositoryImpl;
+import net.kiel.cafe.vo.CafeVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,25 +16,25 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class CafeService {
     @Autowired
-    private CafeRepository cafeRepository;
+    private CafeRepositoryImpl cafeRepository;
     
-    public List<Cafe> findAll() {
-        List<Cafe> results = new ArrayList<Cafe>();
+    public List<CafeVO> findAll() {
+        List<CafeVO> results = new ArrayList<CafeVO>();
         
-        List<CafeEntity> cafes = cafeRepository.selectAll();
-        for (CafeEntity cafeEntity : cafes) {
+        List<Cafe> cafes = cafeRepository.selectAll();
+        for (Cafe cafeEntity : cafes) {
             results.add(cafeEntity.toCafeVO(false));
         }
         
         return results;
     }
 
-    public List<Cafe> findByCategory(Integer categoryId) {
-        List<Cafe> results = new ArrayList<Cafe>();
+    public List<CafeVO> findByCategory(Integer categoryId) {
+        List<CafeVO> results = new ArrayList<CafeVO>();
         
-        List<CafeEntity> cafes = cafeRepository.selectByCategoryId(categoryId);
+        List<Cafe> cafes = cafeRepository.selectByCategoryId(categoryId);
         
-        for (CafeEntity cafeEntity : cafes) {            
+        for (Cafe cafeEntity : cafes) {            
             results.add(cafeEntity.toCafeVO(false));
         }
         
@@ -42,14 +42,14 @@ public class CafeService {
     }
     
 
-    public Cafe findById(Integer id) {
-        Cafe cafe = cafeRepository.selectById(id).toCafeVO(true);
+    public CafeVO findById(Integer id) {
+        CafeVO cafe = cafeRepository.selectById(id).toCafeVO(true);
         
         return cafe;
     }
     
-    public Cafe findByNickname(String nickname) {
-        CafeEntity cafe = cafeRepository.selectByNickname(nickname);
+    public CafeVO findByNickname(String nickname) {
+        Cafe cafe = cafeRepository.selectByNickname(nickname);
         System.out.println("nickname : " + nickname);
         //System.out.println("Cafe:" + cafe);
         

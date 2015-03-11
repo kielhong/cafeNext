@@ -24,7 +24,5 @@ public class CafeCategoryEntity {
     
     @OneToMany(mappedBy = "category")
     @Getter @Setter
-    private Set<CafeEntity> cafes;
-    
-    
+    private Set<Cafe> cafes;
 }

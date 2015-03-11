@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class CafeMemberRepository {
-    @Autowired
+  //  @Autowired
     private SessionFactory sessionFactory;
     
     @SuppressWarnings("unchecked")

@@ -3,23 +3,24 @@ package net.kiel.cafe.repository;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.config.AppConfig;
-import net.kiel.cafe.config.RepositoryConfig;
-import net.kiel.cafe.entity.CafeEntity;
+import net.kiel.cafe.CafeNextCoreApplication;
+import net.kiel.cafe.entity.Cafe;
+import net.kiel.cafe.entity.CafeCategoryEntity;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class, RepositoryConfig.class})
+@SpringApplicationConfiguration(classes = CafeNextCoreApplication.class)
 @Transactional
 public class CafeRepositoryTest {
     @Autowired
@@ -27,18 +28,21 @@ public class CafeRepositoryTest {
     
     @Test
     public void testSelectAll() {
-        List<CafeEntity> cafes = cafeRepository.selectAll();
+        List<Cafe> cafes = cafeRepository.findAll();
         
         assertThat(cafes, notNullValue());
+        assertTrue("Cafe list shoud have more than 0", cafes.size() > 0);
     }
     
     @Test
     public void testSelectByCategoryId() {
-        final Integer categoryId = 11;
-        List<CafeEntity> cafes = cafeRepository.selectByCategoryId(categoryId);
+        final Integer categoryId = 1;
+        CafeCategoryEntity category = new CafeCategoryEntity();
+        category.setId(categoryId);
+        List<Cafe> cafes = cafeRepository.findByCategory(category);
         
         assertThat(cafes, notNullValue());
-        for (CafeEntity cafeEntity : cafes) {
+        for (Cafe cafeEntity : cafes) {
             assertThat(cafeEntity.getCategory().getId(), is(categoryId));
         }
     }
@@ -46,9 +50,9 @@ public class CafeRepositoryTest {
     @Test
     public void testSelectByNickname() {
         final String nickname = "first";
-        CafeEntity cafe = cafeRepository.selectByNickname(nickname);
+        Cafe cafe = cafeRepository.findByDomain(nickname);
         
         assertThat(cafe, notNullValue());
-        assertThat(cafe.getNickname(), is(nickname));
+        assertThat(cafe.getDomain(), is(nickname));
     }
 }

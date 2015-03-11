@@ -4,7 +4,6 @@ import static org.junit.Assert.assertNotNull;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.config.RepositoryConfig;
 import net.kiel.cafe.entity.MemberEntity;
 
 import org.hibernate.Session;
@@ -13,11 +12,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {RepositoryConfig.class})
+//@ContextConfiguration(classes = {RepositoryConfig.class})
 @Transactional
 public class MemberTest {
     @Autowired

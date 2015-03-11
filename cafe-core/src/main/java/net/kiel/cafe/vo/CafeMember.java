@@ -13,7 +13,7 @@ public class CafeMember {
     private Member member;
     
     @Getter @Setter
-    private Cafe cafe;
+    private CafeVO cafe;
 
     @Getter @Setter
     private RoleEntity role;

@@ -6,19 +6,18 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.config.AppConfig;
-import net.kiel.cafe.config.RepositoryConfig;
+import net.kiel.cafe.CafeNextCoreApplication;
 import net.kiel.cafe.vo.CafeCategory;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class, RepositoryConfig.class})
+@SpringApplicationConfiguration(classes = CafeNextCoreApplication.class)
 @Transactional
 public class CafeCategoryServiceTest {
     @Autowired

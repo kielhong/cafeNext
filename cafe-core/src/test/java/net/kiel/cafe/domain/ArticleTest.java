@@ -1,19 +1,18 @@
 package net.kiel.cafe.domain;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.config.RepositoryConfig;
 import net.kiel.cafe.entity.ArticleEntity;
 import net.kiel.cafe.entity.BoardEntity;
+import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.entity.CafeCategoryEntity;
-import net.kiel.cafe.entity.CafeEntity;
 import net.kiel.cafe.entity.MemberEntity;
 
 import org.hibernate.Query;
@@ -23,11 +22,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {RepositoryConfig.class})
+//@ContextConfiguration(classes = {RepositoryConfig.class})
 @Transactional
 public class ArticleTest {
     @Autowired
@@ -36,7 +34,7 @@ public class ArticleTest {
     private Session session;
     
     private MemberEntity member;
-    private CafeEntity cafe;
+    private Cafe cafe;
     private BoardEntity board;
     
     @Before
@@ -47,9 +45,9 @@ public class ArticleTest {
         member.setNickname("testmember");
         session.save(member);
         
-        cafe = new CafeEntity();
+        cafe = new Cafe();
         cafe.setName("test");
-        cafe.setNickname("testcafe");
+        cafe.setDomain("testcafe");
         cafe.setDescription("test description");
         cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         session.save(cafe);

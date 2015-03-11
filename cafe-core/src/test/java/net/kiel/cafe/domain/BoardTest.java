@@ -4,10 +4,9 @@ import static org.junit.Assert.assertNotNull;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.config.RepositoryConfig;
 import net.kiel.cafe.entity.BoardEntity;
+import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.entity.CafeCategoryEntity;
-import net.kiel.cafe.entity.CafeEntity;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,11 +14,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {RepositoryConfig.class})
+//@ContextConfiguration(classes = {RepositoryConfig.class})
 @Transactional
 public class BoardTest {
 
@@ -35,9 +33,9 @@ public class BoardTest {
     
     @Test
     public void testInsert() {
-        CafeEntity cafe = new CafeEntity();
+        Cafe cafe = new Cafe();
         cafe.setName("test");
-        cafe.setNickname("testcafe");
+        cafe.setDomain("testcafe");
         cafe.setDescription("test cafe description");
         cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
         

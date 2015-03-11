@@ -8,7 +8,7 @@ import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
 import net.kiel.cafe.vo.Article;
 import net.kiel.cafe.vo.Board;
-import net.kiel.cafe.vo.Cafe;
+import net.kiel.cafe.vo.CafeVO;
 import net.kiel.cafe.vo.CafeMember;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class CafeController {
             @PathVariable String nickname,
             Model model) {
         
-        Cafe cafe = cafeService.findByNickname(nickname);
+        CafeVO cafe = cafeService.findByNickname(nickname);
         cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         List<Article> articles = articleService.findListByCafe(cafe.getId());
@@ -55,7 +55,7 @@ public class CafeController {
             @PathVariable String nickname,
             @PathVariable Integer boardId,
             Model model) {
-        Cafe cafe = cafeService.findByNickname(nickname);
+        CafeVO cafe = cafeService.findByNickname(nickname);
         cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         List<Article> articles = new ArrayList<Article>();
@@ -78,7 +78,7 @@ public class CafeController {
             @PathVariable String nickname,
             @PathVariable Integer articleId,
             Model model) {
-        Cafe cafe = cafeService.findByNickname(nickname);
+        CafeVO cafe = cafeService.findByNickname(nickname);
         cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         Article article = articleService.read(articleId);

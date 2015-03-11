@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ArticleRepository {
-    @Autowired
+  //  @Autowired
     private SessionFactory sessionFactory;
         
     @SuppressWarnings("unchecked")

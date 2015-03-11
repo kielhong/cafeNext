@@ -29,7 +29,7 @@ public class BoardEntity {
     @ManyToOne
     @Getter @Setter
     @JsonIgnore
-    private CafeEntity cafe;
+    private Cafe cafe;
     
     @Column(nullable = false)
     @Getter @Setter

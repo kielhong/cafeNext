@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -19,11 +20,11 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
-import net.kiel.cafe.vo.Cafe;
+import net.kiel.cafe.vo.CafeVO;
 
 @Entity
 @Table(name = "cafe")
-public class CafeEntity {
+public class Cafe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
@@ -31,12 +32,13 @@ public class CafeEntity {
     
     @Column(nullable = false)
     @Getter @Setter
-    private String nickname;
+    private String domain;
     
     @Column(nullable = false)
     @Getter @Setter
     private String name;
     
+    @Lob
     @Getter @Setter
     private String description;
     
@@ -54,12 +56,12 @@ public class CafeEntity {
     @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now(); 
     
-    public Cafe toCafeVO(boolean includeBoard) {
-        Cafe cafeVO = new Cafe();
+    public CafeVO toCafeVO(boolean includeBoard) {
+        CafeVO cafeVO = new CafeVO();
         
         cafeVO.setId(id);
         cafeVO.setName(name);
-        cafeVO.setNickname(nickname);
+        cafeVO.setNickname(domain);
         cafeVO.setDescription(description);
         cafeVO.setCreatedAt(createdAt);
         if (includeBoard) {
