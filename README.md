@@ -11,14 +11,14 @@ Naver Cafe Simple Clone
 
 ## Structure
 * cafe-core
-** Cafe Commone Component
-** Entity, Repository, Service
+ * Cafe Commone Component
+ * Entity, Repository, Service
 * cafe-cafeweb
-** Individual Cafe
-** WebMVC
+ * Individual Cafe
+ * WebMVC
 * cafe-sectionweb
-** Cafe Section
-** WebMVC
+ * Cafe Section
+ * WebMVC
 * cafe-api
-** internal API
-** Rest API
+ * internal API
+ * Rest API
