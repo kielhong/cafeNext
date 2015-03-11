@@ -74,6 +74,21 @@ project(':cafe-cafeweb') {
     }
 }
 
+project(':cafe-sectionweb') {
+    dependencies {
+        compile project(':cafe-core')
+ 
+        // Spring Boot
+        compile "org.springframework.boot:spring-boot-starter-web:1.1.8.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-velocity"
+    }
+
+    // for delegate system properties to bootRun
+    tasks.withType(org.springframework.boot.gradle.run.BootRunTask) {
+        systemProperties = System.properties
+    }
+}
+
 project(':cafe-api') {
    dependencies {
         compile project(':cafe-core')
