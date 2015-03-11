@@ -2,8 +2,8 @@ package net.kiel.cafe.web.controller;
 
 import java.util.List;
 
+import net.kiel.cafe.dto.CafeCategoryDto;
 import net.kiel.cafe.service.CafeCategoryService;
-import net.kiel.cafe.vo.CafeCategoryDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

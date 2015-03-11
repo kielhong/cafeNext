@@ -2,8 +2,8 @@ package net.kiel.cafe.api.controller;
 
 import java.util.List;
 
+import net.kiel.cafe.dto.CafeDto;
 import net.kiel.cafe.service.CafeService;
-import net.kiel.cafe.vo.CafeDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

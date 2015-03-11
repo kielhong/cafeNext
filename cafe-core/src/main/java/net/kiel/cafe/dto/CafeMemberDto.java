@@ -1,4 +1,4 @@
-package net.kiel.cafe.vo;
+package net.kiel.cafe.dto;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;

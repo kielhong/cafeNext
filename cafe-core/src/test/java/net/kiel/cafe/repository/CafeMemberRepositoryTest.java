@@ -28,7 +28,7 @@ public class CafeMemberRepositoryTest {
     @Test
     public void testSelectByCafe() {
         final Integer cafeId = 1;
-        List<CafeMember> cafeMembers = cafeMemberRepository.selectListByCafe(cafeId);
+        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeId(cafeId);
         
         assertThat(cafeMembers, notNullValue());
         for (CafeMember cafeMemberEntity : cafeMembers) {
@@ -39,11 +39,13 @@ public class CafeMemberRepositoryTest {
     @Test
     public void testSelectCafeManager() {
         final Integer cafeId = 1;
-        CafeMember cafeMember = cafeMemberRepository.selectCafeManager(cafeId);
+        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRoleRole(cafeId, Role.MANAGER);
         
-        assertThat(cafeMember, notNullValue());
-        assertThat(cafeMember.getCafe().getId(), is(cafeId));
-        assertThat(cafeMember.getRole().getRole(), is(Role.MANAGER));
+        CafeMember manager = cafeMembers.get(0);
+        
+        assertThat(manager, notNullValue());
+        assertThat(manager.getCafe().getId(), is(cafeId));
+        assertThat(manager.getRole().getRole(), is(Role.MANAGER));
     }
 
 }

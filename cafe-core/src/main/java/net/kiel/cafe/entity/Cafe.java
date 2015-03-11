@@ -19,8 +19,8 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.kiel.cafe.dto.CafeDto;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
-import net.kiel.cafe.vo.CafeDto;
 
 @Entity
 @Table(name = "cafe")

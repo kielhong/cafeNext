@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import net.kiel.cafe.dto.CafeDto;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.repository.CafeRepositoryImpl;
-import net.kiel.cafe.vo.CafeDto;
+import net.kiel.cafe.repository.CafeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +16,12 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class CafeService {
     @Autowired
-    private CafeRepositoryImpl cafeRepository;
+    private CafeRepository cafeRepository;
     
     public List<CafeDto> findAll() {
         List<CafeDto> results = new ArrayList<CafeDto>();
         
-        List<Cafe> cafes = cafeRepository.selectAll();
+        List<Cafe> cafes = cafeRepository.findAll();
         for (Cafe cafeEntity : cafes) {
             results.add(cafeEntity.toCafeVO(false));
         }
@@ -32,7 +32,7 @@ public class CafeService {
     public List<CafeDto> findByCategory(Integer categoryId) {
         List<CafeDto> results = new ArrayList<CafeDto>();
         
-        List<Cafe> cafes = cafeRepository.selectByCategoryId(categoryId);
+        List<Cafe> cafes = cafeRepository.findByCategoryId(categoryId);
         
         for (Cafe cafeEntity : cafes) {            
             results.add(cafeEntity.toCafeVO(false));
@@ -43,14 +43,14 @@ public class CafeService {
     
 
     public CafeDto findById(Integer id) {
-        CafeDto cafe = cafeRepository.selectById(id).toCafeVO(true);
+        CafeDto cafe = cafeRepository.findOne(id).toCafeVO(true);
         
         return cafe;
     }
     
-    public CafeDto findByNickname(String nickname) {
-        Cafe cafe = cafeRepository.selectByNickname(nickname);
-        System.out.println("nickname : " + nickname);
+    public CafeDto findByNickname(String domain) {
+        Cafe cafe = cafeRepository.findByDomain(domain);
+        System.out.println("nickname : " + domain);
         //System.out.println("Cafe:" + cafe);
         
         return cafe.toCafeVO(true);

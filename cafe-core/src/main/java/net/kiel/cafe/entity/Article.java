@@ -9,8 +9,8 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -18,8 +18,8 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.kiel.cafe.dto.ArticleDto;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
-import net.kiel.cafe.vo.ArticleDto;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -28,9 +28,9 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "article")
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Getter @Setter
-    private Integer id;
+    private Long id;
     
     @ManyToOne
     @Getter @Setter
@@ -44,6 +44,7 @@ public class Article {
     @Getter @Setter
     private String title;
     
+    @Lob
     @Getter @Setter
     private String content;
 

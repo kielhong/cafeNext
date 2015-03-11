@@ -1,4 +1,4 @@
-package net.kiel.cafe.vo;
+package net.kiel.cafe.dto;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -12,7 +12,7 @@ import net.kiel.cafe.entity.Article;
 
 public class ArticleDto {
     @Getter @Setter
-    private Integer id;
+    private Long id;
     
     @Getter @Setter
     private BoardDto board;

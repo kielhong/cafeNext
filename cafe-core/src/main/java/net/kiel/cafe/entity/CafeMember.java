@@ -9,8 +9,8 @@ import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import net.kiel.cafe.dto.CafeMemberDto;
 import net.kiel.cafe.entity.id.CafeMemberId;
-import net.kiel.cafe.vo.CafeMemberDto;
 import lombok.Setter;
 import lombok.Getter;
 

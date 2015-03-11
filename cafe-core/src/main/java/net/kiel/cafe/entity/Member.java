@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import net.kiel.cafe.vo.MemberDto;
+import net.kiel.cafe.dto.MemberDto;
 import lombok.Data;
 
 @Entity

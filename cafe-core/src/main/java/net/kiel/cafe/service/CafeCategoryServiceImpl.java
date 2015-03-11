@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import net.kiel.cafe.dto.CafeCategoryDto;
 import net.kiel.cafe.entity.CafeCategory;
 import net.kiel.cafe.repository.CafeCategoryRepository;
-import net.kiel.cafe.vo.CafeCategoryDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class CafeCategoryServiceImpl implements CafeCategoryService {
     public List<CafeCategoryDto> findAll() {
         List<CafeCategoryDto> results = new ArrayList<CafeCategoryDto>();
         
-        List<CafeCategory> categories = cafeCategoryRepository.selectAll();
+        List<CafeCategory> categories = cafeCategoryRepository.findAll();
         for(CafeCategory cafeCategoryEntity : categories) {
             CafeCategoryDto cafeCategoryVO = new CafeCategoryDto();
             cafeCategoryVO.setId(cafeCategoryEntity.getId());

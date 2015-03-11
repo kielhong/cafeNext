@@ -11,4 +11,5 @@ public interface CafeRepository extends JpaRepository<Cafe, Integer>{
     Cafe findByDomain(String domain);
     
     List<Cafe> findByCategory(CafeCategory category);
+    List<Cafe> findByCategoryId(Integer categoryId);
 }

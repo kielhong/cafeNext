@@ -8,7 +8,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeNextCoreApplication;
-import net.kiel.cafe.vo.CafeDto;
+import net.kiel.cafe.dto.CafeDto;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,45 +1,31 @@
-package net.kiel.cafe.domain;
+package net.kiel.cafe.entity;
 
 import static org.junit.Assert.assertNotNull;
 
 import javax.transaction.Transactional;
 
+import net.kiel.cafe.CafeNextCoreApplication;
 import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeCategory;
+import net.kiel.cafe.repository.BoardRepository;
+import net.kiel.cafe.repository.CafeRepository;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(classes = {RepositoryConfig.class})
+@SpringApplicationConfiguration(classes = CafeNextCoreApplication.class)
 @Transactional
 public class BoardTest {
-
-    @Autowired
-    private SessionFactory sessionFactory;
-    
-    private Session session;
-    
-    @Before
-    public void setUp() {
-        session = sessionFactory.getCurrentSession();
-    }
+    @Autowired private CafeRepository cafeRepository;
+    @Autowired private BoardRepository boardRepository;
     
     @Test
     public void testInsert() {
-        Cafe cafe = new Cafe();
-        cafe.setName("test");
-        cafe.setDomain("testcafe");
-        cafe.setDescription("test cafe description");
-        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
-        
-        session.save(cafe);
+        Cafe cafe = cafeRepository.findOne(1);
         
         Board board = new Board();
         board.setTitle("board");
@@ -47,7 +33,7 @@ public class BoardTest {
         board.setType(Board.Type.GENERAL);
         board.setCafe(cafe);
         
-        session.save(board);
+        boardRepository.save(board);
         
         assertNotNull(board.getId());
     }

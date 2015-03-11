@@ -1,4 +1,4 @@
-package net.kiel.cafe.repository;
+package net.kiel.cafe.repository.hibernate;
 
 import java.util.List;
 

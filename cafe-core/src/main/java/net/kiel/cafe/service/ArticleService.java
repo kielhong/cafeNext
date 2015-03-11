@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import net.kiel.cafe.dto.ArticleDto;
 import net.kiel.cafe.entity.Article;
-import net.kiel.cafe.repository.ArticleRepository;
-import net.kiel.cafe.vo.ArticleDto;
+import net.kiel.cafe.repository.hibernate.ArticleRepositoryImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class ArticleService {
     @Autowired
-    private ArticleRepository articleRepository;
+    private ArticleRepositoryImpl articleRepository;
     
     public List<ArticleDto> findListByCafe(Integer cafeId) {
         List<ArticleDto> results = new ArrayList<ArticleDto>();

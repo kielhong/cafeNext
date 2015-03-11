@@ -1,4 +1,4 @@
-package net.kiel.cafe.vo;
+package net.kiel.cafe.dto;
 
 import net.kiel.cafe.entity.Member;
 import lombok.Getter;

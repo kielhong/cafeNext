@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import net.kiel.cafe.vo.CommentDto;
+import net.kiel.cafe.dto.CommentDto;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -3,13 +3,13 @@ package net.kiel.cafe.web.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.kiel.cafe.dto.ArticleDto;
+import net.kiel.cafe.dto.BoardDto;
+import net.kiel.cafe.dto.CafeDto;
+import net.kiel.cafe.dto.CafeMemberDto;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
-import net.kiel.cafe.vo.ArticleDto;
-import net.kiel.cafe.vo.BoardDto;
-import net.kiel.cafe.vo.CafeDto;
-import net.kiel.cafe.vo.CafeMemberDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

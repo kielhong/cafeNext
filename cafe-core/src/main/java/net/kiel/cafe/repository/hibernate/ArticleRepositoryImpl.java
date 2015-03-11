@@ -1,4 +1,4 @@
-package net.kiel.cafe.repository;
+package net.kiel.cafe.repository.hibernate;
 
 import java.util.List;
 
@@ -7,11 +7,10 @@ import net.kiel.cafe.entity.Article;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ArticleRepository {
+public class ArticleRepositoryImpl {
   //  @Autowired
     private SessionFactory sessionFactory;
         

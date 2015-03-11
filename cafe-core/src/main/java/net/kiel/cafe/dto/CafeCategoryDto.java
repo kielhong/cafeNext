@@ -1,4 +1,4 @@
-package net.kiel.cafe.vo;
+package net.kiel.cafe.dto;
 
 import lombok.Getter;
 import lombok.Setter;

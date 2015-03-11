@@ -29,9 +29,7 @@ class CafeRepositoryGroovyTest extends Specification {
         def cafes = cafeRepository.findByCategory(category)
         
         then:
-        cafes.size() > 0
-        cafes[0].category.id == 1
-        
+        cafes.each {assert it.category.id == 1}
      }
     
     def "cafe domain으로 카페 조회"() {

@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.kiel.cafe.dto.BoardDto;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
-import net.kiel.cafe.vo.BoardDto;
 
 @Entity
 @Table(name = "board")
@@ -38,8 +40,9 @@ public class Board {
     @Getter @Setter
     private String description;
 
-    @Getter @Setter
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Getter @Setter
     private Type type;
 
     @Column(name = "created_at")
@@ -48,14 +51,8 @@ public class Board {
     private LocalDateTime createdAt = LocalDateTime.now();
     
     public enum Type {
-        UNKNOWN(0),
-        GENERAL(1);
-        
-        @Getter private final int value;
-        
-        Type (int value) {
-            this.value = value;
-        }
+        GENERAL,
+        UNKNOWN;
     }
 
     @Override
