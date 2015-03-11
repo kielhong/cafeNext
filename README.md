@@ -1,4 +1,4 @@
-# cafeNext
+# CafeNext
 Naver Cafe Simple Clone
 
 ## Framework
