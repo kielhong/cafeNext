@@ -2,12 +2,12 @@ package net.kiel.cafe.domain;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.ArticleEntity;
-import net.kiel.cafe.entity.BoardEntity;
+import net.kiel.cafe.entity.Article;
+import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeCategoryEntity;
-import net.kiel.cafe.entity.CommentEntity;
-import net.kiel.cafe.entity.MemberEntity;
+import net.kiel.cafe.entity.CafeCategory;
+import net.kiel.cafe.entity.Comment;
+import net.kiel.cafe.entity.Member;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,16 +26,16 @@ public class CommentTest {
     
     private Session session;
     
-    private MemberEntity member;
+    private Member member;
     private Cafe cafe;
-    private BoardEntity board;
-    private ArticleEntity article;
+    private Board board;
+    private Article article;
     
     @Before
     public void setUp() {
         session = sessionFactory.getCurrentSession();
         
-        member = new MemberEntity();
+        member = new Member();
         member.setNickname("testmember");
         session.save(member);
         
@@ -43,17 +43,17 @@ public class CommentTest {
         cafe.setName("test");
         cafe.setDomain("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         session.save(cafe);
         
-        board = new BoardEntity();
+        board = new Board();
         board.setCafe(cafe);
         board.setTitle("board");
         board.setDescription("test board description");
-        board.setType(BoardEntity.Type.GENERAL);
+        board.setType(Board.Type.GENERAL);
         session.save(board);
         
-        article = new ArticleEntity();
+        article = new Article();
         article.setTitle("article title");
         article.setContent("content");
         article.setMember(member);
@@ -65,7 +65,7 @@ public class CommentTest {
     public void testSaveUpdate() {        
         //int commentCount = article.getCommentCount();
         
-        CommentEntity comment = new CommentEntity();
+        Comment comment = new Comment();
         comment.setContent("test comment");
         comment.setMember(member);
         comment.setArticle(article);

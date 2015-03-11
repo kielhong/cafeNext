@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
-import net.kiel.cafe.vo.Board;
+import net.kiel.cafe.vo.BoardDto;
 
 @Entity
 @Table(name = "board")
-public class BoardEntity {
+public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
@@ -64,8 +64,8 @@ public class BoardEntity {
                 + type + ", createdAt=" + createdAt + "]";
     }
     
-    public Board toBoardVO() {
-        Board board = new Board();
+    public BoardDto toBoardVO() {
+        BoardDto board = new BoardDto();
         board.setId(this.id);
         board.setTitle(title);
         board.setDescription(description);

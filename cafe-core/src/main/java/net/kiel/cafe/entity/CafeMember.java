@@ -10,18 +10,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import net.kiel.cafe.entity.id.CafeMemberId;
-import net.kiel.cafe.vo.CafeMember;
+import net.kiel.cafe.vo.CafeMemberDto;
 import lombok.Setter;
 import lombok.Getter;
 
 @Entity
 @Table(name = "cafe_member")
 @IdClass(CafeMemberId.class)
-public class CafeMemberEntity {
+public class CafeMember {
     @Id
     @ManyToOne
     @Getter @Setter
-    private MemberEntity member;
+    private Member member;
     
     @Id
     @ManyToOne
@@ -36,8 +36,8 @@ public class CafeMemberEntity {
     @Getter @Setter
     private LocalDateTime joinedAt;
     
-    public CafeMember toCafeMemberVO() {
-        CafeMember cafeMemberVO = new CafeMember();
+    public CafeMemberDto toCafeMemberVO() {
+        CafeMemberDto cafeMemberVO = new CafeMemberDto();
         cafeMemberVO.setMember(member.toMemberVO());
         cafeMemberVO.setCafe(cafe.toCafeVO(false));
         cafeMemberVO.setRole(role);

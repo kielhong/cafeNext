@@ -10,13 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import net.kiel.cafe.vo.Comment;
+import net.kiel.cafe.vo.CommentDto;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "comment")
-public class CommentEntity {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
@@ -27,18 +27,18 @@ public class CommentEntity {
 
     @ManyToOne
     @Getter @Setter
-    private ArticleEntity article;
+    private Article article;
     
     @ManyToOne
     @Getter @Setter
-    private MemberEntity member;
+    private Member member;
     
     @Column(name = "created_at")
     @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
     
-    public Comment toCommentVO() {
-        Comment comment = new Comment();
+    public CommentDto toCommentVO() {
+        CommentDto comment = new CommentDto();
         comment.setId(id);
         comment.setContent(content);
         comment.setArticle(article.toArticleVO(false));

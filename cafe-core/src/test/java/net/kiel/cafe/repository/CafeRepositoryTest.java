@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeNextCoreApplication;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeCategory;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +37,7 @@ public class CafeRepositoryTest {
     @Test
     public void testSelectByCategoryId() {
         final Integer categoryId = 1;
-        CafeCategoryEntity category = new CafeCategoryEntity();
+        CafeCategory category = new CafeCategory();
         category.setId(categoryId);
         List<Cafe> cafes = cafeRepository.findByCategory(category);
         

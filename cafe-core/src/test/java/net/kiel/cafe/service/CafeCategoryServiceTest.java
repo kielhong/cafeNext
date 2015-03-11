@@ -7,7 +7,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeNextCoreApplication;
-import net.kiel.cafe.vo.CafeCategory;
+import net.kiel.cafe.vo.CafeCategoryDto;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +25,7 @@ public class CafeCategoryServiceTest {
     
     @Test
     public void testFindAll() {
-        List<CafeCategory> cafeCategories = cafeCategoryService.findAll();
+        List<CafeCategoryDto> cafeCategories = cafeCategoryService.findAll();
         
         assertTrue(cafeCategories.size() > 10);
     }

@@ -9,11 +9,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.ArticleEntity;
-import net.kiel.cafe.entity.BoardEntity;
+import net.kiel.cafe.entity.Article;
+import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeCategoryEntity;
-import net.kiel.cafe.entity.MemberEntity;
+import net.kiel.cafe.entity.CafeCategory;
+import net.kiel.cafe.entity.Member;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -33,15 +33,15 @@ public class ArticleTest {
     
     private Session session;
     
-    private MemberEntity member;
+    private Member member;
     private Cafe cafe;
-    private BoardEntity board;
+    private Board board;
     
     @Before
     public void setUp() {
         session = sessionFactory.getCurrentSession();
         
-        member = new MemberEntity();
+        member = new Member();
         member.setNickname("testmember");
         session.save(member);
         
@@ -49,20 +49,20 @@ public class ArticleTest {
         cafe.setName("test");
         cafe.setDomain("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         session.save(cafe);
         
-        board = new BoardEntity();
+        board = new Board();
         board.setCafe(cafe);
         board.setTitle("board");
         board.setDescription("test board description");
-        board.setType(BoardEntity.Type.GENERAL);
+        board.setType(Board.Type.GENERAL);
         session.save(board);
     }
     
     @Test
     public void testInsert() {        
-        ArticleEntity article = new ArticleEntity();
+        Article article = new Article();
         article.setTitle("article title");
         article.setContent("content");
         article.setMember(member);
@@ -76,14 +76,14 @@ public class ArticleTest {
     
     @Test
     public void testSelectByBoard() {
-        ArticleEntity article = new ArticleEntity();
+        Article article = new Article();
         article.setTitle("article title");
         article.setContent("content");
         article.setMember(member);
         article.setBoard(board);
         session.save(article);
         
-        ArticleEntity article2 = new ArticleEntity();
+        Article article2 = new Article();
         article2.setTitle("article title 2");
         article2.setContent("content 2");
         article2.setMember(member);
@@ -94,7 +94,7 @@ public class ArticleTest {
                                 .setInteger("boardId", board.getId());
         
         @SuppressWarnings("unchecked")
-        List<ArticleEntity> articles = (List<ArticleEntity>)query.list();
+        List<Article> articles = (List<Article>)query.list();
         
         assertThat(articles, notNullValue());
         assertThat(articles.size(), is(2));

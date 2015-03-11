@@ -7,7 +7,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeCategory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -38,7 +38,7 @@ public class CafeEntityTest {
         cafe.setName("test");
         cafe.setDomain("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         
         session.save(cafe);
         
@@ -51,7 +51,7 @@ public class CafeEntityTest {
         cafe.setName("test");
         cafe.setDomain("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         
         session.save(cafe);
         
@@ -67,7 +67,7 @@ public class CafeEntityTest {
         cafe.setName("test");
         cafe.setDomain("testcafe");
         cafe.setDescription("test description");
-        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         
         session.save(cafe);
         

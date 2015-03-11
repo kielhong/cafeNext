@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.repository.CafeRepositoryImpl;
-import net.kiel.cafe.vo.CafeVO;
+import net.kiel.cafe.vo.CafeDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +18,8 @@ public class CafeService {
     @Autowired
     private CafeRepositoryImpl cafeRepository;
     
-    public List<CafeVO> findAll() {
-        List<CafeVO> results = new ArrayList<CafeVO>();
+    public List<CafeDto> findAll() {
+        List<CafeDto> results = new ArrayList<CafeDto>();
         
         List<Cafe> cafes = cafeRepository.selectAll();
         for (Cafe cafeEntity : cafes) {
@@ -29,8 +29,8 @@ public class CafeService {
         return results;
     }
 
-    public List<CafeVO> findByCategory(Integer categoryId) {
-        List<CafeVO> results = new ArrayList<CafeVO>();
+    public List<CafeDto> findByCategory(Integer categoryId) {
+        List<CafeDto> results = new ArrayList<CafeDto>();
         
         List<Cafe> cafes = cafeRepository.selectByCategoryId(categoryId);
         
@@ -42,13 +42,13 @@ public class CafeService {
     }
     
 
-    public CafeVO findById(Integer id) {
-        CafeVO cafe = cafeRepository.selectById(id).toCafeVO(true);
+    public CafeDto findById(Integer id) {
+        CafeDto cafe = cafeRepository.selectById(id).toCafeVO(true);
         
         return cafe;
     }
     
-    public CafeVO findByNickname(String nickname) {
+    public CafeDto findByNickname(String nickname) {
         Cafe cafe = cafeRepository.selectByNickname(nickname);
         System.out.println("nickname : " + nickname);
         //System.out.println("Cafe:" + cafe);

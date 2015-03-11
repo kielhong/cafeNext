@@ -8,9 +8,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.kiel.cafe.entity.CafeMemberEntity;
+import net.kiel.cafe.entity.CafeMember;
 import net.kiel.cafe.repository.CafeMemberRepository;
-import net.kiel.cafe.vo.CafeMember;
+import net.kiel.cafe.vo.CafeMemberDto;
 
 @Service
 @Transactional
@@ -18,19 +18,19 @@ public class CafeMemberService {
     @Autowired
     private CafeMemberRepository cafeMemberRepository;
     
-    public List<CafeMember> listByCafe(Integer cafeId) {
-        List<CafeMember> results = new ArrayList<CafeMember>();
+    public List<CafeMemberDto> listByCafe(Integer cafeId) {
+        List<CafeMemberDto> results = new ArrayList<CafeMemberDto>();
         
-        List<CafeMemberEntity> cafeMemberEntities = cafeMemberRepository.selectListByCafe(cafeId);
-        for (CafeMemberEntity cafeMemberEntity : cafeMemberEntities) {
+        List<CafeMember> cafeMemberEntities = cafeMemberRepository.selectListByCafe(cafeId);
+        for (CafeMember cafeMemberEntity : cafeMemberEntities) {
             results.add(cafeMemberEntity.toCafeMemberVO());
         }
         
         return results;
     }
     
-    public CafeMember findCafeManager(Integer cafeId) {
-        CafeMemberEntity cafeMemberEntity = cafeMemberRepository.selectCafeManager(cafeId);
+    public CafeMemberDto findCafeManager(Integer cafeId) {
+        CafeMember cafeMemberEntity = cafeMemberRepository.selectCafeManager(cafeId);
         
         return cafeMemberEntity.toCafeMemberVO();
     }

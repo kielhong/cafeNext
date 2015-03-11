@@ -9,7 +9,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeNextCoreApplication;
-import net.kiel.cafe.entity.CafeMemberEntity;
+import net.kiel.cafe.entity.CafeMember;
 import net.kiel.cafe.entity.RoleEntity.Role;
 
 import org.junit.Test;
@@ -28,10 +28,10 @@ public class CafeMemberRepositoryTest {
     @Test
     public void testSelectByCafe() {
         final Integer cafeId = 1;
-        List<CafeMemberEntity> cafeMembers = cafeMemberRepository.selectListByCafe(cafeId);
+        List<CafeMember> cafeMembers = cafeMemberRepository.selectListByCafe(cafeId);
         
         assertThat(cafeMembers, notNullValue());
-        for (CafeMemberEntity cafeMemberEntity : cafeMembers) {
+        for (CafeMember cafeMemberEntity : cafeMembers) {
             assertThat(cafeMemberEntity.getCafe().getId(), is(cafeId));
         }
     }
@@ -39,7 +39,7 @@ public class CafeMemberRepositoryTest {
     @Test
     public void testSelectCafeManager() {
         final Integer cafeId = 1;
-        CafeMemberEntity cafeMember = cafeMemberRepository.selectCafeManager(cafeId);
+        CafeMember cafeMember = cafeMemberRepository.selectCafeManager(cafeId);
         
         assertThat(cafeMember, notNullValue());
         assertThat(cafeMember.getCafe().getId(), is(cafeId));

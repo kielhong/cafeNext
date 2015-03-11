@@ -4,15 +4,15 @@ import java.time.LocalDateTime;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.entity.BoardEntity;
-import net.kiel.cafe.entity.BoardEntity.Type;
+import net.kiel.cafe.entity.Board;
+import net.kiel.cafe.entity.Board.Type;
 
-public class Board {
+public class BoardDto {
     @Getter @Setter
     private Integer id;
     
     @Getter @Setter
-    private CafeVO cafe;
+    private CafeDto cafe;
     
     @Getter @Setter
     private String title;
@@ -29,8 +29,8 @@ public class Board {
     @Getter @Setter
     private LocalDateTime createdAt;
     
-    public BoardEntity toBoardEntity() {
-        BoardEntity boardEntity = new BoardEntity();
+    public Board toBoardEntity() {
+        Board boardEntity = new Board();
         boardEntity.setId(this.id);
         boardEntity.setTitle(title);
         boardEntity.setDescription(description);

@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "cafe_category")
-public class CafeCategoryEntity {
+public class CafeCategory {
     @Id
     @Getter @Setter
     private Integer id;

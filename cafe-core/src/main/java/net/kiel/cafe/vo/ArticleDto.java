@@ -8,17 +8,17 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.entity.ArticleEntity;
+import net.kiel.cafe.entity.Article;
 
-public class Article {
+public class ArticleDto {
     @Getter @Setter
     private Integer id;
     
     @Getter @Setter
-    private Board board;
+    private BoardDto board;
     
     @Getter @Setter
-    private Member member;
+    private MemberDto member;
     
     @Getter @Setter
     private String title;
@@ -33,7 +33,7 @@ public class Article {
     private int recommendCount;
 
     @Getter @Setter
-    private List<Comment> comments = new ArrayList<Comment>();
+    private List<CommentDto> comments = new ArrayList<CommentDto>();
 
     @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -41,8 +41,8 @@ public class Article {
         return Date.from(createdAt.atZone(ZoneId.systemDefault()).toInstant());
     }
     
-    public ArticleEntity toArticleEntity() {
-        ArticleEntity article = new ArticleEntity();
+    public Article toArticleEntity() {
+        Article article = new Article();
         article.setId(id);
         article.setBoard(board.toBoardEntity());
         article.setMember(member.toMemberEntity());

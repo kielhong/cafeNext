@@ -4,9 +4,9 @@ import static org.junit.Assert.assertNotNull;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.BoardEntity;
+import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeCategory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -37,14 +37,14 @@ public class BoardTest {
         cafe.setName("test");
         cafe.setDomain("testcafe");
         cafe.setDescription("test cafe description");
-        cafe.setCategory((CafeCategoryEntity)session.get(CafeCategoryEntity.class, 1));
+        cafe.setCategory((CafeCategory)session.get(CafeCategory.class, 1));
         
         session.save(cafe);
         
-        BoardEntity board = new BoardEntity();
+        Board board = new Board();
         board.setTitle("board");
         board.setDescription("test board description");
-        board.setType(BoardEntity.Type.GENERAL);
+        board.setType(Board.Type.GENERAL);
         board.setCafe(cafe);
         
         session.save(board);

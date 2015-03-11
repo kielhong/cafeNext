@@ -4,7 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.MemberEntity;
+import net.kiel.cafe.entity.Member;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,7 +30,7 @@ public class MemberTest {
     
     @Test
     public void testInsert() {
-        MemberEntity member = new MemberEntity();
+        Member member = new Member();
         member.setNickname("testmember");
         
         session.save(member);

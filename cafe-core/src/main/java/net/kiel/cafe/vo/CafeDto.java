@@ -9,7 +9,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-public class CafeVO {
+public class CafeDto {
     @Getter @Setter
     private Integer id;
     
@@ -23,7 +23,7 @@ public class CafeVO {
     private String description;
     
     @Getter @Setter
-    private List<Board> boards = new ArrayList<Board>();
+    private List<BoardDto> boards = new ArrayList<BoardDto>();
     
     @Getter @Setter
     private Long articleCount = 0L;

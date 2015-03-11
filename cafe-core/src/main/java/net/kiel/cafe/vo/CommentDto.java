@@ -7,7 +7,7 @@ import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Comment {
+public class CommentDto {
 
     @Getter @Setter
     private Integer id;
@@ -16,10 +16,10 @@ public class Comment {
     private String content;
 
     @Getter @Setter
-    private Article article;
+    private ArticleDto article;
     
     @Getter @Setter
-    private Member member;
+    private MemberDto member;
     
     @Setter
     private LocalDateTime createdAt = LocalDateTime.now();

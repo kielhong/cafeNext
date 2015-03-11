@@ -7,13 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import net.kiel.cafe.vo.Member;
+import net.kiel.cafe.vo.MemberDto;
 import lombok.Data;
 
 @Entity
 @Table(name = "member")
 @Data
-public class MemberEntity {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,8 +23,8 @@ public class MemberEntity {
     
     //private String email;
     
-    public Member toMemberVO() {
-        Member member = new Member();
+    public MemberDto toMemberVO() {
+        MemberDto member = new MemberDto();
         member.setId(id);
         member.setNickname(nickname);
         

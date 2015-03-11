@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.ArticleEntity;
+import net.kiel.cafe.entity.Article;
 import net.kiel.cafe.repository.ArticleRepository;
-import net.kiel.cafe.vo.Article;
+import net.kiel.cafe.vo.ArticleDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,12 +18,12 @@ public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
     
-    public List<Article> findListByCafe(Integer cafeId) {
-        List<Article> results = new ArrayList<Article>();
+    public List<ArticleDto> findListByCafe(Integer cafeId) {
+        List<ArticleDto> results = new ArrayList<ArticleDto>();
         
-        List<ArticleEntity> articles = articleRepository.selectListByCafe(cafeId);
+        List<Article> articles = articleRepository.selectListByCafe(cafeId);
         
-        for (ArticleEntity articleEntity : articles) {
+        for (Article articleEntity : articles) {
             results.add(articleEntity.toArticleVO(false));
         }
         
@@ -34,34 +34,34 @@ public class ArticleService {
         return articleRepository.selectCountByCafe(cafeId);
     }
     
-    public List<Article> findListByBoard(Integer boardId) {
-        List<Article> results = new ArrayList<Article>();
+    public List<ArticleDto> findListByBoard(Integer boardId) {
+        List<ArticleDto> results = new ArrayList<ArticleDto>();
         
-        List<ArticleEntity> articles = articleRepository.selectListByBoard(boardId);
+        List<Article> articles = articleRepository.selectListByBoard(boardId);
         
-        for (ArticleEntity articleEntity : articles) {
+        for (Article articleEntity : articles) {
             results.add(articleEntity.toArticleVO(false));
         }
         
         return results;
     }
     
-    public Article findById(Integer id) {
-        ArticleEntity article = articleRepository.selectById(id);
+    public ArticleDto findById(Integer id) {
+        Article article = articleRepository.selectById(id);
         
         return article.toArticleVO(true);
     }
     
-    public Article read(Integer id) {
-        ArticleEntity article = articleRepository.selectById(id);
+    public ArticleDto read(Integer id) {
+        Article article = articleRepository.selectById(id);
         article.setReadCount(article.getReadCount() + 1);
         articleRepository.update(article);
         
         return article.toArticleVO(true);
     }
     
-    public void update(Article article) {
-        ArticleEntity articleEntity = article.toArticleEntity();
+    public void update(ArticleDto article) {
+        Article articleEntity = article.toArticleEntity();
         articleRepository.update(articleEntity);
     }
 }

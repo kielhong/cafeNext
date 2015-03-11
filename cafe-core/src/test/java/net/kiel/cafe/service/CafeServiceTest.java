@@ -8,7 +8,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeNextCoreApplication;
-import net.kiel.cafe.vo.CafeVO;
+import net.kiel.cafe.vo.CafeDto;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +26,7 @@ public class CafeServiceTest {
     
     @Test
     public void testFindAll() {
-        List<CafeVO> cafes = cafeService.findAll();
+        List<CafeDto> cafes = cafeService.findAll();
         
         assertThat(cafes, notNullValue());
     }
@@ -34,7 +34,7 @@ public class CafeServiceTest {
     @Test
     public void testFindById() {
         final Integer id = 1;
-        CafeVO cafe = cafeService.findById(id);
+        CafeDto cafe = cafeService.findById(id);
         
         assertThat(cafe, notNullValue());
     }
@@ -42,7 +42,7 @@ public class CafeServiceTest {
     @Test
     public void testFindByNickname() {
         final String nickname = "first";
-        CafeVO cafe = cafeService.findByNickname(nickname);
+        CafeDto cafe = cafeService.findByNickname(nickname);
         
         assertThat(cafe, notNullValue());
     }

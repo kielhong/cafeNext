@@ -6,7 +6,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeNextCoreApplication;
 import net.kiel.cafe.entity.Cafe
-import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeCategory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationContextLoader;
@@ -24,7 +24,7 @@ class CafeRepositoryGroovyTest extends Specification {
     
     def "cafe category에 속한 카페 조회"() {
         when:
-        def category = new CafeCategoryEntity();
+        def category = new CafeCategory();
         category.id = 1
         def cafes = cafeRepository.findByCategory(category)
         

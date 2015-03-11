@@ -6,10 +6,10 @@ import java.util.List;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
-import net.kiel.cafe.vo.Article;
-import net.kiel.cafe.vo.Board;
-import net.kiel.cafe.vo.CafeVO;
-import net.kiel.cafe.vo.CafeMember;
+import net.kiel.cafe.vo.ArticleDto;
+import net.kiel.cafe.vo.BoardDto;
+import net.kiel.cafe.vo.CafeDto;
+import net.kiel.cafe.vo.CafeMemberDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,10 +38,10 @@ public class CafeController {
             @PathVariable String nickname,
             Model model) {
         
-        CafeVO cafe = cafeService.findByNickname(nickname);
+        CafeDto cafe = cafeService.findByNickname(nickname);
         cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
-        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
-        List<Article> articles = articleService.findListByCafe(cafe.getId());
+        CafeMemberDto cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        List<ArticleDto> articles = articleService.findListByCafe(cafe.getId());
         
         model.addAttribute("cafe", cafe);
         model.addAttribute("cafeManager", cafeManager);
@@ -55,12 +55,12 @@ public class CafeController {
             @PathVariable String nickname,
             @PathVariable Integer boardId,
             Model model) {
-        CafeVO cafe = cafeService.findByNickname(nickname);
+        CafeDto cafe = cafeService.findByNickname(nickname);
         cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
-        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
-        List<Article> articles = new ArrayList<Article>();
+        CafeMemberDto cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        List<ArticleDto> articles = new ArrayList<ArticleDto>();
         
-        for (Board board : cafe.getBoards()) {
+        for (BoardDto board : cafe.getBoards()) {
             if (board.getId().equals(boardId)) {
                 model.addAttribute("board", board);
                 articles = articleService.findListByBoard(boardId);
@@ -78,10 +78,10 @@ public class CafeController {
             @PathVariable String nickname,
             @PathVariable Integer articleId,
             Model model) {
-        CafeVO cafe = cafeService.findByNickname(nickname);
+        CafeDto cafe = cafeService.findByNickname(nickname);
         cafe.setArticleCount(articleService.getArticleCountByCafe(cafe.getId()));
-        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
-        Article article = articleService.read(articleId);
+        CafeMemberDto cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        ArticleDto article = articleService.read(articleId);
         
         model.addAttribute("cafe", cafe);
         model.addAttribute("cafeManager", cafeManager);

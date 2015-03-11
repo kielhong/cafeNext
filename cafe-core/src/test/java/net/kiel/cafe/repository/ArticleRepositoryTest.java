@@ -10,11 +10,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeNextCoreApplication;
-import net.kiel.cafe.entity.ArticleEntity;
-import net.kiel.cafe.entity.BoardEntity;
+import net.kiel.cafe.entity.Article;
+import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeCategoryEntity;
-import net.kiel.cafe.entity.MemberEntity;
+import net.kiel.cafe.entity.CafeCategory;
+import net.kiel.cafe.entity.Member;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,9 +32,9 @@ public class ArticleRepositoryTest {
     
     @Before
     public void setUp() {
-        ArticleEntity articleEntity = new ArticleEntity();
+        Article articleEntity = new Article();
         
-        CafeCategoryEntity category = new CafeCategoryEntity();
+        CafeCategory category = new CafeCategory();
         category.setId(100);
         category.setName("test category");        
         Cafe cafe = new Cafe();
@@ -42,13 +42,13 @@ public class ArticleRepositoryTest {
         cafe.setDomain("testcafe");
         cafe.setDescription("test cafe description");
         cafe.setCategory(category);        
-        BoardEntity board = new BoardEntity();
+        Board board = new Board();
         board.setTitle("board");
         board.setDescription("test board description");
-        board.setType(BoardEntity.Type.GENERAL);
+        board.setType(Board.Type.GENERAL);
         board.setCafe(cafe);
         articleEntity.setBoard(board);
-        MemberEntity member = new MemberEntity();
+        Member member = new Member();
         member.setNickname("testmember");
         articleEntity.setMember(member);
         articleEntity.setTitle("Article Test Case Title");
@@ -62,10 +62,10 @@ public class ArticleRepositoryTest {
     @Test
     public void testSelectByCafe() {
         final Integer cafeId = 1;
-        List<ArticleEntity> articles = articleRepository.selectListByCafe(cafeId);
+        List<Article> articles = articleRepository.selectListByCafe(cafeId);
         
         assertThat(articles, notNullValue());
-        for (ArticleEntity articleEntity : articles) {
+        for (Article articleEntity : articles) {
             assertThat(articleEntity.getBoard().getCafe().getId(), is(cafeId));
         }
     }
@@ -73,10 +73,10 @@ public class ArticleRepositoryTest {
     @Test
     public void testSelectByBoard() {
         final Integer boardId = 1;
-        List<ArticleEntity> articles = articleRepository.selectListByBoard(boardId);
+        List<Article> articles = articleRepository.selectListByBoard(boardId);
         
         assertThat(articles, notNullValue());
-        for (ArticleEntity articleEntity : articles) {
+        for (Article articleEntity : articles) {
             assertThat(articleEntity.getBoard().getId(), is(boardId));
         }
     }
@@ -84,7 +84,7 @@ public class ArticleRepositoryTest {
     @Test
     public void testSelectById() {
         final Integer articleId = 1;
-        ArticleEntity articleEntity = articleRepository.selectById(articleId);
+        Article articleEntity = articleRepository.selectById(articleId);
         
         assertThat(articleEntity.getId(), is(articleId));
     }
@@ -106,7 +106,7 @@ public class ArticleRepositoryTest {
     public void testSelectCountByCafe() {
         final Integer cafeId = 1;
         
-        List<ArticleEntity> articles = articleRepository.selectListByCafe(cafeId);
+        List<Article> articles = articleRepository.selectListByCafe(cafeId);
         Long count = articleRepository.selectCountByCafe(cafeId);
         
         assertThat(count, is(new Long(articles.size())));

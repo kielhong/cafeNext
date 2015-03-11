@@ -3,7 +3,7 @@ package net.kiel.cafe.api.controller;
 import java.util.List;
 
 import net.kiel.cafe.service.CafeService;
-import net.kiel.cafe.vo.CafeVO;
+import net.kiel.cafe.vo.CafeDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,16 +18,16 @@ public class CafeController {
     private CafeService cafeService;
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<CafeVO> findAll() {
-        List<CafeVO> cafes = cafeService.findAll();
+    public List<CafeDto> findAll() {
+        List<CafeDto> cafes = cafeService.findAll();
                 
         return cafes;
     }
     
     @RequestMapping(value = "/listByCategory", method = RequestMethod.GET)
-    public List<CafeVO> findByCafetory(
+    public List<CafeDto> findByCafetory(
             @RequestParam("categoryId") Integer categoryId) {
-        List<CafeVO> cafes = cafeService.findByCategory(categoryId);
+        List<CafeDto> cafes = cafeService.findByCategory(categoryId);
                 
         return cafes;
     }

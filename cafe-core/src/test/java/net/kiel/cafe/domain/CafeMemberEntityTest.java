@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.CafeMemberEntity;
+import net.kiel.cafe.entity.CafeMember;
 import net.kiel.cafe.entity.RoleEntity.Role;
 
 import org.hibernate.Session;
@@ -38,7 +38,7 @@ public class CafeMemberEntityTest {
         String query = "FROM CafeMemberEntity";
         
         @SuppressWarnings("unchecked")
-        List<CafeMemberEntity> cafeMembers = session.createQuery(query)
+        List<CafeMember> cafeMembers = session.createQuery(query)
                                 .setParameter("cafeId", cafeId)
                                 .setParameter("role", role)
                                 .list();

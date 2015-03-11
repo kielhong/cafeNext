@@ -8,12 +8,12 @@ import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.RoleEntity;
 
-public class CafeMember {
+public class CafeMemberDto {
     @Getter @Setter
-    private Member member;
+    private MemberDto member;
     
     @Getter @Setter
-    private CafeVO cafe;
+    private CafeDto cafe;
 
     @Getter @Setter
     private RoleEntity role;

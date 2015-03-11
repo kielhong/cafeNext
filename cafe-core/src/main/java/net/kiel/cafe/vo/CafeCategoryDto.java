@@ -3,7 +3,7 @@ package net.kiel.cafe.vo;
 import lombok.Getter;
 import lombok.Setter;
 
-public class CafeCategory {
+public class CafeCategoryDto {
     @Getter @Setter
     private Integer id;
     

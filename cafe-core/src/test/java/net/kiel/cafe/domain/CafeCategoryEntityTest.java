@@ -2,7 +2,7 @@ package net.kiel.cafe.domain;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.CafeCategoryEntity;
+import net.kiel.cafe.entity.CafeCategory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -28,7 +28,7 @@ public class CafeCategoryEntityTest {
     
     @Test
     public void testInsert() {
-        CafeCategoryEntity category = new CafeCategoryEntity();
+        CafeCategory category = new CafeCategory();
         category.setId(100);
         category.setName("test category");
         

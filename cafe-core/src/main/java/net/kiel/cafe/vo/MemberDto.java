@@ -1,10 +1,10 @@
 package net.kiel.cafe.vo;
 
-import net.kiel.cafe.entity.MemberEntity;
+import net.kiel.cafe.entity.Member;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Member {
+public class MemberDto {
 
     @Getter @Setter
     private Integer id;
@@ -12,8 +12,8 @@ public class Member {
     @Getter @Setter
     private String nickname;
     
-    public MemberEntity toMemberEntity() {
-        MemberEntity memberEntity = new MemberEntity();
+    public Member toMemberEntity() {
+        Member memberEntity = new Member();
         memberEntity.setId(id);
         memberEntity.setNickname(nickname);
         

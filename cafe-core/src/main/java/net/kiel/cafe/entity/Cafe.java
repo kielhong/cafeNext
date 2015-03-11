@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
-import net.kiel.cafe.vo.CafeVO;
+import net.kiel.cafe.vo.CafeDto;
 
 @Entity
 @Table(name = "cafe")
@@ -44,20 +44,20 @@ public class Cafe {
     
     @ManyToOne(fetch=FetchType.LAZY)
     @Getter @Setter
-    private CafeCategoryEntity category;
+    private CafeCategory category;
     
     @OneToMany(mappedBy = "cafe", cascade={CascadeType.ALL})
     @OrderBy("id")
     @Getter @Setter
-    private List<BoardEntity> boards;
+    private List<Board> boards;
     
     @Column(name = "created_at", nullable = false)
     @Convert(converter = LocalDateTimePersistenceConverter.class)
     @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now(); 
     
-    public CafeVO toCafeVO(boolean includeBoard) {
-        CafeVO cafeVO = new CafeVO();
+    public CafeDto toCafeVO(boolean includeBoard) {
+        CafeDto cafeVO = new CafeDto();
         
         cafeVO.setId(id);
         cafeVO.setName(name);
@@ -65,7 +65,7 @@ public class Cafe {
         cafeVO.setDescription(description);
         cafeVO.setCreatedAt(createdAt);
         if (includeBoard) {
-            for (BoardEntity boardEntity : boards) {
+            for (Board boardEntity : boards) {
                 cafeVO.getBoards().add(boardEntity.toBoardVO());
             }
         }
