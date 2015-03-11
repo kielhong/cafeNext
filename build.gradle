@@ -60,6 +60,20 @@ project(':cafe-core') {
     bootRepackage.enabled = false
 }
 
+project(':cafe-cafeweb') {
+    dependencies {
+        compile project(':cafe-core')
+         
+        compile "org.springframework.boot:spring-boot-starter-web"
+        compile "org.springframework.boot:spring-boot-starter-freemarker"
+    }
+
+    // for delegate system properties to bootRun
+    tasks.withType(org.springframework.boot.gradle.run.BootRunTask) {
+        systemProperties = System.properties
+    }
+}
+
 project(':cafe-api') {
    dependencies {
         compile project(':cafe-core')

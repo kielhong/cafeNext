@@ -8,10 +8,9 @@
             <div class="fl">
                 <table cellspacing="0" cellpadding="0" border="0">
                     <tr valign="top">
-                        <td>
-                            <span class="b m-tcol-c">aaaa</span></td>
+                        <td><span class="b m-tcol-c">aaaa</span></td>
                         <td nowrap class="m-tcol-c filter-30">&#124;</td>
-                        <td nowrap class="m-tcol-c"><a href="/${cafe.nickname}/board/${article.board.id}" class="m-tcol-c">${article.board.title}</a></td>
+                        <td nowrap class="m-tcol-c"><a href="/${cafe.domain}/board" class="m-tcol-c">#article.board.title</a></td>
                         </tr>
                  </table>
             </div>
@@ -40,7 +39,7 @@
             <table cellspacing="0" cellpadding="0" border="0">
               <tbody>
                 <tr style="vertical-align:top">                        
-                  <td class="reply"><span class="reply b m-tcol-p _totalCnt" >덧글 ${article.comments?size}개</span></td>
+                  <td class="reply"><span class="reply b m-tcol-p _totalCnt" >덧글 ${comments?size}개</span></td>
                   <td class="m-tcol-c filter-30">&#124;</td>
                   <td><span class="b m-tcol-c reply ">조회수 ${article.readCount}</span></td>
                 </tr>
@@ -53,7 +52,7 @@
       <#-- comment list -->          
       <div class="box-reply2 bg-color" style="display:block;">      
         <ul class="cmlist" id="cmt_list">
-          <#list article.comments as comment>
+          <#list comments as comment>
           <li style="margin-top:10px; padding:0; height:40px;">
                                                                           
               <span style="font-weight:bold">${comment.member.nickname}</span>    

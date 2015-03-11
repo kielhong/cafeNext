@@ -11,17 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.dto.BoardDto;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name = "board")
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,16 +56,5 @@ public class Board {
     public String toString() {
         return "Board [id=" + id + ", cafe.id=" + cafe.getId() + ", title=" + title + ", description=" + description + ", type="
                 + type + ", createdAt=" + createdAt + "]";
-    }
-    
-    public BoardDto toBoardVO() {
-        BoardDto board = new BoardDto();
-        board.setId(this.id);
-        board.setTitle(title);
-        board.setDescription(description);
-        board.setType(type);
-        board.setCreatedAt(createdAt);
-        
-        return board;
     }
 }

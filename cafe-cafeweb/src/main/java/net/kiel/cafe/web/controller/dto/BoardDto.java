@@ -1,4 +1,4 @@
-package net.kiel.cafe.dto;
+package net.kiel.cafe.web.controller.dto;
 
 import java.time.LocalDateTime;
 
@@ -11,8 +11,7 @@ public class BoardDto {
     @Getter @Setter
     private Integer id;
     
-    @Getter @Setter
-    private CafeDto cafe;
+
     
     @Getter @Setter
     private String title;

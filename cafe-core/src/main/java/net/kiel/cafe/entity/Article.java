@@ -14,18 +14,16 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.dto.ArticleDto;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
-@Table(name = "article")
 public class Article {
     @Id
     @GeneratedValue
@@ -64,26 +62,7 @@ public class Article {
 
     @Column(name = "created_at")
     @Convert(converter = LocalDateTimePersistenceConverter.class)
+    @LastModifiedDate
     @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
-    
-    
-    public ArticleDto toArticleVO(boolean includeComment) {
-        ArticleDto article = new ArticleDto();
-        article.setId(id);
-        article.setBoard(board.toBoardVO());
-        article.setMember(member.toMemberVO());
-        article.setTitle(title);
-        article.setContent(content);
-        article.setReadCount(readCount);
-        article.setRecommendCount(recommendCount);
-        article.setCreatedAt(createdAt);
-        if (includeComment) {
-            for (Comment comment : comments) {
-                article.getComments().add(comment.toCommentVO());
-            }
-        }
-        
-        return article;
-    }
 }

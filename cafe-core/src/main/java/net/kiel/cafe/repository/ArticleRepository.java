@@ -7,13 +7,20 @@ import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ArticleRepository extends JpaRepository<Article, Long>{
     List<Article> findByBoardCafe(Cafe cafe);
+    Long countByBoardCafe(Cafe cafe);
+    
     List<Article> findByBoardCafeId(Integer cafeId);
     Long countByBoardCafeId(Integer cafeId);
     
+    
     List<Article> findByBoard(Board board);
+    Long countByBoard(Board board);
+    
     List<Article> findByBoardId(Integer boardId);
     
 }

@@ -5,33 +5,29 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import net.kiel.cafe.entity.CafeMember;
+import net.kiel.cafe.entity.RoleEntity.Role;
+import net.kiel.cafe.repository.CafeMemberRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import net.kiel.cafe.dto.CafeMemberDto;
-import net.kiel.cafe.entity.CafeMember;
-import net.kiel.cafe.repository.hibernate.CafeMemberRepositoryImpl;
 
 @Service
 @Transactional
 public class CafeMemberService {
     @Autowired
-    private CafeMemberRepositoryImpl cafeMemberRepository;
+    private CafeMemberRepository cafeMemberRepository;
     
-    public List<CafeMemberDto> listByCafe(Integer cafeId) {
-        List<CafeMemberDto> results = new ArrayList<CafeMemberDto>();
-        
-        List<CafeMember> cafeMemberEntities = cafeMemberRepository.selectListByCafe(cafeId);
-        for (CafeMember cafeMemberEntity : cafeMemberEntities) {
-            results.add(cafeMemberEntity.toCafeMemberVO());
-        }
+    public List<CafeMember> listByCafe(Integer cafeId) {
+        List<CafeMember> results = new ArrayList<CafeMember>();
         
         return results;
     }
     
-    public CafeMemberDto findCafeManager(Integer cafeId) {
-        CafeMember cafeMemberEntity = cafeMemberRepository.selectCafeManager(cafeId);
+    public CafeMember findCafeManager(Integer cafeId) {
+        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRoleRole(cafeId, Role.MANAGER);
         
-        return cafeMemberEntity.toCafeMemberVO();
+        
+        return cafeMembers.get(0);
     }
 }

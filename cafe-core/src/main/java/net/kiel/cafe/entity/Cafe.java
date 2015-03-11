@@ -16,14 +16,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.kiel.cafe.dto.CafeDto;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 @Entity
-@Table(name = "cafe")
+@Table( 
+        uniqueConstraints=
+            @UniqueConstraint(columnNames={"domain"})
+)
 public class Cafe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,25 +55,20 @@ public class Cafe {
     @Getter @Setter
     private List<Board> boards;
     
+    @Transient
+    @Getter @Setter
+    private Long articleCount;
+    
     @Column(name = "created_at", nullable = false)
     @Convert(converter = LocalDateTimePersistenceConverter.class)
     @Getter @Setter
-    private LocalDateTime createdAt = LocalDateTime.now(); 
-    
-    public CafeDto toCafeVO(boolean includeBoard) {
-        CafeDto cafeVO = new CafeDto();
-        
-        cafeVO.setId(id);
-        cafeVO.setName(name);
-        cafeVO.setNickname(domain);
-        cafeVO.setDescription(description);
-        cafeVO.setCreatedAt(createdAt);
-        if (includeBoard) {
-            for (Board boardEntity : boards) {
-                cafeVO.getBoards().add(boardEntity.toBoardVO());
-            }
-        }
-        
-        return cafeVO;
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Override
+    public String toString() {
+        return "Cafe [id=" + id + ", domain=" + domain + ", name=" + name + ", description=" + description
+                + ", category=" + category + ", boards=" + boards + ", createdAt=" + createdAt + "]";
     }
+    
+    
 }

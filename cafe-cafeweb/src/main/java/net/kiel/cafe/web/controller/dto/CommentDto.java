@@ -1,4 +1,4 @@
-package net.kiel.cafe.dto;
+package net.kiel.cafe.web.controller.dto;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -15,8 +15,6 @@ public class CommentDto {
     @Getter @Setter
     private String content;
 
-    @Getter @Setter
-    private ArticleDto article;
     
     @Getter @Setter
     private MemberDto member;

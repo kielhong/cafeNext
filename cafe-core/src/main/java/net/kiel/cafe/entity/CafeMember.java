@@ -9,10 +9,9 @@ import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import net.kiel.cafe.dto.CafeMemberDto;
-import net.kiel.cafe.entity.id.CafeMemberId;
-import lombok.Setter;
 import lombok.Getter;
+import lombok.Setter;
+import net.kiel.cafe.entity.id.CafeMemberId;
 
 @Entity
 @Table(name = "cafe_member")
@@ -35,14 +34,4 @@ public class CafeMember {
     @Column(name = "joined_at")
     @Getter @Setter
     private LocalDateTime joinedAt;
-    
-    public CafeMemberDto toCafeMemberVO() {
-        CafeMemberDto cafeMemberVO = new CafeMemberDto();
-        cafeMemberVO.setMember(member.toMemberVO());
-        cafeMemberVO.setCafe(cafe.toCafeVO(false));
-        cafeMemberVO.setRole(role);
-        cafeMemberVO.setJoinedAt(joinedAt);
-        
-        return cafeMemberVO;
-    }
 }

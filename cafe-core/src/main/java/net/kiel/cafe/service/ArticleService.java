@@ -1,13 +1,9 @@
 package net.kiel.cafe.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.dto.ArticleDto;
 import net.kiel.cafe.entity.Article;
-import net.kiel.cafe.repository.hibernate.ArticleRepositoryImpl;
+import net.kiel.cafe.repository.ArticleRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,52 +12,19 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class ArticleService {
     @Autowired
-    private ArticleRepositoryImpl articleRepository;
+    private ArticleRepository articleRepository;
     
-    public List<ArticleDto> findListByCafe(Integer cafeId) {
-        List<ArticleDto> results = new ArrayList<ArticleDto>();
-        
-        List<Article> articles = articleRepository.selectListByCafe(cafeId);
-        
-        for (Article articleEntity : articles) {
-            results.add(articleEntity.toArticleVO(false));
-        }
-        
-        return results;
+    
+    public Long getArticleCountByCafeId(Integer cafeId) {
+        return articleRepository.countByBoardCafeId(cafeId);
     }
     
-    public Long getArticleCountByCafe(Integer cafeId) {
-        return articleRepository.selectCountByCafe(cafeId);
-    }
-    
-    public List<ArticleDto> findListByBoard(Integer boardId) {
-        List<ArticleDto> results = new ArrayList<ArticleDto>();
         
-        List<Article> articles = articleRepository.selectListByBoard(boardId);
-        
-        for (Article articleEntity : articles) {
-            results.add(articleEntity.toArticleVO(false));
-        }
-        
-        return results;
-    }
-    
-    public ArticleDto findById(Integer id) {
-        Article article = articleRepository.selectById(id);
-        
-        return article.toArticleVO(true);
-    }
-    
-    public ArticleDto read(Integer id) {
-        Article article = articleRepository.selectById(id);
+    public Article read(Long id) {
+        Article article = articleRepository.findOne(id);
         article.setReadCount(article.getReadCount() + 1);
-        articleRepository.update(article);
         
-        return article.toArticleVO(true);
-    }
-    
-    public void update(ArticleDto article) {
-        Article articleEntity = article.toArticleEntity();
-        articleRepository.update(articleEntity);
+        return articleRepository.save(article);
+        
     }
 }

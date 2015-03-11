@@ -3,24 +3,22 @@ package net.kiel.cafe.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-import net.kiel.cafe.dto.CommentDto;
 import lombok.Getter;
 import lombok.Setter;
+import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 @Entity
-@Table(name = "comment")
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Getter @Setter
-    private Integer id;
+    private Long id;
     
     @Getter @Setter
     private String content;
@@ -34,18 +32,7 @@ public class Comment {
     private Member member;
     
     @Column(name = "created_at")
+    @Convert(converter = LocalDateTimePersistenceConverter.class)
     @Getter @Setter
     private LocalDateTime createdAt = LocalDateTime.now();
-    
-    public CommentDto toCommentVO() {
-        CommentDto comment = new CommentDto();
-        comment.setId(id);
-        comment.setContent(content);
-        comment.setArticle(article.toArticleVO(false));
-        comment.setMember(member.toMemberVO());
-        comment.setCreatedAt(createdAt);
-        
-        return comment;
-        
-    }
 }

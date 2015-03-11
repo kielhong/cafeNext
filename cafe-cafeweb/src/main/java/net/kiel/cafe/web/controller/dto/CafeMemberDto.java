@@ -1,4 +1,4 @@
-package net.kiel.cafe.dto;
+package net.kiel.cafe.web.controller.dto;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -12,8 +12,6 @@ public class CafeMemberDto {
     @Getter @Setter
     private MemberDto member;
     
-    @Getter @Setter
-    private CafeDto cafe;
 
     @Getter @Setter
     private RoleEntity role;
