@@ -1,32 +1,62 @@
 ext {
-    springVersion = "4.1.1.RELEASE"
-    jacksonVersion = "2.4.3"
+    springVersion = "4.1.5.RELEASE"
+    jacksonVersion = "2.5.1"
+}
+
+buildscript {
+    repositories {
+        maven { url "https://repo.spring.io/libs-release" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE"
+    }
 }
 
 allprojects {
+    apply plugin: "java"
+    apply plugin: "groovy"
+
     group = "net.kiel.cafe"
-    version = "1.0"
+    version = "1.0-SNAPSHOP"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 }
 
 subprojects {
-    apply plugin: "java"
     apply plugin: "eclipse"
-
-    sourceCompatibility = 1.8
+    apply plugin: "spring-boot"
 
     repositories {
         mavenCentral()
     }
 
     dependencies {
-        compile "org.springframework:spring-core:$springVersion"
-        compile "org.springframework:spring-context:$springVersion"
-        
+        //compile "org.springframework:spring-core:$springVersion"
+        //compile "org.springframework:spring-context:$springVersion"
+        compile 'org.projectlombok:lombok:1.14.+'
         ['jackson-core', 'jackson-databind', 'jackson-annotations'].each {
             compile "com.fasterxml.jackson.core:$it:$jacksonVersion"
         }
 
+        runtime "org.codehaus.groovy:groovy-all:2.4.1"
+        
         testCompile "org.springframework:spring-test:$springVersion"
         testCompile "junit:junit:4.11"
     }
+}
+
+project(':cafe-core') {
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-data-jpa"
+        compile "org.springframework.boot:spring-boot-starter-jdbc"
+        compile "mysql:mysql-connector-java:5.1.+"
+        runtime "com.h2database:h2:1.4.181"
+        compile "org.apache.tomcat:tomcat-jdbc:8.0.+"
+
+        testCompile "org.spockframework:spock-spring:1.0-groovy-2.4"
+    }
+
+    bootRepackage.enabled = false
 }

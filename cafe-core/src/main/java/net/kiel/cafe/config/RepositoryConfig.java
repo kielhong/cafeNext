@@ -6,16 +6,14 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
-@Import(PropertyConfig.class)
-@EnableTransactionManagement
+// example code for custom hibernate configuration
+//@Configuration
+//@Import(PropertyConfig.class)
+//@EnableTransactionManagement
 public class RepositoryConfig {
     @Value("${datasource.driverClassName}") private String datasourceDriverClassName;
     @Value("${datasource.url}") private String datasourceUrl;
