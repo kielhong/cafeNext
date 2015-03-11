@@ -22,3 +22,7 @@ Naver Cafe Simple Clone
 * cafe-api
  * internal API
  * Rest API
+
+## Run Application
+* cafe-cafeweb(port:8081), cafe-sectionweb(port:8080), cafe-api(port:8083)
+ * gradle bootRun -Dspring.profiles.active=local
