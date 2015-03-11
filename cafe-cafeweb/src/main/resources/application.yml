@@ -10,8 +10,7 @@ spring:
             encoding: UTF-8
 ---
 spring:
-    profiles: localhost
-spring:
+    profiles: local
     main:
         show-banner: false
     datasource:
@@ -20,7 +19,7 @@ spring:
         username: root
         password: 123!@#            
 server:
-    port: 9001
+    port: 8081
 hibernate:
     dialect: org.hibernate.dialect.MySQLDialect
     driverClass: com.mysql.jdbc.Driver

@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import net.kiel.cafe.dto.CafeDto;
 import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.repository.CafeRepository;
+import net.kiel.cafe.repository.hibernate.CafeRepositoryImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

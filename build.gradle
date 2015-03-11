@@ -30,11 +30,10 @@ subprojects {
 
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
-        //compile "org.springframework:spring-core:$springVersion"
-        //compile "org.springframework:spring-context:$springVersion"
         compile 'org.projectlombok:lombok:1.14.+'
         ['jackson-core', 'jackson-databind', 'jackson-annotations'].each {
             compile "com.fasterxml.jackson.core:$it:$jacksonVersion"
@@ -59,4 +58,20 @@ project(':cafe-core') {
     }
 
     bootRepackage.enabled = false
+}
+
+project(':cafe-api') {
+   dependencies {
+        compile project(':cafe-core')
+     
+        compile "org.springframework.boot:spring-boot-starter-web"
+
+        // Swagger
+        compile "com.mangofactory:swagger-springmvc:1.0.0"
+    }
+
+    // for delegate system properties to bootRun
+    tasks.withType(org.springframework.boot.gradle.run.BootRunTask) {
+        systemProperties = System.properties
+    }
 }
