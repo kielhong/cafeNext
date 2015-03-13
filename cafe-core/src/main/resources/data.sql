@@ -6,7 +6,7 @@ INSERT INTO cafe (id, category_id, domain, name, description, created_at) VALUES
 INSERT INTO cafe (id, category_id, domain, name, description, created_at) VALUES (2, 1, 'next', 'next test', 'next test desc', '2014-11-11 00:00:00');
 
 /** Member **/
-INSERT INTO member (id, nickname) VALUES (1, 'CafeOne');
+INSERT INTO member (id, nickname) VALUES (1, 'Member One');
 
 /** Role **/
 INSERT INTO role (id, cafe_id, role) VALUES (1,1,0),(2,1,1),(3,1,2);
@@ -18,3 +18,7 @@ INSERT INTO board (id, cafe_id, title, description, type, created_at) VALUES (1,
 
 /** Article **/
 INSERT INTO article (id, board_id, member_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 1, 'test article', 'test content', '2014-11-10 00:00:00', 60, 61);
+INSERT INTO article (id, board_id, member_id, title, content, created_at, read_count, recommend_count) VALUES (2, 1, 1, 'test article 2', 'test content very short', '2015-03-10 00:00:00', 0, 0);
+
+/** Comment **/
+INSERT INTO comment (content, article_id, member_id, create_date) VALUES ('test comment', 1, 1, '2014-11-21 00:00:00'),('test comment22', 1, 1, '2014-11-21 01:00:00'),('test comment333', 1, 1, '2014-11-21 02:00:00'),('test comment44', 1, 1, '2014-11-21 00:00:00'),('test comment54', 1, 1, '2014-11-21 00:00:00'),('test comment6', 1, 1, '2014-11-21 00:00:00'),('test comment7', 1, 1, '2014-11-21 00:00:00'),('test comment8', 1, 1, '2014-11-21 00:00:00'),('test comment9', 1, 1, '2014-11-21 00:00:00'),('test comment10', 1, 1, '2014-11-21 00:00:00'),('test comment11', 1, 1, '2014-11-21 00:00:00')

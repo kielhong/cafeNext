@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/cafe")
+@RequestMapping(value = "cafe")
 public class CafeController {
     @Autowired
     private CafeRepository cafeRepository;
     
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "list", method = RequestMethod.GET)
     public List<CafeDto> findAll() {
         List<Cafe> cafes = cafeRepository.findAll();
                 
         return cafes.stream().map(CafeDto::new).collect(Collectors.toList());
     }
     
-    @RequestMapping(value = "/listByCategory", method = RequestMethod.GET)
+    @RequestMapping(value = "listByCategory", method = RequestMethod.GET)
     public List<CafeDto> findByCafetory(@RequestParam Integer categoryId) {
         List<Cafe> cafes = cafeRepository.findByCategoryId(categoryId);
         

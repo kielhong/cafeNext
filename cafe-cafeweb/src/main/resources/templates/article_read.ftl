@@ -10,7 +10,7 @@
                     <tr valign="top">
                         <td><span class="b m-tcol-c">aaaa</span></td>
                         <td nowrap class="m-tcol-c filter-30">&#124;</td>
-                        <td nowrap class="m-tcol-c"><a href="/${cafe.domain}/board" class="m-tcol-c">#article.board.title</a></td>
+                        <td nowrap class="m-tcol-c"><a href="/${cafe.domain}/board/${board.id}" class="m-tcol-c">${board.title}</a></td>
                         </tr>
                  </table>
             </div>
@@ -39,7 +39,7 @@
             <table cellspacing="0" cellpadding="0" border="0">
               <tbody>
                 <tr style="vertical-align:top">                        
-                  <td class="reply"><span class="reply b m-tcol-p _totalCnt" >덧글 ${comments?size}개</span></td>
+                  <td class="reply"><span class="reply b m-tcol-p _totalCnt" >덧글 ${article.commentCount}개</span></td>
                   <td class="m-tcol-c filter-30">&#124;</td>
                   <td><span class="b m-tcol-c reply ">조회수 ${article.readCount}</span></td>
                 </tr>
@@ -52,14 +52,14 @@
       <#-- comment list -->          
       <div class="box-reply2 bg-color" style="display:block;">      
         <ul class="cmlist" id="cmt_list">
-          <#list comments as comment>
+          <#-- <#list comments as comment>
           <li style="margin-top:10px; padding:0; height:40px;">
                                                                           
-              <span style="font-weight:bold">${comment.member.nickname}</span>    
-              <span class="m-tcol-c">${comment.createdAt?string("yyyy.MM.dd hh:mm")}</span>    
+              <span style="font-weight:bold"><#--${comment.member.nickname} --></span>    
+              <span class="m-tcol-c"><#--${comment.createdAt?string("yyyy.MM.dd hh:mm")} --></span>    
               <span><a href="#" class="m-tcol-c">답글</a></span>                     
             
-            <p class="comm m-tcol-c"><span class="comm_body">${comment.content}</span></p>
+            <p class="comm m-tcol-c"><span class="comm_body"><#--${comment.content}--></span></p>
           </li>
           <li class="filter-30 board-box-line-dashed"></li>
           <!--
@@ -67,18 +67,18 @@
             <div class="comm_cont">
               <div class="h">             
                 <div class="pers_nick_area">                                                                    
-                  <p class="p-nick m-tcol-c _nickUI">${comment.member.nickname}</p>                         
+                  <p class="p-nick m-tcol-c _nickUI"><#--${comment.member.nickname}--></p>                         
                 </div>              
-                <span class="date m-tcol-c filter-50">${comment.createdAt?string("yyyy.MM.dd hh:mm")}</span>               
+                <span class="date m-tcol-c filter-50"><#--${comment.createdAt?string("yyyy.MM.dd hh:mm")}--></span>               
                 <span class="dsc_comm"><a href="#" class="m-tcol-c  _btnReply">답글</a></span>                
                 <p class="btn_edit m-tcol-c"><a href="#" class="filter-70 m-tcol-c _btnDelete">삭제</a></p>           
               </div>            
-              <p class="comm  m-tcol-c"><span class="comm_body">${comment.content}</span></p>
+              <p class="comm  m-tcol-c"><span class="comm_body"><#--${comment.content}--></span></p>
             </div>
           </li>
           <li class=" board-box-line-dashed"></li>
           -->
-          </#list>
+          <#-- </#list> -->
         </ul>
         <div style="clear: both; height: 0pt; font: 0pt/0pt arial;"></div>                                 
         <table cellspacing="0" class="cminput">
@@ -112,6 +112,7 @@
   <div class="h-35"></div>
   
   <#-- related articles -->
+  <!--
   <div class="article-board article_prenet">
     <table cellspacing="0" cellpadding="0" border="0" width="100%">
         <col width="81"><col width="*"><col width="120"><col width="92">
@@ -129,6 +130,34 @@
         <tr><td colspan="4" class="board-line"></td></tr>
     </table>
   </div>
+  -->
   
+<script  type="text/javascript">
+function loadComment(data) {
+  $("#cmt_list").empty();
+  
+  for (var i = 0; i < data.length; i++) {
+    var comment = data[i];
+    $("#cmt_list").append("<li style=\"margin-top:10px; padding:0; height:40px;\">" 
+                        + "<span style=\"font-weight:bold\">" 
+                        + comment.member.nickname 
+                        + "</span><span class=\"m-tcol-c\">" 
+                        + comment.createDate 
+                        + "</span><span><a href=\"#\" class=\"m-tcol-c\">답글</a></span><p class=\"comm m-tcol-c\"><span class=\"comm_body\">" 
+                        + comment.content 
+                        + "</span></p></li>"
+                        + "<li class=\"filter-30 board-box-line-dashed\"></li>");
+  }
+}
+
+$(document).ready(function(){
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:8083/article/${article.id}/comment/list"
+  }).success(function(data) {
+    loadComment(data);
+  });
+});
+</script>  
  
 </@layout.cafeLayout>

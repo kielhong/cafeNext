@@ -7,13 +7,14 @@ import net.kiel.cafe.entity.Article;
 import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.entity.CafeMember;
-import net.kiel.cafe.entity.Comment;
 import net.kiel.cafe.repository.ArticleRepository;
+import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.repository.CommentRepository;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
 import net.kiel.cafe.web.controller.dto.ArticleDto;
+import net.kiel.cafe.web.controller.dto.BoardDto;
 import net.kiel.cafe.web.controller.dto.CafeDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,8 @@ public class CafeController {
     private ArticleRepository articleRepository;
     @Autowired
     private CommentRepository commentRepository;
-    
+    @Autowired
+    private BoardRepository boardRepository;
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
@@ -49,11 +51,13 @@ public class CafeController {
             Model model) {
         
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
+        List<Board> boards = cafe.getBoards();
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         List<Article> articles = articleRepository.findByBoardCafe(cafe);
         
         model.addAttribute("cafe", new CafeDto(cafe));
         model.addAttribute("cafeManager", cafeManager);
+        model.addAttribute("boards", boards.stream().map(BoardDto::new).collect(Collectors.toList()));
         model.addAttribute("articles", articles.stream().map(ArticleDto::new).collect(Collectors.toList()));
         
         return "cafe";
@@ -66,15 +70,14 @@ public class CafeController {
             Model model) {
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        List<Board> boards = cafe.getBoards();
+        Board board = boardRepository.findOne(boardId);
         List<Article> articles = articleRepository.findByBoardId(boardId);
         
-        for (Board board : cafe.getBoards()) {
-            if (board.getId().equals(boardId)) {
-                model.addAttribute("board", board);
-            }
-        }
         model.addAttribute("cafe", new CafeDto(cafe));
         model.addAttribute("cafeManager", cafeManager);
+        model.addAttribute("boards", boards.stream().map(BoardDto::new).collect(Collectors.toList()));
+        model.addAttribute("board", new BoardDto(board));
         model.addAttribute("articles", articles.stream().map(ArticleDto::new).collect(Collectors.toList()));
         
         return "article_list";
@@ -86,14 +89,17 @@ public class CafeController {
             @PathVariable Long articleId,
             Model model) {
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
+        List<Board> boards = cafe.getBoards();
         CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         Article article = articleService.read(articleId);
-        List<Comment> comments = commentRepository.findByArticle(article);
+        Board board = article.getBoard();
+                
         
         model.addAttribute("cafe", new CafeDto(cafe));
         model.addAttribute("cafeManager", cafeManager);
+        model.addAttribute("boards", boards.stream().map(BoardDto::new).collect(Collectors.toList()));
+        model.addAttribute("board", new BoardDto(board));
         model.addAttribute("article", new ArticleDto(article));
-        model.addAttribute("comments", comments);
         
         return "article_read";
     }

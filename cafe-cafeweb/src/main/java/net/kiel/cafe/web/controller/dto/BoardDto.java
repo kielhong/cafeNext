@@ -1,41 +1,36 @@
 package net.kiel.cafe.web.controller.dto;
 
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
 import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Board.Type;
 
 public class BoardDto {
-    @Getter @Setter
-    private Integer id;
+    private Board board;
     
-
-    
-    @Getter @Setter
-    private String title;
-    
-    @Getter @Setter
-    private String description;
-
-    @Getter @Setter
-    private Type type;
-
-    @Getter @Setter
-    private int articleCount;
-    
-    @Getter @Setter
-    private LocalDateTime createdAt;
-    
-    public Board toBoardEntity() {
-        Board boardEntity = new Board();
-        boardEntity.setId(this.id);
-        boardEntity.setTitle(title);
-        boardEntity.setDescription(description);
-        boardEntity.setType(type);
-        boardEntity.setCreatedAt(createdAt);
-        
-        return boardEntity;
+    public BoardDto(Board board) {
+        this.board = board;
     }
+    
+    public Integer getId() {
+        return board.getId();
+    }
+    
+    public String getTitle() {
+        return board.getTitle();
+    }
+    
+    public String getDescription() {
+        return board.getDescription();
+    }
+    
+    public Type getType() {
+        return board.getType();
+    }
+    
+    public Date getCreateDate() {
+        return Date.from(board.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant());
+    }
+
 }

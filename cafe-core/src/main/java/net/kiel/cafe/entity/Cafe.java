@@ -50,7 +50,7 @@ public class Cafe {
     @Getter @Setter
     private CafeCategory category;
     
-    @OneToMany(mappedBy = "cafe", cascade={CascadeType.ALL})
+    @OneToMany(mappedBy = "cafe", cascade={CascadeType.ALL}, fetch=FetchType.LAZY)
     @OrderBy("id")
     @Getter @Setter
     private List<Board> boards;

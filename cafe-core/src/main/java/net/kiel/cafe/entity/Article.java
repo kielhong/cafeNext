@@ -1,8 +1,6 @@
 package net.kiel.cafe.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -12,15 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
@@ -34,7 +29,7 @@ public class Article {
     @Getter @Setter
     private Member member;    
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @Getter @Setter
     private Board board;
     
@@ -54,11 +49,15 @@ public class Article {
     @Getter @Setter
     private Integer recommendCount = 0;
     
-    @OneToMany(mappedBy = "article", fetch=FetchType.LAZY)
-    @Cascade({CascadeType.SAVE_UPDATE})
-    @OrderBy("id DESC")
+    @Transient
     @Getter @Setter
-    private List<Comment> comments = new ArrayList<Comment>();
+    private Long commentCount;
+    
+//    @OneToMany(fetch=FetchType.LAZY)
+//    @Cascade({CascadeType.SAVE_UPDATE})
+//    @OrderBy("id DESC")
+//    @Getter @Setter
+//    private List<Comment> comments;
 
     @Column(name = "created_at")
     @Convert(converter = LocalDateTimePersistenceConverter.class)

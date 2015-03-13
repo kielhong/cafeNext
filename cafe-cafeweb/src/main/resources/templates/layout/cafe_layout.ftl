@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/static/css/mycafe-layout.css" type="text/css">
 <link rel="stylesheet" href="/static/css/mycafe-main.css" type="text/css">
 <link rel="stylesheet" href="/static/css/mycafe-sub.css" type="text/css">
+<script type="text/javascript" src="/static/js/jquery-2.1.1.min.js" charset="utf-8"></script>
 </head>
 
 <body>

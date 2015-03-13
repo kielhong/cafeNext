@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class Comment {
     @Getter @Setter
     private Long id;
     
+    @Column(length = 1024)
     @Getter @Setter
     private String content;
 
@@ -31,8 +33,12 @@ public class Comment {
     @Getter @Setter
     private Member member;
     
-    @Column(name = "created_at")
     @Convert(converter = LocalDateTimePersistenceConverter.class)
     @Getter @Setter
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createDate;
+    
+    @PrePersist
+    private void prePersisit() {
+        createDate = LocalDateTime.now();
+    }
 }
