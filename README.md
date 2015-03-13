@@ -38,5 +38,6 @@ Naver Cafe Simple Clone
 * article read
 * artciel write (to be)
 * article update (to be)
+* comment list
 * comment to article (to be)
 * cafe member join (to be)
