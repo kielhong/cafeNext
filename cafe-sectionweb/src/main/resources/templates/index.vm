@@ -3,6 +3,7 @@
   <title>Cafe Next</title> 
   <link rel="stylesheet" href="/css/section.css" type="text/css">
   <script type="text/javascript" src="/js/jquery-2.1.1.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/js/jquery-dateFormat.min.js" charset="utf-8"></script>
 </head>
 
 <body >

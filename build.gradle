@@ -94,7 +94,7 @@ project(':cafe-api') {
         compile project(':cafe-core')
      
         compile "org.springframework.boot:spring-boot-starter-web"
-
+        compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
         // Swagger
         compile "com.mangofactory:swagger-springmvc:1.0.0"
     }

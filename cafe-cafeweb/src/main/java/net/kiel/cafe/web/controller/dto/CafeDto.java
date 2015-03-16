@@ -1,13 +1,10 @@
 package net.kiel.cafe.web.controller.dto;
 
-import java.time.ZoneId;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CafeDto {
     private Cafe cafe;
@@ -40,8 +37,11 @@ public class CafeDto {
         return cafe.getArticleCount();
     }
     
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    public Date getCreatedAt() {
-        return Date.from(cafe.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant());
+    public LocalDateTime getCreateDate() {
+        return cafe.getCreateDatetime();
+    }
+    
+    public LocalDateTime getUpdateDate() {
+        return cafe.getUpdateDatetime();
     }
 }

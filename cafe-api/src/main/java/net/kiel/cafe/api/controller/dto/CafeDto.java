@@ -1,11 +1,11 @@
 package net.kiel.cafe.api.controller.dto;
 
-import java.time.ZoneId;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import net.kiel.cafe.entity.Cafe;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 public class CafeDto {
     private Cafe cafe;
@@ -28,10 +28,20 @@ public class CafeDto {
     
     public String getDescription() {
         return cafe.getDescription();
+    }    
+    
+    @JsonSerialize(using=LocalDateTimeSerializer.class)
+    public LocalDateTime getCreateDatetime() {
+        return cafe.getCreateDatetime();
     }
     
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    public Date getCreatedDate() {
-        return Date.from(cafe.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant());
+    @JsonSerialize(using=LocalDateTimeSerializer.class)
+    public LocalDateTime getUpdateDatetime() {
+        
+        return cafe.getUpdateDatetime();
     }
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//    public Date getCreatedDate() {
+//        return Date.from(cafe.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant());
+//    }
 }

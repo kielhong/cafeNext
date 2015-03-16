@@ -33,7 +33,7 @@ function listCafe(cafes) {
   
   for (var i = 0; i < cafes.length; i++) {
     var cafe = cafes[i];
-    $("#ListArea").append('<li class="fc"><h5><a class="ellipsis" href="http://localhost:8081/' + cafe.domain + '" style="width:415px">' + cafe.name + '</a></h5><p class="ellipsis" style="width:415px;">' + cafe.description + '</p> <dl class="option"> <dt class="since">since</dt> <dd class="since">' + cafe.createdDate + '</dd></dl><dl class="count"><dt class="member">회원수</dt><dd class="member">1,399,529</dd><dt class="board">게시글</dt><dd class="board">2,027,235</dd></dl></li>');
+    $("#ListArea").append('<li class="fc"><h5><a class="ellipsis" href="http://localhost:8081/' + cafe.domain + '" style="width:415px">' + cafe.name + '</a></h5><p class="ellipsis" style="width:415px;">' + cafe.description + '</p> <dl class="option"> <dt class="since">since</dt> <dd class="since">' + $.format.date(cafe.create_datetime, "yyyy-MM-dd") + '</dd></dl><dl class="count"><dt class="member">회원수</dt><dd class="member">1,399,529</dd><dt class="board">게시글</dt><dd class="board">2,027,235</dd></dl></li>');
   }
 }
 $(document).ready(function(){
