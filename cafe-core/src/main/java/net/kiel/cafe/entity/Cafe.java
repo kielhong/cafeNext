@@ -85,7 +85,7 @@ public class Cafe {
     @Override
     public String toString() {
         return "Cafe [id=" + id + ", domain=" + domain + ", name=" + name + ", description=" + description
-                + ", category=" + category + ", createDate=" + createDatetime + ", updateDate=" + updateDatetime + "]";
+                + ", category=" + category + ", createDatetime=" + createDatetime + ", updateDatetime=" + updateDatetime + "]";
     }
     
     

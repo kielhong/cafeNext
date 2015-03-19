@@ -1,6 +1,7 @@
 package net.kiel.cafe.web.controller.dto;
 
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import net.kiel.cafe.entity.Board;
@@ -37,11 +38,11 @@ public class CafeDto {
         return cafe.getArticleCount();
     }
     
-    public LocalDateTime getCreateDate() {
-        return cafe.getCreateDatetime();
+    public Date getCreateDatetime() {
+        return Date.from(cafe.getCreateDatetime().atZone(ZoneId.systemDefault()).toInstant());
     }
     
-    public LocalDateTime getUpdateDate() {
-        return cafe.getUpdateDatetime();
+    public Date getUpdateDatetime() {
+        return Date.from(cafe.getUpdateDatetime().atZone(ZoneId.systemDefault()).toInstant());
     }
 }

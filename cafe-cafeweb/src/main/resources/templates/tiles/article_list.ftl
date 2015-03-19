@@ -63,6 +63,10 @@
   <div class="prev-next">
     <table summary="페이지 네비게이션" class="Nnavi" align="center">
       <tr>  
+        <#list 0..page.totalPages-1 as p>
+        <td><a href="?page=${p_index}" class="<#if p == page.number>m-tcol-p<#else>m-tcol-c</#if>">${p_index + 1}</a></td>
+        </#list>
+      <!--
           <td class="on"><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=1" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=1', event)" class="m-tcol-p">1</a></td> 
         <td><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=2" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=2', event)" class="m-tcol-c">2</a></td>
         <td><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=3" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=3', event)" class="m-tcol-c">3</a></td>
@@ -73,7 +77,8 @@
           <td><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=8" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=8', event)" class="m-tcol-c">8</a></td>
           <td><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=9" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=9', event)" class="m-tcol-c">9</a></td>
           <td><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=10" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=10', event)" class="m-tcol-c">10</a></td>
-          <td class="pgR"><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=11" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=11', event)" class="m-tcol-c pn"><span>다음</span><span class="ico-bl ico">▶</span></a></td> 
+          <td class="pgR"><a href="/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=11" onclick="return dynamicParamLink('/ArticleList.nhn?search.boardtype=L&search.questionTab=A&search.clubid=13566444&search.totalCount=151&search.page=11', event)" class="m-tcol-c pn"><span>다음</span><span class="ico-bl ico">▶</span></a></td>
+-->           
       </tr>
     </table>      
   </div>

@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="gm-tcol-c">
-                <div class="thm"><a href="/CafeHistoryView.nhn?clubid=10000001" class="gm-tcol-c" target="cafe_main">since ${cafe.createdAt?string("yyyy.MM.dd")}</a></div>
+                <div class="thm"><a href="/CafeHistoryView.nhn?clubid=10000001" class="gm-tcol-c" target="cafe_main">since ${cafe.createDatetime?date}</a></div>
                 <div class="info-view"><a href="#" class="u gm-tcol-c">카페소개</a></div>
             </li>
             <li>

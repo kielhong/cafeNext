@@ -7,10 +7,11 @@ import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ArticleRepository extends JpaRepository<Article, Long>{
+public interface ArticleRepository extends JpaRepository<Article, Long>, JpaSpecificationExecutor<Article>{
     List<Article> findByBoardCafe(Cafe cafe);
     Long countByBoardCafe(Cafe cafe);
     

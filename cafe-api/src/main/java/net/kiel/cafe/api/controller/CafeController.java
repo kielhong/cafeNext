@@ -10,7 +10,6 @@ import net.kiel.cafe.repository.CafeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,16 +19,11 @@ public class CafeController {
     private CafeRepository cafeRepository;
     
     @RequestMapping(value = "list", method = RequestMethod.GET)
-    public List<CafeDto> findAll() {
+    public List<CafeDto> getAllCafes() {
         List<Cafe> cafes = cafeRepository.findAll();
                 
         return cafes.stream().map(CafeDto::new).collect(Collectors.toList());
     }
     
-    @RequestMapping(value = "listByCategory", method = RequestMethod.GET)
-    public List<CafeDto> findByCafetory(@RequestParam Integer categoryId) {
-        List<Cafe> cafes = cafeRepository.findByCategoryId(categoryId);
-        
-        return cafes.stream().map(CafeDto::new).collect(Collectors.toList());
-    }
+
 }

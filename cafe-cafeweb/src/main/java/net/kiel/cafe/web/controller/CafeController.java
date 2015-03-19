@@ -1,6 +1,8 @@
 package net.kiel.cafe.web.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import net.kiel.cafe.entity.Article;
@@ -17,7 +19,12 @@ import net.kiel.cafe.web.controller.dto.ArticleDto;
 import net.kiel.cafe.web.controller.dto.BoardDto;
 import net.kiel.cafe.web.controller.dto.CafeDto;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +33,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class CafeController {
+    final Logger logger = LoggerFactory.getLogger(CafeController.class);
+    
     @Autowired
     private CafeService cafeService;
     @Autowired
@@ -48,17 +57,14 @@ public class CafeController {
     @RequestMapping(value = "/{domain}", method = RequestMethod.GET)
     public String findByDomain(
             @PathVariable String domain,
+            @PageableDefault(size = 15, page = 0) Pageable pageable,
             Model model) {
-        
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
-        List<Board> boards = cafe.getBoards();
-        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
-        List<Article> articles = articleRepository.findByBoardCafe(cafe);
+        Page<Article> page = articleRepository.findAll((r,q,cb) -> cb.equal(r.get("board").get("cafe"), cafe), pageable);
         
-        model.addAttribute("cafe", new CafeDto(cafe));
-        model.addAttribute("cafeManager", cafeManager);
-        model.addAttribute("boards", boards.stream().map(BoardDto::new).collect(Collectors.toList()));
-        model.addAttribute("articles", articles.stream().map(ArticleDto::new).collect(Collectors.toList()));
+        model.addAllAttributes(getCafeInfo(domain));
+        model.addAttribute("articles", page.getContent().stream().map(ArticleDto::new).collect(Collectors.toList()));
+        model.addAttribute("page", page);        
         
         return "cafe";
     }
@@ -67,18 +73,15 @@ public class CafeController {
     public String findBoard(
             @PathVariable String domain,
             @PathVariable Integer boardId,
+            @PageableDefault(size = 15, page = 0) Pageable pageable,
             Model model) {
-        Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
-        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
-        List<Board> boards = cafe.getBoards();
         Board board = boardRepository.findOne(boardId);
-        List<Article> articles = articleRepository.findByBoardId(boardId);
+        Page<Article> page = articleRepository.findAll((r,q,cb) -> cb.equal(r.get("board"), board), pageable);
         
-        model.addAttribute("cafe", new CafeDto(cafe));
-        model.addAttribute("cafeManager", cafeManager);
-        model.addAttribute("boards", boards.stream().map(BoardDto::new).collect(Collectors.toList()));
+        model.addAllAttributes(getCafeInfo(domain));
         model.addAttribute("board", new BoardDto(board));
-        model.addAttribute("articles", articles.stream().map(ArticleDto::new).collect(Collectors.toList()));
+        model.addAttribute("articles", page.getContent().stream().map(ArticleDto::new).collect(Collectors.toList()));
+        model.addAttribute("page", page);
         
         return "article_list";
     }
@@ -88,20 +91,28 @@ public class CafeController {
             @PathVariable String domain,
             @PathVariable Long articleId,
             Model model) {
-        Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
-        List<Board> boards = cafe.getBoards();
-        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        
         Article article = articleService.read(articleId);
         Board board = article.getBoard();
-                
-        
-        model.addAttribute("cafe", new CafeDto(cafe));
-        model.addAttribute("cafeManager", cafeManager);
-        model.addAttribute("boards", boards.stream().map(BoardDto::new).collect(Collectors.toList()));
+                        
+        model.addAllAttributes(getCafeInfo(domain));
         model.addAttribute("board", new BoardDto(board));
         model.addAttribute("article", new ArticleDto(article));
         
         return "article_read";
     }
-    
+
+    private Map<String, Object> getCafeInfo(String domain) {
+        Map<String, Object> cafeBaseAttributes = new HashMap<String, Object>();
+        
+        Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
+        List<Board> boards = cafe.getBoards();
+        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        
+        cafeBaseAttributes.put("cafe", new CafeDto(cafe));
+        cafeBaseAttributes.put("cafeManager", cafeManager);
+        cafeBaseAttributes.put("boards",boards.stream().map(BoardDto::new).collect(Collectors.toList()));
+        
+        return cafeBaseAttributes;
+    }
 }

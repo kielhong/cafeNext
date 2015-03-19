@@ -50,7 +50,7 @@ function selectCategory(category_id, category_name) {
   
   $.ajax({
     type: "GET",
-    url: "http://localhost:8083/cafe/listByCategory?categoryId=" + category_id
+    url: "http://localhost:8083/category/" + category_id + "/cafes"
   }).success(function(data) {
     listCafe(data);
   });
