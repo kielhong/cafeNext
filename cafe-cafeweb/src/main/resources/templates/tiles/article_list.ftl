@@ -43,7 +43,7 @@
         </td>
         <td align="left" class="board-list">
           <span class="aaa">
-            <a href="/${cafe.domain}/${article.id}" class="m-tcol-c">${article.title}</a>
+            <a href="/${cafe.domain}/articles/${article.id}" class="m-tcol-c">${article.title}</a>
           </span>
         </td>
         <td align="left">

@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "cafe")
+@RequestMapping(value = "cafes")
 public class CafeController {
     @Autowired
     private CafeRepository cafeRepository;
     
-    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public List<CafeDto> getAllCafes() {
         List<Cafe> cafes = cafeRepository.findAll();
                 

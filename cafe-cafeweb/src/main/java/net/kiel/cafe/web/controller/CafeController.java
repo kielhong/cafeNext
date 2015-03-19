@@ -69,7 +69,7 @@ public class CafeController {
         return "cafe";
     }
     
-    @RequestMapping(value = "/{domain}/board/{boardId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{domain}/boards/{boardId}", method = RequestMethod.GET)
     public String findBoard(
             @PathVariable String domain,
             @PathVariable Integer boardId,
@@ -86,7 +86,7 @@ public class CafeController {
         return "article_list";
     }
     
-    @RequestMapping(value = "/{domain}/{articleId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{domain}/articles/{articleId}", method = RequestMethod.GET)
     public String readArticle(
             @PathVariable String domain,
             @PathVariable Long articleId,

@@ -39,7 +39,7 @@ function listCafe(cafes) {
 $(document).ready(function(){
   $.ajax({
     type: "GET",
-    url: "http://localhost:8083/cafe/list"
+    url: "http://localhost:8083/cafes"
   }).success(function(data) {
     listCafe(data);
   });
@@ -50,7 +50,7 @@ function selectCategory(category_id, category_name) {
   
   $.ajax({
     type: "GET",
-    url: "http://localhost:8083/category/" + category_id + "/cafes"
+    url: "http://localhost:8083/categories/" + category_id + "/cafes"
   }).success(function(data) {
     listCafe(data);
   });

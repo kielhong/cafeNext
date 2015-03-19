@@ -10,7 +10,7 @@
       <#list boards as board>
       <li>
         <img src="http://cafeimgs.naver.net/cafe4/hidden.gif" class="ico-list" alt="">
-        <a href="/${cafe.domain}/board/${board.id}" class="gm-tcol-c">${board.title}</a>
+        <a href="/${cafe.domain}/boards/${board.id}" class="gm-tcol-c">${board.title}</a>
       </li>
       </#list>
     </ul>

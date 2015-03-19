@@ -10,7 +10,7 @@
                     <tr valign="top">
                         <td><span class="b m-tcol-c">aaaa</span></td>
                         <td nowrap class="m-tcol-c filter-30">&#124;</td>
-                        <td nowrap class="m-tcol-c"><a href="/${cafe.domain}/board/${board.id}" class="m-tcol-c">${board.title}</a></td>
+                        <td nowrap class="m-tcol-c"><a href="/${cafe.domain}/boards/${board.id}" class="m-tcol-c">${board.title}</a></td>
                         </tr>
                  </table>
             </div>
