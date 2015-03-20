@@ -23,7 +23,7 @@ public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
-    private Integer id;
+    private Long id;
     
     @ManyToOne
     @Getter @Setter

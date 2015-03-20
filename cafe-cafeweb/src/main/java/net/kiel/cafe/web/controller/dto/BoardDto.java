@@ -13,7 +13,7 @@ public class BoardDto {
         this.board = board;
     }
     
-    public Integer getId() {
+    public Long getId() {
         return board.getId();
     }
     

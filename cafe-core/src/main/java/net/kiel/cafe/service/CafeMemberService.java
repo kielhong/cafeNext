@@ -1,6 +1,5 @@
 package net.kiel.cafe.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -15,11 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class CafeMemberService {
+    
     @Autowired
     private CafeMemberRepository cafeMemberRepository;
     
-    public List<CafeMember> listByCafe(Integer cafeId) {
-        List<CafeMember> results = new ArrayList<CafeMember>();
+    public List<CafeMember> findAllByCafe(Integer cafeId) {
+        List<CafeMember> results = cafeMemberRepository.findByCafeId(cafeId);
         
         return results;
     }
