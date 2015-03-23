@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeCoreApplication;
 import net.kiel.cafe.entity.CafeMember;
-import net.kiel.cafe.entity.RoleEntity.Role;
+import net.kiel.cafe.entity.CafeMember.Role;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,13 +39,13 @@ public class CafeMemberRepositoryTest {
     @Test
     public void testSelectCafeManager() {
         final Integer cafeId = 1;
-        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRoleRole(cafeId, Role.MANAGER);
+        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRole(cafeId, Role.MANAGER);
         
         CafeMember manager = cafeMembers.get(0);
         
         assertThat(manager, notNullValue());
         assertThat(manager.getCafe().getId(), is(cafeId));
-        assertThat(manager.getRole().getRole(), is(Role.MANAGER));
+        assertThat(manager.getRole(), is(Role.MANAGER));
     }
 
 }

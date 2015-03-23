@@ -7,7 +7,6 @@ import net.kiel.cafe.entity.Article;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 
 //@Repository
 @Deprecated

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.entity.CafeMember;
-import net.kiel.cafe.entity.RoleEntity.Role;
+import net.kiel.cafe.entity.CafeMember.Role;
 import net.kiel.cafe.repository.CafeMemberRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class CafeMemberService {
     }
     
     public CafeMember findCafeManager(Integer cafeId) {
-        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRoleRole(cafeId, Role.MANAGER);
+        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRole(cafeId, Role.MANAGER);
         
         
         return cafeMembers.get(0);

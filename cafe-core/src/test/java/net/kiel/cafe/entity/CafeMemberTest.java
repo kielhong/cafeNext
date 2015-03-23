@@ -7,6 +7,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeCoreApplication;
+import net.kiel.cafe.entity.CafeMember.Role;
 import net.kiel.cafe.repository.CafeMemberRepository;
 
 import org.junit.Test;
@@ -23,9 +24,8 @@ public class CafeMemberTest {
     @Test
     public void testCafeMemberRole() {
         Integer cafeId = 1;
-        RoleEntity.Role role = RoleEntity.Role.MANAGER;
         
-        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRoleRole(cafeId, role);
+        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRole(cafeId, Role.MANAGER);
         
         assertNotNull(cafeMembers);
     }

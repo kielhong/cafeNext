@@ -6,7 +6,6 @@ import net.kiel.cafe.entity.CafeMember;
 import net.kiel.cafe.entity.RoleEntity.Role;
 
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 
 //@Repository
 @Deprecated

@@ -12,7 +12,7 @@ INSERT INTO member (id, nickname) VALUES (1, 'Member One');
 /** Role **/
 INSERT INTO role (id, cafe_id, role) VALUES (1,1,0),(2,1,1),(3,1,2);
 /** Cafe Member **/
-INSERT INTO cafe_member (member_id, cafe_id, create_datetime, role_id) VALUES (1, 1, '2011-11-21 00:00:00', 1);
+INSERT INTO cafe_member (member_id, cafe_id, create_datetime, role) VALUES (1, 1, '2011-11-21 00:00:00', 'MANAGER');
 
 /** Board **/
 INSERT INTO board (id, cafe_id, title, description, type, created_at) VALUES (1, 1, 'test board', 'test board', 'GENERAL', '2014-11-10 00:00:00');

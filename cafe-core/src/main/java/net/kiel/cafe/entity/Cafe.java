@@ -11,40 +11,42 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
 
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 @Entity
-@Table( 
-        uniqueConstraints=
-            @UniqueConstraint(columnNames={"domain"})
-)
 public class Cafe {
+    public Cafe() {}
+    
+    public Cafe(String domain, String name, CafeCategory category, String description) {
+        this.domain = domain;
+        this.name = name;
+        this.category = category;
+        this.description = description;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
     private Integer id;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length=20, unique = true)
     @Getter @Setter
     private String domain;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length=60)
     @Getter @Setter
     private String name;
     
-    @Lob
+    @Column(length=100)
     @Getter @Setter
     private String description;
     

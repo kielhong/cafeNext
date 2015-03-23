@@ -4,7 +4,7 @@
         <p class="blind">나와 같은 관심사를 가진 멤버를 모집하고 열심히 운영하여 카페를 성장시켜보세요.</p>
     </div>
 
-    <form name="frm" method="post" action="/cafe">
+    <form name="frm" method="post" action="/cafe/create">
             <input type="hidden" name="csKey" value="NTVGbVdQrzG3ICz4" />
             <input type="hidden" name="clubnameck" value="" />
             <input type="hidden" name="cluburlck" value="" />
@@ -27,7 +27,7 @@
                 <th scope="row" class="th_name"><div class="stit">카페이름</th>
                 <td>
                     <div class="input_area">
-                        <input type="text" name="club.clubname" title="카페이름" value="" class="input_txt __notnull __byte(1~60) _unvalid _keydown(CafeCreate|Submit)" style="width:515px;" maxlength="120"><!-- [D]마우스클릭시 클래스 추가 spot_on -->
+                        <input type="text" name="name" title="카페이름" value="" class="input_txt __notnull __byte(1~60) _unvalid _keydown(CafeCreate|Submit)" style="width:515px;" maxlength="120"><!-- [D]마우스클릭시 클래스 추가 spot_on -->
                         <span class="byte"><strong>0</strong> / 60 bytes</span>
                     </div>
                     <p class="txt">카페주제와 어울리는 이름으로 입력하면 많은 사람들이 카페를 찾기가 쉬워집니다.</p>
@@ -47,7 +47,7 @@
                 <th scope="row" class="th_dir"><div class="stit">디렉토리</div></th>
                 <td id="directoryAreaTd">
                     <div class="rel">
-                        <select name="category" id="group1" style="width:240px" class="_change(CafeCreate|LoadSubCategory|1)" title="대분류 선택">
+                        <select name="categoryId" id="group1" style="width:240px" class="_change(CafeCreate|LoadSubCategory|1)" title="대분류 선택">
                             <option value="-1">분류 선택</option>
                             #foreach ($category in $categories)
                             <option value="$category.id" >$category.name</option>
@@ -65,7 +65,7 @@
                 <th scope="row" class="th_dsc"><div class="stit">카페설명</div></th>
                 <td>
                     <div class="input_area">
-                        <textarea name="club.introduction" cols="30" rows="5" title="카페설명" class="input_txt3 __byte(1~100) __notnull" maxlength="200"></textarea><!-- [D]마우스클릭시 클래스 추가 on -->
+                        <textarea name="description" cols="30" rows="5" title="카페설명" class="input_txt3 __byte(1~100) __notnull" maxlength="200"></textarea><!-- [D]마우스클릭시 클래스 추가 on -->
                         <span class="byte"><strong>0</strong> / 100 bytes</span>
                     </div>
                     <p class="txt">입력한 내용이 카페 메인, 검색결과 등의 카페리스트에 반영됩니다.</p>
