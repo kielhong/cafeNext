@@ -13,20 +13,8 @@
   #parse("tiles/section_header.vm")
 
   <div id="container" class="main">
-
-    ## #parse("tiles/spot.vm")
-  
-    ## #parse("tiles/volumn_message.vm")
-        
     <div id="content">  
-      <ul class="tab_cafe"> 
-      <li class="t1 on"><a id="focusTop" href="/SectionHome.nhn?t=1"><span>주제별 카페</span><em class="blind">선택됨</em></a></li> 
-      <li class="t2 "><a href="/AreaPowerCafeHome.nhn?t=2"><span>지역별 카페</span></a></li>
-      <li class="t3"><a href="#"><span>가입카페 새글 소식</span></a></li> 
-      </ul> 
-
-      #parse("tiles/category_cafe_list.vm")
-      
+        #parse("tiles/cafe_create_form.vm")      
     </div>
         
     #parse("tiles/aside.vm")

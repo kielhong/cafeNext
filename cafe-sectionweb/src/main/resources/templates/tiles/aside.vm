@@ -12,7 +12,7 @@
     </div> 
   </div>
   <div class="cafemake">
-    <a href="#"><img src="http://cafeimgs.naver.net/img/section/btn_cafemake_20140509.gif" width="250" height="36" alt="카페 만들기"></a>
+    <a href="/cafe/create"><img src="http://cafeimgs.naver.net/img/section/btn_cafemake_20140509.gif" width="250" height="36" alt="카페 만들기"></a>
   </div>
   <div id="denyNamelessLayer" class="cafetype_layer2" style="width:356px;top:15px;left:0px; display:none;"> 
                 <img src="http://cafeimgs.naver.net/img/realname/ico_layer.gif" width="25" height="24" alt="">

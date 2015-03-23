@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 //@Repository
+@Deprecated
 public class CafeRepositoryImpl {
   //  @Autowired
     private SessionFactory sessionFactory;

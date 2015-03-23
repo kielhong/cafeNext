@@ -9,7 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
+@Deprecated
 public class ArticleRepositoryImpl {
   //  @Autowired
     private SessionFactory sessionFactory;

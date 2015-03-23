@@ -8,7 +8,8 @@ import net.kiel.cafe.entity.RoleEntity.Role;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
+@Deprecated
 public class CafeMemberRepositoryImpl {
   //  @Autowired
     private SessionFactory sessionFactory;

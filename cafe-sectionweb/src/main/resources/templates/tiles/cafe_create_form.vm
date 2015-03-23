@@ -1,0 +1,89 @@
+<div class="section_create">
+    <div class="create">
+        <h2 class="blind">카페 만들기</h2>
+        <p class="blind">나와 같은 관심사를 가진 멤버를 모집하고 열심히 운영하여 카페를 성장시켜보세요.</p>
+    </div>
+
+    <form name="frm" method="post" action="/cafe">
+            <input type="hidden" name="csKey" value="NTVGbVdQrzG3ICz4" />
+            <input type="hidden" name="clubnameck" value="" />
+            <input type="hidden" name="cluburlck" value="" />
+            <input type="hidden" name="ugcType" value="" />
+            <input type="hidden" name="introductionck" value="0" />
+            <input type="hidden" name="juniverCafe" value="false" />
+            <input type="hidden" name="club.opentype" value="" />
+            <input type="hidden" name="club.cat1id" value="0" />
+            <input type="hidden" name="club.cat2id" value="0" />
+            <input type="hidden" name="clubTempId" value="Y2psyALFMNkRD9rI" />
+            <input type="hidden" name="club.originalRegisteredFrom" value="A" />
+            <input type="hidden" id="soundCaptchaKey" name="soundCaptchaKey" value="TWDOb2EQrz8WsNw0" />
+            <input type="hidden" id="captchaType" name="captchaType" value="image" />
+            
+    <table cellspacing="0" border="1" class="cafe_input">
+        <caption><span class="blind">카페 만들기 입력 양식</span></caption>
+        <colgroup><col width="114"><col width="545"></colgroup>
+        <tbody>
+            <tr>
+                <th scope="row" class="th_name"><div class="stit">카페이름</th>
+                <td>
+                    <div class="input_area">
+                        <input type="text" name="club.clubname" title="카페이름" value="" class="input_txt __notnull __byte(1~60) _unvalid _keydown(CafeCreate|Submit)" style="width:515px;" maxlength="120"><!-- [D]마우스클릭시 클래스 추가 spot_on -->
+                        <span class="byte"><strong>0</strong> / 60 bytes</span>
+                    </div>
+                    <p class="txt">카페주제와 어울리는 이름으로 입력하면 많은 사람들이 카페를 찾기가 쉬워집니다.</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="th_addr"><div class="stit">카페주소</div></th>
+                <td>
+                    <div class="input_area">
+                        <label for="cafe_addr">http://cafe.naver.com/</label>
+                        <input type="text" name="domain" id="cafe_addr" title="카페주소" class="input_txt __notnull __byte(1~20) _unvalid _keydown(CafeCreate|Submit)" style="width:381px;" maxlength="40">
+                        <span class="byte"><strong>0</strong> / 20 bytes</span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="directoryArea">
+                <th scope="row" class="th_dir"><div class="stit">디렉토리</div></th>
+                <td id="directoryAreaTd">
+                    <div class="rel">
+                        <select name="category" id="group1" style="width:240px" class="_change(CafeCreate|LoadSubCategory|1)" title="대분류 선택">
+                            <option value="-1">분류 선택</option>
+                            #foreach ($category in $categories)
+                            <option value="$category.id" >$category.name</option>
+                            #end
+                        </select>
+                        <!--
+                        <select name="club.themeDir2Id" style="width:240px" id="subGroup1" title="소분류 선택">>
+                            <option value="-1">소분류 선택</option>                            
+                        </select>
+                        -->
+                    </div>
+                </td>
+            </tr>
+            <tr id="introductionArea">
+                <th scope="row" class="th_dsc"><div class="stit">카페설명</div></th>
+                <td>
+                    <div class="input_area">
+                        <textarea name="club.introduction" cols="30" rows="5" title="카페설명" class="input_txt3 __byte(1~100) __notnull" maxlength="200"></textarea><!-- [D]마우스클릭시 클래스 추가 on -->
+                        <span class="byte"><strong>0</strong> / 100 bytes</span>
+                    </div>
+                    <p class="txt">입력한 내용이 카페 메인, 검색결과 등의 카페리스트에 반영됩니다.</p>
+                    <p class="txt" style="display:none" id="MSG_CONTENT"><strong>금칙어가 포함되어 있어 사용할 수 없습니다.</strong></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                        
+    <div class="btn_area">
+        <button type="submit"><image src="http://cafeimgs.naver.net/img/section/btn_cfm3.gif" width="74" height="33" alt="확인"/></button>
+        <button type="reset"><img src="http://cafeimgs.naver.net/img/section/btn_cncl2.gif" width="74" height="33" alt="취소"/></button>
+        
+        <!--
+        <input class="_click(CafeCreate|Submit) _stopDefault" id="elSubmitBtn" type="image" src="http://cafeimgs.naver.net/img/section/btn_cfm3.gif" width="74" height="33" alt="확인" />
+        <a href="/" class="_click(CafeCreate|Cancel) _stopDefault"><img src="http://cafeimgs.naver.net/img/section/btn_cncl2.gif" width="74" height="33" alt="취소"></a>
+        -->
+    </div>
+    </form>
+           
+</div>
