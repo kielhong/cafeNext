@@ -14,10 +14,6 @@ public class CommentDto {
     
     @Getter @Setter
     private String content;
-
-    
-    @Getter @Setter
-    private MemberDto member;
     
     @Setter
     private LocalDateTime createdAt = LocalDateTime.now();

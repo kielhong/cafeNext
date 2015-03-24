@@ -7,7 +7,8 @@ INSERT INTO cafe (id, category_id, domain, name, description, create_datetime, u
 INSERT INTO cafe (id, category_id, domain, name, description, create_datetime, update_datetime) VALUES (3, 2, 'comics', 'comicbook cafe', 'comics', '2015-03-16 11:01:21', CURRENT_TIMESTAMP);
 
 /** Member **/
-INSERT INTO member (id, nickname) VALUES (1, 'Member One');
+INSERT INTO member (id, username, password) VALUES (1, 'member', 'testtest');
+INSERT INTO member_role(username, role) VALUES ('member', 'ROLE_USER');
 
 /** Role **/
 INSERT INTO role (id, cafe_id, role) VALUES (1,1,0),(2,1,1),(3,1,2);

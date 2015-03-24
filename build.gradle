@@ -66,6 +66,7 @@ project(':cafe-cafeweb') {
          
         compile "org.springframework.boot:spring-boot-starter-web"
         compile "org.springframework.boot:spring-boot-starter-freemarker"
+        compile "org.springframework.boot:spring-boot-starter-security"
     }
 
     // for delegate system properties to bootRun
@@ -81,6 +82,7 @@ project(':cafe-sectionweb') {
         // Spring Boot
         compile "org.springframework.boot:spring-boot-starter-web:1.1.8.RELEASE"
         compile "org.springframework.boot:spring-boot-starter-velocity"
+        compile "org.springframework.boot:spring-boot-starter-security"
     }
 
     // for delegate system properties to bootRun

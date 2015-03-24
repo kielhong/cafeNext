@@ -14,10 +14,12 @@ public class Member {
     @GeneratedValue
     @Getter @Setter
     private Integer id;
+        
+    @Column(nullable = false)
+    @Getter @Setter
+    private String username;
     
     @Column(nullable = false)
     @Getter @Setter
-    private String nickname;
-    
-    //private String email;
+    private String password;
 }

@@ -9,8 +9,6 @@ import lombok.Setter;
 import net.kiel.cafe.entity.RoleEntity;
 
 public class CafeMemberDto {
-    @Getter @Setter
-    private MemberDto member;
     
 
     @Getter @Setter

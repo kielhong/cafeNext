@@ -39,7 +39,7 @@ public class ArticleTest {
     @Before
     public void setUp() {        
         member = new Member();
-        member.setNickname("testmember");
+        member.setUsername("testmember");
         memberRepository.save(member);
         
         cafe = new Cafe();
