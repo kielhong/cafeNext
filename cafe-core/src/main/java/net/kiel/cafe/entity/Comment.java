@@ -31,7 +31,7 @@ public class Comment {
     
     @ManyToOne
     @Getter @Setter
-    private Member member;
+    private User user;
     
     @Convert(converter = LocalDateTimePersistenceConverter.class)
     @Getter @Setter

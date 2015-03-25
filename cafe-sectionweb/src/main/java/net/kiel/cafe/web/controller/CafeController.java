@@ -3,7 +3,7 @@ package net.kiel.cafe.web.controller;
 import javax.validation.Valid;
 
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.Member;
+import net.kiel.cafe.entity.User;
 import net.kiel.cafe.repository.CafeCategoryRepository;
 import net.kiel.cafe.repository.MemberRepository;
 import net.kiel.cafe.service.CafeService;
@@ -46,7 +46,7 @@ public class CafeController {
         
         System.out.println("domain:" + form.getDomain());
         // TODO : sercurity 
-        Member member = memberRepository.findOne(1);
+        User member = memberRepository.findOne(1);
         
         Cafe cafe = cafeService.createCafe(form.getDomain(), form.getName(), form.getCategoryId(), form.getDescription(), member);
         

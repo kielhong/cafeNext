@@ -47,7 +47,7 @@
           </span>
         </td>
         <td align="left">
-          <div class="pers_nick_area" style="padding-left:14px"><span class="wordbreak" id="article_demiru_0">${article.member.nickname}</span></div>
+          <div class="pers_nick_area" style="padding-left:14px"><span class="wordbreak" id="article_demiru_0">${article.user.username}</span></div>
         </td>
         <td class="view-count m-tcol-c">${article.createdAt?string("yyyy.MM.dd")}</td>
         <td class="view-count m-tcol-c">${article.readCount}</td>

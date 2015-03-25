@@ -4,7 +4,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import net.kiel.cafe.entity.Article;
-import net.kiel.cafe.entity.Member;
+import net.kiel.cafe.entity.User;
 
 public class ArticleDto {
     private Article article;
@@ -25,8 +25,8 @@ public class ArticleDto {
         return article.getContent();
     }
     
-    public Member getMember() {
-        return article.getMember();
+    public User getUser() {
+        return article.getUser();
     }
     
     public Integer getReadCount() {

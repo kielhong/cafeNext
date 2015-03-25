@@ -27,7 +27,7 @@ public class Article {
     
     @ManyToOne
     @Getter @Setter
-    private Member member;    
+    private User user;    
     
     @ManyToOne(fetch = FetchType.LAZY)
     @Getter @Setter

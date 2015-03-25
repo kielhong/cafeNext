@@ -22,7 +22,7 @@
             <li class="gm-tcol-c">
                 <div class="ball"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="27" height="13" class="ico-manager" alt="매니저"></div>
                 <a href="#"class="id mlink gm-tcol-c">
-                  <div class="ellipsis gm-tcol-c">${cafeManager.member.nickname}</div>
+                  <div class="ellipsis gm-tcol-c">${cafeManager.user.username}</div>
                 </a>
             </li>
             <li class="gm-tcol-c">

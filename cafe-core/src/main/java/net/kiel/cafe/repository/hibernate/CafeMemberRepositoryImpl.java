@@ -2,8 +2,8 @@ package net.kiel.cafe.repository.hibernate;
 
 import java.util.List;
 
-import net.kiel.cafe.entity.CafeMember;
-import net.kiel.cafe.entity.RoleEntity.Role;
+import net.kiel.cafe.entity.CafeUser;
+import net.kiel.cafe.entity.CafeUser.Role;
 
 import org.hibernate.SessionFactory;
 
@@ -14,17 +14,17 @@ public class CafeMemberRepositoryImpl {
     private SessionFactory sessionFactory;
     
     @SuppressWarnings("unchecked")
-    public List<CafeMember> selectListByCafe(Integer cafeId) {
-        return (List<CafeMember>)sessionFactory.getCurrentSession()
+    public List<CafeUser> selectListByCafe(Integer cafeId) {
+        return (List<CafeUser>)sessionFactory.getCurrentSession()
                         .createQuery("FROM CafeMemberEntity as cafeMember WHERE cafeMember.cafe.id = :cafeId")
                         .setParameter("cafeId", cafeId)
                         .list();
     }
     
     
-    public CafeMember selectCafeManager(Integer cafeId) {
-        return (CafeMember)sessionFactory.getCurrentSession()
-                .createQuery("FROM CafeMemberEntity as cafeMember WHERE cafeMember.cafe.id = :cafeId AND cafeMember.role.role = :role")
+    public CafeUser selectCafeManager(Integer cafeId) {
+        return (CafeUser)sessionFactory.getCurrentSession()
+                .createQuery("FROM CafeMemberEntity as cafeMember WHERE cafeMember.cafe.id = :cafeId AND cafeMember.role = :role")
                 .setParameter("cafeId", cafeId)
                 .setParameter("role", Role.MANAGER)
                 .uniqueResult();

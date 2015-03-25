@@ -9,19 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
-import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "cafe_member")
-public class CafeMember {
-    public CafeMember() {}
+public class CafeUser {
+    public CafeUser() {}
     
-    public CafeMember(Cafe cafe, Member member, Role role) {
+    public CafeUser(Cafe cafe, User user, Role role) {
         this.cafe = cafe;
-        this.member = member;
+        this.user = user;
         this.role = role;
     }
     
@@ -31,7 +29,7 @@ public class CafeMember {
     
     @ManyToOne
     @Getter @Setter
-    private Member member;
+    private User user;
     
     @ManyToOne
     @Getter @Setter
@@ -52,6 +50,6 @@ public class CafeMember {
     public enum Role {
         MANAGER,
         STAFF,
-        MEMBER;
+        USER;
     }
 }

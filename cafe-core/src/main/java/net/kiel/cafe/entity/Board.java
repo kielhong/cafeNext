@@ -7,16 +7,16 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Board {
@@ -26,11 +26,11 @@ public class Board {
     private Long id;
     
     @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name="FK_board_cafe"))
     @Getter @Setter
-    @JsonIgnore
     private Cafe cafe;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 512)
     @Getter @Setter
     private String title;
     
@@ -42,10 +42,10 @@ public class Board {
     @Getter @Setter
     private Type type;
 
-    @Column(name = "created_at")
     @Getter @Setter
     @Convert(converter = LocalDateTimePersistenceConverter.class)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createDatetime = LocalDateTime.now();
+    
     
     public enum Type {
         GENERAL,
@@ -55,6 +55,6 @@ public class Board {
     @Override
     public String toString() {
         return "Board [id=" + id + ", cafe.id=" + cafe.getId() + ", title=" + title + ", description=" + description + ", type="
-                + type + ", createdAt=" + createdAt + "]";
+                + type + ", createdAt=" + createDatetime + "]";
     }
 }

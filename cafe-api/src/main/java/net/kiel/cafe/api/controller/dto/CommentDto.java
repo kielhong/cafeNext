@@ -4,7 +4,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import net.kiel.cafe.entity.Comment;
-import net.kiel.cafe.entity.Member;
+import net.kiel.cafe.entity.User;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
@@ -23,8 +23,8 @@ public class CommentDto {
     public String getContent() {
         return comment.getContent();
     }
-    public Member getMember() {
-        return comment.getMember();
+    public User getUser() {
+        return comment.getUser();
     }
     
     @JsonFormat(shape=Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")

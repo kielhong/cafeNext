@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import net.kiel.cafe.entity.Article;
 import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeMember;
+import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.repository.CommentRepository;
@@ -107,7 +107,7 @@ public class CafeController {
         
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
         List<Board> boards = cafe.getBoards();
-        CafeMember cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        CafeUser cafeManager = cafeMemberService.findCafeManager(cafe.getId());
         
         cafeBaseAttributes.put("cafe", new CafeDto(cafe));
         cafeBaseAttributes.put("cafeManager", cafeManager);

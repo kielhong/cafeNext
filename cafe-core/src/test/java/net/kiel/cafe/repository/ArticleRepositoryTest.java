@@ -37,7 +37,7 @@ public class ArticleRepositoryTest {
     
     @Test
     public void testSelectByBoard() {
-        final Integer boardId = 1;
+        final Long boardId = 1L;
         List<Article> articles = articleRepository.findByBoardId(boardId);
         
         assertThat(articles, notNullValue());

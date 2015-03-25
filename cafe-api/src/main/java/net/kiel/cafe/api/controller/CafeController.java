@@ -1,5 +1,6 @@
 package net.kiel.cafe.api.controller;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class CafeController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<CafeDto> getAllCafes() {
         List<Cafe> cafes = cafeRepository.findAll();
-                
+        
         return cafes.stream().map(CafeDto::new).collect(Collectors.toList());
     }
     

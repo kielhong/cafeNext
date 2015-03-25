@@ -32,14 +32,15 @@ public class ArticleTest {
     
     @Autowired private ArticleRepository articleRepository;
     
-    private Member member;
+    private User member;
     private Cafe cafe;
     private Board board;
     
     @Before
     public void setUp() {        
-        member = new Member();
+        member = new User();
         member.setUsername("testmember");
+        member.setPassword("test");
         memberRepository.save(member);
         
         cafe = new Cafe();
@@ -65,7 +66,7 @@ public class ArticleTest {
         Article article = new Article();
         article.setTitle("article title");
         article.setContent("content");
-        article.setMember(member);
+        article.setUser(member);
         article.setBoard(board);
         
         articleRepository.save(article);
@@ -81,14 +82,14 @@ public class ArticleTest {
         Article article = new Article();
         article.setTitle("article title");
         article.setContent("content");
-        article.setMember(member);
+        article.setUser(member);
         article.setBoard(board);
         articleRepository.save(article);
         
         Article article2 = new Article();
         article2.setTitle("article title 2");
         article2.setContent("content 2");
-        article2.setMember(member);
+        article2.setUser(member);
         article2.setBoard(board);
         articleRepository.save(article2);
                 

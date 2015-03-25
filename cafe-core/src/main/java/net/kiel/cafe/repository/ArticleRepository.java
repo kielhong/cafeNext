@@ -22,6 +22,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long>, JpaSpec
     List<Article> findByBoard(Board board);
     Long countByBoard(Board board);
     
-    List<Article> findByBoardId(Integer boardId);
+    List<Article> findByBoardId(Long boardId);
     
 }

@@ -29,8 +29,8 @@ public class BoardDto {
         return board.getType();
     }
     
-    public Date getCreateDate() {
-        return Date.from(board.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant());
+    public Date getCreateDatetime() {
+        return Date.from(board.getCreateDatetime().atZone(ZoneId.systemDefault()).toInstant());
     }
 
 }

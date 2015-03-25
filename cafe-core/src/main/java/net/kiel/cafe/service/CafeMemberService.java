@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.kiel.cafe.entity.CafeMember;
-import net.kiel.cafe.entity.CafeMember.Role;
+import net.kiel.cafe.entity.CafeUser;
+import net.kiel.cafe.entity.CafeUser.Role;
 import net.kiel.cafe.repository.CafeMemberRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +18,14 @@ public class CafeMemberService {
     @Autowired
     private CafeMemberRepository cafeMemberRepository;
     
-    public List<CafeMember> findAllByCafe(Integer cafeId) {
-        List<CafeMember> results = cafeMemberRepository.findByCafeId(cafeId);
+    public List<CafeUser> findAllByCafe(Integer cafeId) {
+        List<CafeUser> results = cafeMemberRepository.findByCafeId(cafeId);
         
         return results;
     }
     
-    public CafeMember findCafeManager(Integer cafeId) {
-        List<CafeMember> cafeMembers = cafeMemberRepository.findByCafeIdAndRole(cafeId, Role.MANAGER);
+    public CafeUser findCafeManager(Integer cafeId) {
+        List<CafeUser> cafeMembers = cafeMemberRepository.findByCafeIdAndRole(cafeId, Role.MANAGER);
         
         
         return cafeMembers.get(0);
