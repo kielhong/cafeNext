@@ -30,8 +30,7 @@ public class CafeService {
         return cafe;
     }
     
-    public Cafe createCafe(String domain, String name, Integer categoryId, String description, User member) {
-        CafeCategory category = categoryRepository.findOne(categoryId);
+    public Cafe createCafe(String domain, String name, CafeCategory category, String description, User member) {
         Cafe cafe = new Cafe(domain, name, category, description);
         cafeRepository.save(cafe);
         

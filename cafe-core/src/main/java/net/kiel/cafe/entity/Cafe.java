@@ -17,6 +17,8 @@ import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -39,14 +41,19 @@ public class Cafe {
     private Integer id;
     
     @Column(nullable = false, length=20, unique = true)
+    @NotNull
+    @Size(max=20)
     @Getter @Setter
     private String domain;
     
     @Column(nullable = false, length=60)
+    @NotNull
+    @Size(max=60)
     @Getter @Setter
     private String name;
     
     @Column(length=100)
+    @Size(max=100)
     @Getter @Setter
     private String description;
     

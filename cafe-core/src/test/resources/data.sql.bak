@@ -14,11 +14,11 @@ INSERT INTO user_role(username, role) VALUES ('member', 'ROLE_USER');
 INSERT INTO cafe_user (user_id, cafe_id, create_datetime, role) VALUES (1, 1, '2011-11-21 00:00:00', 'MANAGER');
 
 /** Board **/
-INSERT INTO board (id, cafe_id, title, description, type, created_at) VALUES (1, 1, 'test board', 'test board', 'GENERAL', '2014-11-10 00:00:00');
-INSERT INTO board (cafe_id, title, description, type, created_at) VALUES (1, 'test board 2', 'test board 2', 'GENERAL', '2015-01-10 00:00:00');
-INSERT INTO board (cafe_id, title, description, type, created_at) VALUES (1, 'test board 3', 'test board 3', 'GENERAL', '2015-02-10 00:00:00');
-INSERT INTO board (cafe_id, title, description, type, created_at) VALUES (1, 'test board 4', 'test board 4', 'GENERAL', '2015-03-10 00:00:00');
-INSERT INTO board (id, cafe_id, title, description, type, created_at) VALUES (10, 2, 'test board 4', 'test board 4', 'GENERAL', '2015-03-10 00:00:00');
+INSERT INTO board (id, cafe_id, title, description, type, create_datetime) VALUES (1, 1, 'test board', 'test board', 'GENERAL', '2014-11-10 00:00:00');
+INSERT INTO board (cafe_id, title, description, type, create_datetime) VALUES (1, 'test board 2', 'test board 2', 'GENERAL', '2015-01-10 00:00:00');
+INSERT INTO board (cafe_id, title, description, type, create_datetime) VALUES (1, 'test board 3', 'test board 3', 'GENERAL', '2015-02-10 00:00:00');
+INSERT INTO board (cafe_id, title, description, type, create_datetime) VALUES (1, 'test board 4', 'test board 4', 'GENERAL', '2015-03-10 00:00:00');
+INSERT INTO board (id, cafe_id, title, description, type, create_datetime) VALUES (10, 2, 'test board 4', 'test board 4', 'GENERAL', '2015-03-10 00:00:00');
 
 
 /** Article **/
