@@ -1,29 +1,22 @@
 <html lang="ko">
 <head>
   <title>Cafe Next</title> 
-  <link rel="stylesheet" href="/css/section.css" type="text/css">
-  <link rel="stylesheet" href="/css/Layout.css" type="text/css">
+  <link rel="stylesheet" href="/css/section.css" type="text/css" />
+  <link rel="stylesheet" href="/css/Layout.css" type="text/css" />
   <script type="text/javascript" src="/js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="/js/jquery-dateFormat.min.js" charset="utf-8"></script>
 </head>
 
 <body >
 <div id="wrap"> 
-
-  #parse("tiles/section_header.vm")
+  <div th:replace="fragments/header" ></div>
 
   <div id="container" class="main">
-    <div id="content">  
-        #parse("tiles/cafe_create_form.vm")      
-    </div>
+    <div id="content" th:include="fragments/create_form"></div>
         
-    #parse("tiles/aside.vm")
-  
+    <div th:replace="fragments/side"></div>    
   </div>
-  
-  #parse("tiles/section_footer.vm")
-  
+  <div th:replace="fragments/footer"></div>
 </div>
 </body>
-
 </html>

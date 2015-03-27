@@ -13,7 +13,7 @@ import net.kiel.cafe.CafeCoreApplication;
 import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.repository.CafeRepository;
-import net.kiel.cafe.repository.MemberRepository;
+import net.kiel.cafe.repository.UserRepository;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +28,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ArticleTest {
     @Autowired private CafeRepository cafeRepository;
     @Autowired private BoardRepository boardRepository;
-    @Autowired private MemberRepository memberRepository;
+    @Autowired private UserRepository userRepository;
     
     @Autowired private ArticleRepository articleRepository;
     
@@ -41,7 +41,7 @@ public class ArticleTest {
         member = new User();
         member.setUsername("testmember");
         member.setPassword("test");
-        memberRepository.save(member);
+        userRepository.save(member);
         
         cafe = new Cafe();
         cafe.setName("test");

@@ -1,23 +1,17 @@
 <html lang="ko">
 <head>
   <title>Cafe Next</title> 
-  <link rel="stylesheet" href="/css/section.css" type="text/css">
-  <link rel="stylesheet" href="/css/Layout.css" type="text/css">
+  <link rel="stylesheet" href="/css/section.css" type="text/css" />
+  <link rel="stylesheet" href="/css/Layout.css" type="text/css" />
   <script type="text/javascript" src="/js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="/js/jquery-dateFormat.min.js" charset="utf-8"></script>
 </head>
 
 <body >
 <div id="wrap"> 
-
-  #parse("tiles/section_header.vm")
-
-  <div id="container" class="main">
-
-    ## #parse("tiles/spot.vm")
+  <div th:replace="fragments/header" ></div>
   
-    ## #parse("tiles/volumn_message.vm")
-        
+  <div id="container" class="main">        
     <div id="content">  
       <ul class="tab_cafe"> 
       <li class="t1 on"><a id="focusTop" href="/SectionHome.nhn?t=1"><span>주제별 카페</span><em class="blind">선택됨</em></a></li> 
@@ -25,17 +19,13 @@
       <li class="t3"><a href="#"><span>가입카페 새글 소식</span></a></li> 
       </ul> 
 
-      #parse("tiles/category_cafe_list.vm")
-      
+      <div th:replace="fragments/category_cafe"></div>
     </div>
         
-    #parse("tiles/aside.vm")
-  
+    <div th:replace="fragments/side"></div>    
   </div>
   
-  #parse("tiles/section_footer.vm")
-  
+  <div th:replace="fragments/footer"></div>
 </div>
 </body>
-
 </html>

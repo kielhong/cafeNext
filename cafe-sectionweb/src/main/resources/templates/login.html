@@ -57,23 +57,25 @@
         <table>
             <tr>
                 <td>Username:</td>
-                <td><input type='text' id="username" name='username'></td>
+                <td><input type='text' id="username" name='username' /></td>
             </tr>
             <tr>
                 <td>Password:</td>
                 <td><input type='password' name='password' /></td>
             </tr>
             <tr>
-                <td colspan='2'><button type="submit" value="확인" name="확인"/>확인</button></td>
+                <td colspan='2'><button type="submit" value="확인" name="확인">확인</button></td>
             </tr>
           </table>
         </form>
     </div>
  
 </body>
-<script type="text/javascript">
+<script th:inline="javascript">
+/*<![CDATA[*/
 $(document).ready(function(){
   $("#username").focus();
 });
+/*]]>*/
 </script>
 </html>

@@ -1,15 +1,41 @@
 spring:
   main:
     show-banner: true
-  jpa:
-    properties:
-      hibernate.format_sql: true
-    show-sql: true
   jackson:
     date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
     property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES    
 ---            
 spring:
-  profiles: local 
+  profiles: local
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:local;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate.format_sql: true
+    show-sql: true
+    hibertnate.ddl-auto: create-drop    
+server:
+  port: 8083
+---
+spring:
+  profiles: dev
+  main:
+    show-banner: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cafe
+    username: cafe
+    password: cafe
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate.format_sql: true
+    show-sql: true
+    generate-ddl: true
+    hibertnate.ddl-auto: update
 server:
   port: 8083

@@ -5,10 +5,10 @@ import javax.validation.Valid;
 import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.entity.User;
 import net.kiel.cafe.repository.CafeCategoryRepository;
-import net.kiel.cafe.repository.MemberRepository;
 import net.kiel.cafe.service.CafeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,8 +22,6 @@ public class CafeController {
     private CafeCategoryRepository categoryRepository;
     @Autowired
     private CafeService cafeService;
-    @Autowired
-    private MemberRepository memberRepository;
     
     
     @RequestMapping(value="create", method=RequestMethod.GET)
@@ -34,18 +32,17 @@ public class CafeController {
     }
     
     @RequestMapping(value="create", method=RequestMethod.POST)
-    public String create(@Valid Cafe cafe, BindingResult bindingResults) {
-        if (bindingResults.hasErrors()) {
-            System.out.println("errors:" + bindingResults.getFieldErrorCount());
-            bindingResults.getAllErrors().stream().forEach(System.out::println);
+    public String create(@Valid Cafe cafe, BindingResult result) {
+        if (result.hasErrors()) {
+            System.out.println("errors:" + result.getFieldErrorCount());
+            result.getAllErrors().stream().forEach(System.out::println);
             return "create_cafe";
         }
+       
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println("user: " + user.getUsername());
         
-        System.out.println("domain:" + cafe.getDomain());
-        // TODO : sercurity 
-        User member = memberRepository.findOne(1);
-        
-        cafeService.createCafe(cafe.getDomain(), cafe.getName(), cafe.getCategory(), cafe.getDescription(), member);
+        //cafeService.createCafe(cafe.getDomain(), cafe.getName(), cafe.getCategory(), cafe.getDescription(), member);
         
         return "redirect:" + "http://localhost:8081/" + cafe.getDomain();
     }

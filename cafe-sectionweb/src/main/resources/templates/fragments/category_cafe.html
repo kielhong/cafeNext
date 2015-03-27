@@ -1,18 +1,17 @@
+<div th:fragment="category_cafe">
 <div class="category">
   <ul> 
-    #foreach ($category in $categories)
-    <li id="category_$category.id" class="firstchild">
-      <div onclick="selectCategory($category.id, '$category.name')">
-        <a href="#" >$category.name</a>
+    <li th:each="category : ${categories}" th:id="'category_' + ${category.id}" class="firstchild">
+      <div>
+        <a href="javascript:" th:attr="onclick='selectCategory(' + ${category.id} + ',\'' + ${category.name} + '\')'" th:text="${category.name}" >Name</a>
       </div> 
-    </li>    
-    #end
+    </li>
   </ul>
 </div> 
        
 <div class="category_list">
   <div class="tit_area">            
-    <h3>컴퓨터/통신</h3> 
+    <h3 th:text="${categories[0].name}">컴퓨터/통신</h3> 
   </div> 
 
   <div id="CategoryCafeHideArea">
@@ -26,8 +25,9 @@
   </div>
         
 </div>
-
-<script type="text/javascript">
+</div>
+<script th:inline="javascript">
+/*<![CDATA[*/
 function listCafe(cafes) {
   $("#ListArea").empty();
   
@@ -55,4 +55,5 @@ function selectCategory(category_id, category_name) {
     listCafe(data);
   });
 }
+/*]]>*/
 </script>
