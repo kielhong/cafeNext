@@ -72,7 +72,7 @@ public class CafeController {
     @RequestMapping(value = "/{domain}/boards/{boardId}", method = RequestMethod.GET)
     public String findBoard(
             @PathVariable String domain,
-            @PathVariable Integer boardId,
+            @PathVariable Long boardId,
             @PageableDefault(size = 15, page = 0) Pageable pageable,
             Model model) {
         Board board = boardRepository.findOne(boardId);
@@ -84,22 +84,6 @@ public class CafeController {
         model.addAttribute("page", page);
         
         return "article_list";
-    }
-    
-    @RequestMapping(value = "/{domain}/articles/{articleId}", method = RequestMethod.GET)
-    public String readArticle(
-            @PathVariable String domain,
-            @PathVariable Long articleId,
-            Model model) {
-        
-        Article article = articleService.read(articleId);
-        Board board = article.getBoard();
-                        
-        model.addAllAttributes(getCafeInfo(domain));
-        model.addAttribute("board", new BoardDto(board));
-        model.addAttribute("article", new ArticleDto(article));
-        
-        return "article_read";
     }
 
     private Map<String, Object> getCafeInfo(String domain) {

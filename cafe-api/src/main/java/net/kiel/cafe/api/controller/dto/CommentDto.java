@@ -28,7 +28,7 @@ public class CommentDto {
     }
     
     @JsonFormat(shape=Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
-    public Date getCreateDate() {
+    public Date getCreateDatetime() {
         return Date.from(comment.getCreateDate().atZone(ZoneId.systemDefault()).toInstant());
     }
     

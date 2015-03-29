@@ -35,9 +35,7 @@
                     <div class="rel">
                         <select name="categoryId" id="group1" style="width:240px" class="_change(CafeCreate|LoadSubCategory|1)" title="대분류 선택">
                             <option value="-1">분류 선택</option>
-                            #foreach ($category in $categories)
-                            <option value="$category.id" >$category.name</option>
-                            #end
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}">Category Name</option>
                         </select>
                         <!--
                         <select name="club.themeDir2Id" style="width:240px" id="subGroup1" title="소분류 선택">>

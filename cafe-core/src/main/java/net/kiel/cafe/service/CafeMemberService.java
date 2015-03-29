@@ -6,7 +6,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.entity.CafeUser.Role;
-import net.kiel.cafe.repository.CafeMemberRepository;
+import net.kiel.cafe.repository.CafeUserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class CafeMemberService {
     
     @Autowired
-    private CafeMemberRepository cafeMemberRepository;
+    private CafeUserRepository cafeMemberRepository;
     
     public List<CafeUser> findAllByCafe(Integer cafeId) {
         List<CafeUser> results = cafeMemberRepository.findByCafeId(cafeId);

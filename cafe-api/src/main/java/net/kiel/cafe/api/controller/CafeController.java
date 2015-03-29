@@ -1,6 +1,5 @@
 package net.kiel.cafe.api.controller;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 

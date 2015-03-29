@@ -7,7 +7,7 @@ import net.kiel.cafe.entity.CafeUser.Role;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CafeMemberRepository extends JpaRepository<CafeUser, Long>{
+public interface CafeUserRepository extends JpaRepository<CafeUser, Long>{
     List<CafeUser> findByCafeId(Integer cafeId);
     
     List<CafeUser> findByCafeIdAndRole(Integer cafeId, Role role);

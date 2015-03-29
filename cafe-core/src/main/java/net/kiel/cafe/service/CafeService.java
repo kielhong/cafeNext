@@ -6,7 +6,7 @@ import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.entity.User;
 import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.CafeCategoryRepository;
-import net.kiel.cafe.repository.CafeMemberRepository;
+import net.kiel.cafe.repository.CafeUserRepository;
 import net.kiel.cafe.repository.CafeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class CafeService {
     @Autowired
     private ArticleRepository articleRepository;
     @Autowired
-    private CafeMemberRepository cafeMemberRepository;
+    private CafeUserRepository cafeUserRepository;
     
     public Cafe findCafeWithDataByDomain(String domain) {
         Cafe cafe = cafeRepository.findByDomain(domain);
@@ -30,12 +30,12 @@ public class CafeService {
         return cafe;
     }
     
-    public Cafe createCafe(String domain, String name, CafeCategory category, String description, User member) {
+    public Cafe createCafe(String domain, String name, CafeCategory category, String description, User user) {
         Cafe cafe = new Cafe(domain, name, category, description);
         cafeRepository.save(cafe);
         
-        CafeUser cafeMember = new CafeUser(cafe, member, CafeUser.Role.MANAGER);
-        cafeMemberRepository.save(cafeMember);
+        CafeUser cafeuser = new CafeUser(cafe, user, CafeUser.Role.MANAGER);
+        cafeUserRepository.save(cafeuser);
         
         return cafe;
     }

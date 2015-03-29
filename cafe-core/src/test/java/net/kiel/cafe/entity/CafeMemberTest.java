@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import net.kiel.cafe.CafeCoreApplication;
 import net.kiel.cafe.entity.CafeUser.Role;
-import net.kiel.cafe.repository.CafeMemberRepository;
+import net.kiel.cafe.repository.CafeUserRepository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringApplicationConfiguration(classes = CafeCoreApplication.class)
 @Transactional
 public class CafeMemberTest {
-    @Autowired private CafeMemberRepository cafeMemberRepository;
+    @Autowired private CafeUserRepository cafeMemberRepository;
     @Test
     public void testCafeMemberRole() {
         Integer cafeId = 1;

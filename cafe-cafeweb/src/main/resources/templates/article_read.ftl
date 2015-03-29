@@ -23,7 +23,7 @@
                     
         <div class="etc-box">
           <div class="fl nick">
-            ${article.member.nickname}
+            ${article.user.username}
           </div>
         </div>
         <div class="h-10"></div>
@@ -51,44 +51,17 @@
       
       <#-- comment list -->          
       <div class="box-reply2 bg-color" style="display:block;">      
-        <ul class="cmlist" id="cmt_list">
-          <#-- <#list comments as comment>
-          <li style="margin-top:10px; padding:0; height:40px;">
-                                                                          
-              <span style="font-weight:bold"><#--${comment.member.nickname} --></span>    
-              <span class="m-tcol-c"><#--${comment.createdAt?string("yyyy.MM.dd hh:mm")} --></span>    
-              <span><a href="#" class="m-tcol-c">답글</a></span>                     
-            
-            <p class="comm m-tcol-c"><span class="comm_body"><#--${comment.content}--></span></p>
-          </li>
-          <li class="filter-30 board-box-line-dashed"></li>
-          <!--
-          <li>
-            <div class="comm_cont">
-              <div class="h">             
-                <div class="pers_nick_area">                                                                    
-                  <p class="p-nick m-tcol-c _nickUI"><#--${comment.member.nickname}--></p>                         
-                </div>              
-                <span class="date m-tcol-c filter-50"><#--${comment.createdAt?string("yyyy.MM.dd hh:mm")}--></span>               
-                <span class="dsc_comm"><a href="#" class="m-tcol-c  _btnReply">답글</a></span>                
-                <p class="btn_edit m-tcol-c"><a href="#" class="filter-70 m-tcol-c _btnDelete">삭제</a></p>           
-              </div>            
-              <p class="comm  m-tcol-c"><span class="comm_body"><#--${comment.content}--></span></p>
-            </div>
-          </li>
-          <li class=" board-box-line-dashed"></li>
-          -->
-          <#-- </#list> -->
+        <ul class="cmlist" id="cmt_list">         
         </ul>
         <div style="clear: both; height: 0pt; font: 0pt/0pt arial;"></div>                                 
         <table cellspacing="0" class="cminput">
           <tbody>
               <tr>
                 <td class="i2">
-                  <textarea id="comment_text" cols="50" rows="2" class="textarea m-tcol-c" maxlength="1000"></textarea>                       
+                  <textarea id="comment_content" cols="50" rows="2" class="textarea m-tcol-c" maxlength="1000"></textarea>                       
                 </td>
                 <td class="i3">
-                  <input type="image" name="" src="http://cafeimgs.naver.net/cafe4/btn_cmt_cfm_v1.gif"  alt="확인" class="_submitCmt" onclick="clickcr(this,'cmt.comment', '', '', event)">
+                  <input type="image" name="" src="http://cafeimgs.naver.net/cafe4/btn_cmt_cfm_v1.gif"  alt="확인" id="comment_submit" class="_submitCmt">
                 </td>
               </tr>
           </tbody>
@@ -111,53 +84,45 @@
                       
   <div class="h-35"></div>
   
-  <#-- related articles -->
-  <!--
-  <div class="article-board article_prenet">
-    <table cellspacing="0" cellpadding="0" border="0" width="100%">
-        <col width="81"><col width="*"><col width="120"><col width="92">
-        <tr><td colspan="4" class="board-line"></td></tr>
-        <tr align="center">
-          <td class="prev_btn"><a href="#" onclick="goNext();clickcr(this,'art.next','','',event);" class="m-tcol-c"><img src="http://cafeimgs.naver.net/cafe4/ico-btn-net2_.gif" alt="">다음글</a></td>
-          <td align="left" class="board-list">
-            <span class="aaa">
-            <a href="#" class="m-tcol-c">대략 테스트...</a> 
-            </span>
-          </td>
-          <td align="left"><div class="pers_nick_area"><table cellspacing="0"><caption><span class="blind">퍼스나콘/아이디 영역</span></caption><tr><td class="pc"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="13" height="13" alt="" class="p-none"></td><td class="p-nick"><a href="#" class="m-tcol-c" onclick="ui(event, 'kielhong',3,'키엘','10000001','ma', 'true', 'false', 'cafeno1', 'true', '3'); return false;"><span class="wordbreak" id="refarticle_nextSiblingContent">키엘</span></a></td></tr></table></div><script type="text/javascript">wordBreak($("refarticle_nextSiblingContent"));</script></td>
-          <td class="view-count m-tcol-c">2003.12.10</td>
-        </tr>
-        <tr><td colspan="4" class="board-line"></td></tr>
-    </table>
-  </div>
-  -->
-  
-<script  type="text/javascript">
+<script type="text/javascript">
+function appendComment(container, comment) {
+    container.append("<li style=\"margin-top:10px; padding:0; height:40px;\">" 
+                        + "<span style=\"font-weight:bold\">" + comment.user.username + "</span>" 
+                        + "<span class=\"m-tcol-c\">" + comment.create_datetime + "</span>"
+                        + "<span><a href=\"#\" class=\"m-tcol-c\">답글</a></span>"
+                        + "<p class=\"comm m-tcol-c\"><span class=\"comm_body\">" + comment.content + "</span></p>"
+                        + "</li>"
+                        + "<li class=\"filter-30 board-box-line-dashed\"></li>");
+}
+
 function loadComment(data) {
   $("#cmt_list").empty();
   
   for (var i = 0; i < data.length; i++) {
-    var comment = data[i];
-    $("#cmt_list").append("<li style=\"margin-top:10px; padding:0; height:40px;\">" 
-                        + "<span style=\"font-weight:bold\">" 
-                        + comment.member.nickname 
-                        + "</span><span class=\"m-tcol-c\">" 
-                        + comment.createDate 
-                        + "</span><span><a href=\"#\" class=\"m-tcol-c\">답글</a></span><p class=\"comm m-tcol-c\"><span class=\"comm_body\">" 
-                        + comment.content 
-                        + "</span></p></li>"
-                        + "<li class=\"filter-30 board-box-line-dashed\"></li>");
+    appendComment($("#cmt_list"), data[i]);
   }
 }
+
+$("#comment_submit").click(function() {
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:8083/articles/${article.id}/comments",
+    data: {"content": $("textarea#comment_content").val()}
+  }).success(function(data) {
+    $("#comment_content").val("");
+    appendComment($("#cmt_list"), data);
+  });
+});
 
 $(document).ready(function(){
   $.ajax({
     type: "GET",
-    url: "http://localhost:8083/article/${article.id}/comment/list"
+    url: "http://localhost:8083/articles/${article.id}/comments"
   }).success(function(data) {
     loadComment(data);
   });
 });
+
 </script>  
  
 </@layout.cafeLayout>

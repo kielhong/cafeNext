@@ -23,7 +23,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @Transactional
 public class CafeMemberRepositoryTest {
     @Autowired
-    private CafeMemberRepository cafeMemberRepository;
+    private CafeUserRepository cafeMemberRepository;
     
     @Test
     public void testSelectByCafe() {

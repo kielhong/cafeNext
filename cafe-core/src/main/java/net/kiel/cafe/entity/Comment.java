@@ -16,6 +16,14 @@ import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 @Entity
 public class Comment {
+    public Comment() {}
+    
+    public Comment(Article article, User user, String content) {
+        this.article = article;
+        this.user = user;
+        this.content = content;
+    }
+    
     @Id
     @GeneratedValue
     @Getter @Setter

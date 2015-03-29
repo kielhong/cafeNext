@@ -6,9 +6,9 @@ import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.entity.User;
 import net.kiel.cafe.repository.CafeCategoryRepository;
 import net.kiel.cafe.service.CafeService;
+import net.kiel.cafe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +22,8 @@ public class CafeController {
     private CafeCategoryRepository categoryRepository;
     @Autowired
     private CafeService cafeService;
+    @Autowired
+    private UserService userService;
     
     
     @RequestMapping(value="create", method=RequestMethod.GET)
@@ -39,10 +41,9 @@ public class CafeController {
             return "create_cafe";
         }
        
-        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println("user: " + user.getUsername());
+        User user = userService.getUserByContext();
         
-        //cafeService.createCafe(cafe.getDomain(), cafe.getName(), cafe.getCategory(), cafe.getDescription(), member);
+        cafe = cafeService.createCafe(cafe.getDomain(), cafe.getName(), cafe.getCategory(), cafe.getDescription(), user);
         
         return "redirect:" + "http://localhost:8081/" + cafe.getDomain();
     }
