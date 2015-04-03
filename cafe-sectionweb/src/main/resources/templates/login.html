@@ -42,15 +42,9 @@
  
         <h3>Login with Username and Password</h3>
  
- 
-<!--
-        #if (!$error)
-            <div class="error">$error</div>
-        #end
-        #if (!$msg)
-            <div class="msg">$msg</div>
-        #end
--->        
+        <span th:text="${error}">ERROR</span>
+        <div th:if="${error}" th:text="${error}">ERROR</div>
+        <div th:if="${msg}" th:text="${msg}">MESSAGE</div>
         
         <form  name='f' action="/login" method='POST'>
         <!--<input type="hidden" name="$_csrf.parameterName" value="$_csrf.token" />-->
