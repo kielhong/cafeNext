@@ -106,7 +106,7 @@ function loadComment(data) {
 $("#comment_submit").click(function() {
   $.ajax({
     type: "POST",
-    url: "http://localhost:8083/articles/${article.id}/comments",
+    url: "/api/articles/${article.id}/comments",
     data: {"content": $("textarea#comment_content").val()}
   }).success(function(data) {
     $("#comment_content").val("");
@@ -117,7 +117,7 @@ $("#comment_submit").click(function() {
 $(document).ready(function(){
   $.ajax({
     type: "GET",
-    url: "http://localhost:8083/articles/${article.id}/comments"
+    url: "/api/articles/${article.id}/comments"
   }).success(function(data) {
     loadComment(data);
   });
