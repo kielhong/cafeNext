@@ -17,9 +17,7 @@ spring:
     properties:
       hibernate.format_sql: true
     show-sql: true
-    hibertnate.ddl-auto: create-drop    
-server:
-  port: 8083
+    hibertnate.ddl-auto: create-drop
 ---
 spring:
   profiles: dev

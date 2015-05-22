@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("articles")
+@RequestMapping("api/articles")
 public class ArticleController {
     @Autowired
     private CommentRepository commentRepository;

@@ -1,4 +1,4 @@
-package net.kiel.cafe;
+package net.kiel.cafe.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

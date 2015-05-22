@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("articles/{articleId}/comments")
+@RequestMapping("api/articles/{articleId}/comments")
 public class CommentController {
     private static Logger logger = LoggerFactory.getLogger(CommentController.class);
     

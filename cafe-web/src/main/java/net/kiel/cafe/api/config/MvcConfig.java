@@ -1,4 +1,4 @@
-package net.kiel.cafe.config;
+package net.kiel.cafe.api.config;
 
 import javax.servlet.Filter;
 
