@@ -41,8 +41,8 @@ public class ArticleDto {
         return article.getCommentCount();
     }
     
-    public Date getCreatedAt() {
-        return Date.from(article.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant());
+    public Date getCreateDatetime() {
+        return Date.from(article.getCreateDatetime().atZone(ZoneId.systemDefault()).toInstant());
     }
 
 }

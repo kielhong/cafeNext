@@ -8,6 +8,7 @@ import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.CommentRepository;
 
 import net.kiel.cafe.repository.UserRepository;
+import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.UserService;
 import net.kiel.cafe.web.controller.api.dto.CommentDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ApiArticleController {
     @Autowired
+    private ArticleService articleService;
+    @Autowired
     private ArticleRepository articleRepository;
     @Autowired
     private CommentRepository commentRepository;
@@ -31,22 +34,19 @@ public class ApiArticleController {
 
     @RequestMapping("{articleId}/comments")
     public List<CommentDto> listComment(@PathVariable Long articleId) {
-        List<Comment> comments = commentRepository.findByArticleId(articleId);
+        List<Comment> comments = articleService.listComments(articleId);
 
-        return comments.stream().map(CommentDto::new).collect(Collectors.toList());
+        return comments.stream()
+                .map(CommentDto::new)
+                .collect(Collectors.toList());
     }
 
     @RequestMapping(value = "{articleId}/comments", method= RequestMethod.POST)
     public CommentDto createComment(@PathVariable Long articleId, @RequestParam String content) {
         Article article = articleRepository.findOne(articleId);
-        // TODO : session handle
-//        User user = userService.getUserByContext();
-        User user = userRepository.findOne(1);
+        User user = userService.getUserByContext();
 
-        log.info("param content : {}", content);
-
-        Comment comment = new Comment(article, user, content);
-        comment = commentRepository.saveAndFlush(comment);
+        Comment comment = commentRepository.saveAndFlush(new Comment(article, user, content));
 
         return new CommentDto(comment);
     }

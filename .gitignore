@@ -2,10 +2,11 @@
 .project
 /.gradle
 */.settings
-*/build
 */bin
+build/
 resources/database/cafe.mwb.bak
 
 # IntelliJ
 *.iml
 .idea/
+

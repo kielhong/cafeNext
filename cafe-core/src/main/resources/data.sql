@@ -22,32 +22,32 @@ INSERT INTO board (id, cafe_id, title, description, type, create_datetime) VALUE
 
 
 /** Article **/
-INSERT INTO article (id, board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 1, 'test article', 'test content', '2014-11-10 00:00:00', 60, 61);
-INSERT INTO article (id, board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (2, 1, 1, 'test article 2', 'test content very short', '2015-03-10 00:00:00', 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
-INSERT INTO article (board_id, user_id, title, content, created_at, read_count, recommend_count) VALUES (10, 1, 'cafe 2.test article 1', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (id, board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 1, 'test article', 'test content', '2014-11-10 00:00:00', 60, 61);
+INSERT INTO article (id, board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (2, 1, 1, 'test article 2', 'test content very short', '2015-03-10 00:00:00', 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (1, 1, 'test article 2', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
+INSERT INTO article (board_id, user_id, title, content, create_datetime, read_count, recommend_count) VALUES (10, 1, 'cafe 2.test article 1', 'test content very short', CURRENT_TIMESTAMP, 0, 0);
 
 /** Comment **/
 INSERT INTO comment (content, article_id, user_id, create_date) VALUES ('test comment', 1, 1, '2014-11-21 00:00:00'),('test comment22', 1, 1, '2014-11-21 01:00:00'),('test comment333', 1, 1, '2014-11-21 02:00:00'),('test comment44', 1, 1, '2014-11-21 00:00:00'),('test comment54', 1, 1, '2014-11-21 00:00:00'),('test comment6', 1, 1, '2014-11-21 00:00:00'),('test comment7', 1, 1, '2014-11-21 00:00:00'),('test comment8', 1, 1, '2014-11-21 00:00:00'),('test comment9', 1, 1, '2014-11-21 00:00:00'),('test comment10', 1, 1, '2014-11-21 00:00:00'),('test comment11', 1, 1, '2014-11-21 00:00:00')

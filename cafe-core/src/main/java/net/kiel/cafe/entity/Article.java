@@ -12,56 +12,52 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
 import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
+@ToString(exclude = {"board"})
+@Data
 public class Article {
+    public Article() {}
+    public Article(User user, Board board, String title, String content) {
+        this.user = user;
+        this.board = board;
+        this.title = title;
+        this.content = content;
+    }
+
     @Id
     @GeneratedValue
-    @Getter @Setter
     private Long id;
     
     @ManyToOne
-    @Getter @Setter
     private User user;    
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @Getter @Setter
     private Board board;
     
     @Column(nullable = false)
-    @Getter @Setter
     private String title;
     
     @Lob
-    @Getter @Setter
     private String content;
 
     @Column(name = "read_count")
-    @Getter @Setter
     private Integer readCount = 0;
     
     @Column(name = "recommend_count")
-    @Getter @Setter
     private Integer recommendCount = 0;
     
     @Transient
-    @Getter @Setter
     private Long commentCount;
     
-//    @OneToMany(fetch=FetchType.LAZY)
-//    @Cascade({CascadeType.SAVE_UPDATE})
-//    @OrderBy("id DESC")
-//    @Getter @Setter
-//    private List<Comment> comments;
-
-    @Column(name = "created_at")
+    @Column(name = "create_datetime")
     @Convert(converter = LocalDateTimePersistenceConverter.class)
-    @LastModifiedDate
-    @Getter @Setter
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createDatetime = LocalDateTime.now();
 }
