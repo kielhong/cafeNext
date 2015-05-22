@@ -1,4 +1,4 @@
-package net.kiel.cafe.api.filter;
+package net.kiel.cafe.web.filter;
 
 import java.io.IOException;
 

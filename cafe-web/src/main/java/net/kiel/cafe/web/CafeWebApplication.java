@@ -1,4 +1,4 @@
-package net.kiel.cafe.api;
+package net.kiel.cafe.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan(basePackages={"net.kiel.cafe"})
-public class CafeApiApplication {
+public class CafeWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CafeApiApplication.class, args);
+        SpringApplication.run(CafeWebApplication.class, args);
     }
 }

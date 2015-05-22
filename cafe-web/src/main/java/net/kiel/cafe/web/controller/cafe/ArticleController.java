@@ -1,4 +1,4 @@
-package net.kiel.cafe.web.controller;
+package net.kiel.cafe.web.controller.cafe;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,9 +12,9 @@ import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
-import net.kiel.cafe.web.controller.dto.ArticleDto;
-import net.kiel.cafe.web.controller.dto.BoardDto;
-import net.kiel.cafe.web.controller.dto.CafeDto;
+import net.kiel.cafe.web.controller.cafe.dto.ArticleDto;
+import net.kiel.cafe.web.controller.cafe.dto.BoardDto;
+import net.kiel.cafe.web.controller.cafe.dto.CafeDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

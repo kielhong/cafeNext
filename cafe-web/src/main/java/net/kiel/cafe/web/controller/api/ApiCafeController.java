@@ -1,28 +1,29 @@
-package net.kiel.cafe.api.controller;
+package net.kiel.cafe.web.controller.api;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import net.kiel.cafe.api.controller.dto.CafeDto;
+import net.kiel.cafe.web.controller.api.dto.CafeDto;
 import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.repository.CafeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/categories")
-public class CafeCategoryController {
+@RequestMapping("api/cafes")
+public class ApiCafeController {
     @Autowired
     private CafeRepository cafeRepository;
     
-    @RequestMapping(value = "/{categoryId}/cafes", method = RequestMethod.GET)
-    public List<CafeDto> getAllCafeByCategory(@PathVariable Integer categoryId) {
-        List<Cafe> cafes = cafeRepository.findByCategoryId(categoryId);
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public List<CafeDto> getAllCafes() {
+        List<Cafe> cafes = cafeRepository.findAll();
         
         return cafes.stream().map(CafeDto::new).collect(Collectors.toList());
     }
+    
+
 }

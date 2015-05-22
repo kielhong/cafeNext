@@ -1,4 +1,4 @@
-package net.kiel.cafe.web.controller.dto;
+package net.kiel.cafe.web.controller.cafe.dto;
 
 import lombok.Getter;
 import lombok.Setter;

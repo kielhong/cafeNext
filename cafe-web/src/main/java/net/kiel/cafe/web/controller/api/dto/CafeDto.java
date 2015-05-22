@@ -1,4 +1,4 @@
-package net.kiel.cafe.api.controller.dto;
+package net.kiel.cafe.web.controller.api.dto;
 
 import java.time.LocalDateTime;
 
