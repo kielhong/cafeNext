@@ -5,3 +5,7 @@
 */build
 */bin
 resources/database/cafe.mwb.bak
+
+# IntelliJ
+*.iml
+.idea/
