@@ -1,4 +1,4 @@
-package net.kiel.cafe.web.controller;
+package net.kiel.cafe.web.controller.section;
 
 import java.util.List;
 
@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class IndexController {
+@RequestMapping("/")
+public class SectionIndexController {
     @Autowired
     private CafeCategoryRepository cafeCategoryRepository;
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model) {
         List<CafeCategory> categories = cafeCategoryRepository.findAll();
         

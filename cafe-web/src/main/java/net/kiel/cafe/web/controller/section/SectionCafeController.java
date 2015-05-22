@@ -1,4 +1,4 @@
-package net.kiel.cafe.web.controller;
+package net.kiel.cafe.web.controller.section;
 
 import javax.validation.Valid;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("cafe")
-public class CafeController {
+@RequestMapping("section/cafe")
+public class SectionCafeController {
     @Autowired
     private CafeCategoryRepository categoryRepository;
     @Autowired
@@ -45,6 +45,6 @@ public class CafeController {
         
         cafe = cafeService.createCafe(cafe.getDomain(), cafe.getName(), cafe.getCategory(), cafe.getDescription(), user);
         
-        return "redirect:" + "http://localhost:8081/" + cafe.getDomain();
+        return "redirect:" + "/cafe/" + cafe.getDomain();
     }
 }

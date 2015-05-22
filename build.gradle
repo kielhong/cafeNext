@@ -1,5 +1,6 @@
 ext {
     springVersion = "4.1.5.RELEASE"
+    springBootVersion = "1.2.3.RELEASE"
     jacksonVersion = "2.5.1"
 }
 
@@ -9,7 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE"
     }
 }
 
@@ -69,9 +70,11 @@ project(':cafe-web') {
         compile project(':cafe-core')
          
         compile "org.springframework.boot:spring-boot-starter-web"
-//        compile "org.springframework.boot:spring-boot-starter-freemarker"
-//        compile "org.springframework.boot:spring-boot-starter-thymeleaf"
-//        compile "org.springframework.boot:spring-boot-starter-security"
+        compile "org.springframework.boot:spring-boot-starter-security"
+
+        // View
+        compile "org.springframework.boot:spring-boot-starter-freemarker"
+        compile "org.springframework.boot:spring-boot-starter-thymeleaf"
         compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
     }
 
@@ -87,39 +90,6 @@ project(':cafe-cafeweb') {
          
         compile "org.springframework.boot:spring-boot-starter-web"
         compile "org.springframework.boot:spring-boot-starter-freemarker"
-    }
-
-    // for delegate system properties to bootRun
-    tasks.withType(org.springframework.boot.gradle.run.BootRunTask) {
-        systemProperties = System.properties
-    }
-}
-
-project(':cafe-sectionweb') {
-    dependencies {
-        compile project(':cafe-core')
- 
-        // Spring Boot
-        compile "org.springframework.boot:spring-boot-starter-web"
-        //compile "org.springframework.boot:spring-boot-starter-velocity"
-        compile "org.springframework.boot:spring-boot-starter-thymeleaf"
-        compile "org.springframework.boot:spring-boot-starter-security"
-    }
-
-    // for delegate system properties to bootRun
-    tasks.withType(org.springframework.boot.gradle.run.BootRunTask) {
-        systemProperties = System.properties
-    }
-}
-
-project(':cafe-api') {
-   dependencies {
-        compile project(':cafe-core')
-     
-        compile "org.springframework.boot:spring-boot-starter-web"
-        compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
-        // Swagger
-        compile "com.mangofactory:swagger-springmvc:1.0.0"
     }
 
     // for delegate system properties to bootRun
