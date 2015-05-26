@@ -43,7 +43,7 @@ class ArticleServiceTest extends Specification {
         def articleCount = articleRepository.countByBoard(board)
 
         when:
-        def article = articleService.create(user, board, title, content)
+        def article = articleService.create(board.id, title, content)
 
         then:
         article.user == user

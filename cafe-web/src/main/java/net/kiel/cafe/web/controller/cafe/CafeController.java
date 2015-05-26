@@ -13,6 +13,8 @@ import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.repository.CommentRepository;
+import static net.kiel.cafe.repository.specification.ArticleSpecification.isBoard;
+import static net.kiel.cafe.repository.specification.ArticleSpecification.isCafe;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
@@ -33,7 +35,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("cafe")
 @Slf4j
 public class CafeController {
     @Autowired
@@ -55,7 +56,7 @@ public class CafeController {
             @PageableDefault(size = 15, page = 0) Pageable pageable,
             Model model) {
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
-        Page<Article> page = articleRepository.findAll((r,q,cb) -> cb.equal(r.get("board").get("cafe"), cafe), pageable);
+        Page<Article> page = articleRepository.findAll(isCafe(cafe), pageable);
         
         model.addAllAttributes(getCafeInfo(domain));
         model.addAttribute("articles", page.getContent().stream().map(ArticleDto::new).collect(Collectors.toList()));
@@ -71,7 +72,7 @@ public class CafeController {
             @PageableDefault(size = 15, page = 0) Pageable pageable,
             Model model) {
         Board board = boardRepository.findOne(boardId);
-        Page<Article> page = articleRepository.findAll((r,q,cb) -> cb.equal(r.get("board"), board), pageable);
+        Page<Article> page = articleRepository.findAll(isBoard(board), pageable);
         
         model.addAllAttributes(getCafeInfo(domain));
         model.addAttribute("board", new BoardDto(board));

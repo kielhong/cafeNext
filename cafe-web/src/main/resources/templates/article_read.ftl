@@ -15,7 +15,7 @@
                  </table>
             </div>
             <div class="fr date">
-              ${article.createdAt?string("yyyy.MM.dd hh:mm")}
+              ${article.createDatetime?string("yyyy.MM.dd hh:mm")}
             </div>
         </div>  
                 

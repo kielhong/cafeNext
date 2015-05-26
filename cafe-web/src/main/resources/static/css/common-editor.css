@@ -1,0 +1,328 @@
+body{margin:0; padding:0; background-color:#FFFFFF; text-align:center;}
+img{border:none;}
+
+input::-ms-clear {display:none}
+#naver_common_editor {position:relative;margin:0 auto; padding:0; text-align:left;}
+#naver_common_editor div, #naver_common_editor ul, #naver_common_editor td, #naver_common_editor input, #naver_common_editor textarea{font-family:돋움, Dotum, AppleGothic, sans-serif; font-size:12px; color:#333333;}
+#naver_common_editor select{font-size:12px; color:#333333;}
+
+#naver_common_editor a:link{text-decoration:none;}
+#naver_common_editor a:visited{text-decoration:none;}
+#naver_common_editor a:active{text-decoration:underline;}
+#naver_common_editor a:hover{text-decoration:underline;}
+
+#naver_common_editor .u{text-decoration:underline;}
+#naver_common_editor a.u:link{text-decoration:underline;}
+#naver_common_editor a.u:visited{text-decoration:underline;}
+#naver_common_editor a.u:hover{text-decoration:underline;}
+#naver_common_editor a.u:active{text-decoration:underline;}
+
+#naver_common_editor .nu{text-decoration:none;}
+#naver_common_editor a.nu:link{text-decoration:none;}
+#naver_common_editor a.nu:visited{text-decoration:none;}
+#naver_common_editor a.nu:hover{text-decoration:none;}
+#naver_common_editor a.nu:active{text-decoration:none;}
+
+#naver_common_editor p, #naver_common_editor ul, #naver_common_editor li, #naver_common_editor dl, #naver_common_editor dt, #naver_common_editor dd, #naver_common_editor h3, #naver_common_editor h4, #naver_common_editor form{margin:0; padding:0;}
+#naver_common_editor li{list-style-type:none;}
+#naver_common_editor h3, #naver_common_editor h4{font-size:12px;}
+#naver_common_editor em{font-style:normal;}
+
+#naver_common_editor ul.subject li{position:relative; width:100%; margin:0 0 9px 0;}
+#naver_common_editor ul.subject .item{position:absolute; left:0; top:5px; width:68px; font-weight:bold; color:#444444; font-size:12px;}
+#naver_common_editor ul.subject .field{_width:100%;padding:0 0 0 68px}
+
+#naver_common_editor .file_attach_menu {height:20px;_height:25px}
+#naver_common_editor .file_attach_menu ul{float:left;width:670px;height:20px;_height:25px}
+#naver_common_editor .file_attach_menu li {float:left;width:auto !important;padding:0 3px 0 4px;background:url(http://cafeimgs.naver.net/editor/icon/line_v_bar.gif) 0 5px no-repeat;color:#D1D1D1;font-size:11px;}
+#naver_common_editor .file_attach_menu li a {padding:5px 0 2px 17px;_padding:5px 0 0 17px;margin:0 6px 0 7px;color:#222; display:inline-block; height:20px}
+#naver_common_editor .file_attach_menu li img {*margin-top:-5px !important}
+#naver_common_editor .file_attach_menu li.first {padding:0 2px 0 0;background:none}
+#naver_common_editor .file_attach_menu li.first a{margin-left:0}
+#naver_common_editor .file_attach_menu .ico_pic {background:url(http://cafeimgs.naver.net/editor/icon/ico_pic.gif) 0 5px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_movie {background:url(http://cafeimgs.naver.net/editor/icon/ico_movie.gif) 0 5px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_map {padding-left:14px;background:url(http://cafeimgs.naver.net/editor/icon/ico_map2.gif) 0 5px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_file {padding-left:15px;background:url(http://cafeimgs.naver.net/editor/icon/ico_file2.gif) 0 5px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_draw {background:url(http://cafeimgs.naver.net/editor/icon/ico_draw.gif) 0 6px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_vote {background:url(http://cafeimgs.naver.net/editor/icon/ico_vote.gif) 0 5px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_music {background:url(http://cafeimgs.naver.net/editor/icon/ico_attach_music.gif) 0 5px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_calendar {background:url(http://cafeimgs.naver.net/editor/icon/ico_calendar.gif) 0 5px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_gps{padding:5px 0 0 15px;background:url(http://cafeimgs.naver.net/editor/icon/ico_gps.gif) 0 4px no-repeat;}
+#naver_common_editor .file_attach_menu .ico_link{padding:5px 0 0 17px;background:url(http://cafeimgs.naver.net/cafe4//ico_link.png) 0 4px no-repeat;}
+#naver_common_editor ul.post {padding:19px 0 0 0 !important;}
+*html #naver_common_editor ul.post{float:left;}
+#naver_common_editor ul.post li{position:relative;width:100%; margin:0 0 15px 0;}
+#naver_common_editor ul.post .item{position:absolute; left:0; top:4px; width:68px; font-weight:bold; color:#464646; font-size:12px;}
+#naver_common_editor ul.post .field{_width:100%;padding:0 0 0 68px}
+#naver_common_editor ul.post .file_list{width:auto; margin-left:68px; padding:0; border:1px solid #DFDFDF;}
+
+#naver_common_editor ul.post .searchset div label {margin:0;}
+#naver_common_editor ul.post .searchset div span {color:#ff7200; font-size:11px; letter-spacing:-1px;}
+#naver_common_editor ul.post .searchset div img {margin:-2px -1px 2px 2px; vertical-align:middle;}
+
+#naver_common_editor ul.file_txt{overflow:hidden; clear:both;}
+#naver_common_editor ul.file_txt li{position:relative; width:100%; margin:0; padding:6px 0 3px 23px; background:url(http://cafeimgs.naver.net/editor/ico_file.gif) 7px 7px no-repeat;}
+html>body #naver_common_editor ul.file_txt li{width:auto;}
+#naver_common_editor ul.file_txt li.bgcolor{background-color:#F8F8F8;}
+#naver_common_editor ul.file_txt li a{color:#333333;}
+#naver_common_editor ul.file_txt li span{position:absolute; right:5px; top:4px; font-size:9px; font-family:verdana; color:#3D3D3D;}
+#naver_common_editor ul.file_txt li span img{vertical-align:middle; margin-top:1px;}
+#naver_common_editor ul.file_txt li.add_poll {background-image:url(http://cafeimgs.naver.net/editor/ico_poll.gif)}
+
+#naver_common_editor ul.file_thumb{overflow:hidden; width:100%; padding-left:7px; border-top:1px solid #DFDFDF; background-color:#F8F8F8;}
+#naver_common_editor ul.file_thumb02{overflow:hidden; width:100%; padding-left:7px; background-color:#FFFFFF;}
+html>body #naver_common_editor ul.file_thumb, html>body #naver_common_editor ul.file_thumb02{width:auto;}
+#naver_common_editor ul.file_thumb li, #naver_common_editor ul.file_thumb02 li{float:left; width:50px; margin:0 8px 0 0; padding:8px 0 6px 0; background:none; white-space:nowrap;}
+#naver_common_editor ul.file_thumb li p, #naver_common_editor ul.file_thumb02 li p{margin-bottom:2px;}
+#naver_common_editor ul.file_thumb li p img, #naver_common_editor ul.file_thumb02 li p img{vertical-align:top; border:1px solid #D8D8D8;}
+#naver_common_editor ul.file_thumb li span, #naver_common_editor ul.file_thumb02 li span{overflow:hidden; font-size:9px; font-family:verdana; color:#3D3D3D; letter-spacing:-1px;}
+#naver_common_editor ul.file_thumb li span img, #naver_common_editor ul.file_thumb02 li span img{vertical-align:middle; margin:1px 0 3px -1px; _margin:1px 0 0 -1px;}
+#naver_common_editor ul.file_thumb li p span {position:absolute;display:block;width:18px;height:19px;top:20px;left:1px;}
+#naver_common_editor ul.file_thumb li p .movie {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cafeimgs.naver.net/editor/ccs_01.png',sizingMethod='crop');}
+html>body #naver_common_editor ul.file_thumb li p .movie {background:url('http://cafeimgs.naver.net/editor/ccs_01.png') no-repeat;}
+#naver_common_editor ul.file_thumb li p .layout {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cafeimgs.naver.net/editor/ccs_02.png',sizingMethod='crop');}
+html>body #naver_common_editor ul.file_thumb li p .layout {background:url('http://cafeimgs.naver.net/editor/ccs_02.png') no-repeat;}
+#naver_common_editor ul.file_thumb li p .array {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cafeimgs.naver.net/editor/ccs_03.png',sizingMethod='crop');}
+html>body #naver_common_editor ul.file_thumb li p .array {background:url('http://cafeimgs.naver.net/editor/ccs_03.png') no-repeat;}
+#naver_common_editor ul.file_thumb li p .connection {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cafeimgs.naver.net/editor/ccs_04.png',sizingMethod='crop');}
+html>body #naver_common_editor ul.file_thumb li p .connection {background:url('http://cafeimgs.naver.net/editor/ccs_04.png') no-repeat;}
+#naver_common_editor ul.file_thumb li p .slide {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cafeimgs.naver.net/editor/ccs_05.png',sizingMethod='crop');}
+html>body #naver_common_editor ul.file_thumb li p .slide {background:url('http://cafeimgs.naver.net/editor/ccs_05.png') no-repeat;}
+
+#naver_common_editor .amount{overflow:hidden; float:right; margin:7px 0 2px 0; font-size:9px; font-family:verdana; color:#3D3D3D;}
+#naver_common_editor .amount span{float:left; display:inline; color:#333333;}
+#naver_common_editor .amount .section{margin:0 3px 0 3px; color:#CCCCCC;}
+#naver_common_editor .amount .total{color:#666666;}
+#naver_common_editor .amount .graph{float:left; display:inline; width:82px; height:11px; background:url(http://cafeimgs.naver.net/editor/bg_amount.gif) no-repeat; margin:3px 4px 0 4px; padding:0;}
+#naver_common_editor .amount .graph span{float:left; display:inline; height:11px; background:url(http://cafeimgs.naver.net/editor/bg_amount02.gif) no-repeat;}
+
+#naver_common_editor table.wrap{border:1px solid #C2C2C2; border-top:none;}
+#naver_common_editor .tool_bg{height:35px; background:url(http://cafeimgs.naver.net/editor/bg_tool_line.gif) repeat-x;z-index:100}
+#naver_common_editor .tool_bg2 {height:33px; background:url(http://cafeimgs.naver.net/editor/bg_tool_line2.gif) repeat-x;z-index:100;}
+#naver_common_editor .tool_bg_commercial {background-color:#FFF; padding:15px 0 !important; z-index:100}
+#naver_common_editor .tool_bg img, #naver_common_editor .tool_bg2 img{vertical-align:top;}
+#naver_common_editor .wrap .item {display:block;height:28px;_height:35px; padding:7px 0 0 7px; z-index:100}
+
+#naver_common_editor .wrap .tool_bg2 .item {height:21px;padding:0 0 0 7px}
+#naver_common_editor .wrap .tool_bg2 .item span{vertical-align:top}
+
+#naver_common_editor .wrap .family{margin:0;}
+#naver_common_editor .wrap .size{margin:0;}
+#naver_common_editor .wrap .make01{margin-left:1px;}
+#naver_common_editor .wrap .make02{margin:0;}
+#naver_common_editor .wrap .make03{margin-left:1px;}
+#naver_common_editor .wrap .make04{position:relative;top:-1px;}
+#naver_common_editor .wrap .make05{position:relative;top:-1px;}
+#naver_common_editor .wrap .line_sticker{z-index:200;position:relative;display:inline-block;*display:inline;vertical-align:top;font-size:0}
+#naver_common_editor .wrap .ico_new{position:absolute;right:-3px;top:-3px}
+
+#naver_common_editor .wrap .url{margin-left:1px;}
+#naver_common_editor .wrap .do{margin-left:1px;}
+#naver_common_editor .wrap .emo{margin:0 9px 0 1px;}
+#naver_common_editor .wrap .emo02{margin-left:1px;}
+#naver_common_editor .wrap .more_tool{position:absolute;left:0px;}
+html>body #naver_common_editor .wrap .more_tool {right:12px;}
+#naver_common_editor .wrap .tool_option{padding-top:5px; background:url(http://cafeimgs.naver.net/editor/bg_tool_line02.gif) repeat-x;}
+#naver_common_editor .wrap .tool_option2 {padding-top:5px; background:url(http://cafeimgs.naver.net/editor/bg_tool_line05.gif) repeat-x;}
+#naver_common_editor .wrap .tool_option3 {padding-top:5px;font-family:verdana;font-size:11px;}
+#naver_common_editor .wrap .tool_bg2 .tool_option3 {padding-top:0;line-height:12px}
+#naver_common_editor .wrap .tool_bg2 .tool_option3 input{vertical-align:middle}
+#naver_common_editor .wrap .option{float:left; display:inline; margin:0;}
+#naver_common_editor .wrap .option2 {float:left; display:inline; margin:2px 0 0 7px;}
+#naver_common_editor .wrap .tool_option input,#naver_common_editor .wrap .option input{vertical-align:middle;}
+
+#naver_common_editor table.wrap textarea{width:100%; height:400px; padding:13px 15px 20px 15px; border:none; overflow:auto; color:#444444; line-height:1.5;
+scrollbar-face-color:#DEE0DF;
+scrollbar-highlight-color:#FFFFFF;
+scrollbar-shadow-color:#C2C2C2;
+scrollbar-3dlight-color:#E2E2E2;
+scrollbar-arrow-color:#2F2F2F;
+scrollbar-track-color:#F2F2F2;
+scrollbar-darkshadow-color:#FFFFFF;
+scrollbar-base-color:#FFFFFF;
+}
+html>body #naver_common_editor table.wrap textarea{padding:0;}
+
+#naver_common_editor .boxlayer {position:absolute; left:50%; top:355px; _top:175px; width:326px; margin-left:-155px;}
+#naver_common_editor .box01 {position:relative; padding:15px; background-color:#FFF;border:2px solid #777777; text-align:center;}
+#naver_common_editor .box02 {position:relative; padding:15px 29px 5px 19px; background-color:#FFF; border:2px solid #777777; text-align:center;}
+#naver_common_editor .btn_close {position:absolute;top:9px;right:9px;}
+#naver_common_editor .txt_01 {padding:0 0 5px 0; margin:0; line-height:1.5; word-wrap:break-word;word-break:break-all;}
+#naver_common_editor .txt_01 a{color:#004790;}
+#naver_common_editor .txt_02 {padding:0 0 5px 0;margin:0;font-size:11px;color:#888888;line-height:1.5}
+#naver_common_editor .box02 .txt_02{padding:0 0 5px 0; margin:0; font-size:11px; color:#888888; line-height:1.5; text-align:center;}
+#naver_common_editor .btns {padding-top:9px;border-top:1px solid #E8E8E8;}
+
+#naver_common_editor .btn_html {position:absolute;right:0;margin:-25px 0 0 -12px;text-align:right;font-size:11px;}
+#naver_common_editor .btn_html span {color:#6b6b6b;}
+
+#naver_common_editor .btn_html2{height:25px; background:url(http://cafeimgs.naver.net/cafe4/bg_ptabs.gif) repeat-x; overflow:hidden; text-align:left; position:relative;}
+#naver_common_editor .btn_html2 .option{position:absolute; top:0; right:1px; color:#6B6B6B;}
+#naver_common_editor .btn_html2 .comment{font-size:11px; padding-right:5px; letter-spacing:-1px;}
+#naver_common_editor .btn_html2 .comment em{font-size:11px; font-style:normal; font-weight:bold; color:#F00;}
+#naver_common_editor .btn_html2 ul{height:25px; overflow:hidden;}
+#naver_common_editor .btn_html2 li{float:left; background:url(http://cafeimgs.naver.net/cafe4/tab_comm_1.gif) no-repeat; width:83px; height:19px; _height:25px; padding-top:6px; text-align:center; font-weight:bold; color:#1C1C1C;}
+
+.commercial_form{width:708px; border:0; table-layout:fixed; border-top:solid 1px #E5E5E5; margin:0 auto;}
+.commercial_form th{background-color:#FAFAFA; text-align:left; vertical-align:top; border-bottom:solid 1px #E5E5E5; font-size:12px;}
+.commercial_form th div{font-size:12px; color:#333; letter-spacing:-1px; padding:15px 0 0 19px;}
+.commercial_form th div.res{background:url(http://cafeimgs.naver.net/cafe4/ico_res.gif) 8px 15px no-repeat;}
+.commercial_form th div .es{margin-top:7px !important; font-size:11px; font-weight:normal; color:#464646; letter-spacing:-1px;}
+.commercial_form th div .es img{vertical-align:middle; margin:0 0 3px;}
+.commercial_form td{color:#555; vertical-align:top; border-bottom:solid 1px #E5E5E5; font-size:12px; padding:14px 0 12px 21px;}
+.commercial_form td.txt{padding-top:13px; padding-bottom:11px;}
+.commercial_form td select{font-size:11px !important; color:#666; vertical-align:middle; margin-right:1px; height:19px;}
+.commercial_form td label{color:#444; padding:0 5px 0 0;}
+.commercial_form .t-check{vertical-align:middle; margin:0 4px 2px 0; _margin-bottom:3px;}
+.commercial_form .t-txt01{width:408px; border:solid 1px #CCC; color:#999 !important; vertical-align:middle; font-size:11px !important; padding:3px 0 1px 5px; _height:19px;}
+.commercial_form .t-txt02{border:solid 1px #CCC; color:#999 !important; vertical-align:middle; font-size:11px !important; padding:3px 0 2px 5px; _height:20px;}
+.commercial_form .t-txt03{border:solid 1px #CCC; color:#999 !important; vertical-align:middle; font-size:11px !important; padding:5px 0 3px 5px; _height:22px;}
+.commercial_form .t-txt04{width:324px !important; height:40px !important; border:solid 1px #CCC !important; color:#999 !important; font-size:11px !important; padding:5px 0 3px 5px !important;}
+.commercial_form .t-txt05{width:325px !important; height:75px !important; border:solid 1px #CCC !important; color:#999 !important; font-size:11px !important; padding:5px 0 3px 5px !important;}
+.commercial_form .d-list{border:0; margin:0 0 5px 12px !important;}
+.commercial_form .d-list th{background:none; border:0; vertical-align:middle; padding:0;}
+.commercial_form .d-list td{border:0; padding:3px 0 3px;}
+.commercial_form .d-list td .chk{vertical-align:middle; margin:0 3px 2px 0;*margin-left:-4px;}
+.commercial_form .d-list td label{font-size:11px; color:#464646; letter-spacing:-1px; padding:0;}
+.commercial_form .d-list td img{vertical-align:middle; margin:0 0 2px -1px;}
+.commercial_form .d-list td .txt{color:#999;}
+.commercial_form .name{ vertical-align:top !important; padding:0 !important; height:20px;}
+.commercial_form .name .auth{color:#888; padding-left:4px; font-size:11px; letter-spacing:-1px; font-weight:normal;}
+.commercial_form .name .bar{color:#e5e5e5; padding-right:3px;}
+.commercial_form th.tel{vertical-align:top !important}
+.commercial_form th.tel span{display:inline-block;padding-top:9px}
+.commercial_form td.tel{display:block;position:relative;width:500px}
+.commercial_form td.tel .lnk{display:inline-block;position:absolute;top:4px;*top:3px;right:22px;*right:15px;color:#ddd;line-height:18px;letter-spacing:-1px}
+.commercial_form td.tel .lnk span.bar{display:inline-block;padding:3px 2px 1px 3px;vertical-align:top}
+.commercial_form td.tel .lnk a{display:inline-block;padding:2px;font-size:11px;color:#464646;letter-spacing:-1px;text-decoration:underline !important}
+.commercial_form .o-list{overflow:hidden;zoom:1}
+.commercial_form .o-list li{float:left;}
+.commercial_form .o-list .pic{width:134px; text-align:center; margin-right:15px !important;}
+.commercial_form .o-list .pic img{vertical-align:top;}
+.commercial_form .o-list .pic .upload{margin:7px 0 0;}
+.commercial_form .o-list .desc{width:420px; padding:0;}
+.commercial_form .o-list .desc table{width:420px; padding:5px 0 0 !important; border:none; margin:0;}
+.commercial_form .o-list .desc table th{background:transparent; border:0; width:90px; padding-top:6px !important; color:#555; letter-spacing:-1px;}
+.commercial_form .o-list .desc table th.selection{padding-top:4px !important;}
+.commercial_form .o-list .desc table th span {color:#999;font-weight:normal;}
+.commercial_form .o-list .desc table td{border:0; padding:0 0 6px; width:330px;}
+.commercial_form .o-list .desc table td.selection{padding:0 0 7px;}
+.commercial_form .o-list .desc table td.text{padding:6px 0 0;}
+.commercial_form .sell_comment1{font-size:11px; color:#999; letter-spacing:-1px;}
+.commercial_form .sell_comment2{font-size:11px; color:#888; letter-spacing:-1px;}
+.commercial_form .input_info{font-size:12px; color:#444; text-decoration:underline !important;}
+.commercial_form .button_info{position:relative; top:1px; _top:2px; font-size:12px; color:#888; padding:5px 0 0 5px;}
+.commercial_form .dotline{float:none; padding-top:12px; font-size:11px !important; color:#5A7AA6 !important; line-height:15px; letter-spacing:-1px;}
+.commercial_form .dotline a {color:#5A7AA6 !important;text-decoration:underline !important;}
+.commercial_form .btn_regist {position:absolute;margin:-1px 0 0 4px;*margin:0;_margin-top:-1px;}
+.commercial_form .tm{padding:0 !important; .padding-top:2px !important; font-size:11px; overflow:hidden;}
+.commercial_form .tm input{display:inline-block;float:left;vertical-align:top;margin:0 5px 3px 0; *margin:-3px 5px 3px 0}
+.commercial_form .tm label{padding:0;font-size:11px;color:#5a7aa6 !important;letter-spacing:-1px; line-height:15px}
+.commercial_form .tm p{display:inline-block;float:left;width:460px;}
+.commercial_form .tm.tm_v1{width:500px;padding:9px 0 5px 0 !important;color:#888 !important}
+.commercial_form .tm.tm_v1 label{line-height:15px;color:#888 !important}
+.commercial_form .no_delivery{font-size:11px; color:#666; letter-spacing:-1px; background:url(http://cafeimgs.naver.net/cafe4/ico_comm_noti.gif) 0 7px no-repeat; padding:8px 0 0 17px !important; _padding-top:9px !important;}
+.commercial_form .w_txt {padding:14px 0 4px !important;margin-top:15px !important;border-top:1px solid #f2f2f2;color:#5a7aa6;font-size:11px;letter-spacing:-1px;line-height:1.4}
+.commercial_form th .email{padding-top:7px;vertical-align:top}
+.commercial_form td .email{padding-top:4px}
+.commercial_form td .email .email_txt{color:#000}
+.commercial_form td .email .bar{display:inline-block;margin:0 4px 0 3px;color:#e5e5e5}
+.commercial_form td .email .info_txt{color:#888;font-size:11px;letter-spacing:-1px}
+
+#naver_common_editor .txt_template {position:absolute;right:0;margin:0;z-index:102}
+#naver_common_editor .txt_template a {font-size:11px;color:#6b6b6b;}
+#naver_common_editor .txt_template.no_template {position:static;right:none;margin:0;height:20px;font-size:11px;color:#6b6b6b;text-align:right}
+#naver_common_editor .txt_template input {margin-top:-2px;vertical-align:middle}
+#naver_common_editor .txt_template .comment{font-size:11px; padding-right:5px; letter-spacing:-1px;}
+#naver_common_editor .txt_template .comment em{font-size:11px; font-style:normal; font-weight:bold; color:#F00;}
+#naver_common_editor .txt_template input{margin:0 2px 2px 0; vertical-align:middle;}
+
+#naver_common_editor .tab_category{position:relative;_width:100%; height:26px; background:url(http://blogimgs.naver.com/nblog/mylog/post/tab_bg04.gif) right top  repeat-x; margin:0;z-index:101}
+#naver_common_editor .tab_category li {float:left;height:26px;padding-left:3px;}
+#naver_common_editor .tab_category li a {float:left;height:19px;_height:26px;padding:7px 14px 0 11px;color:#1c1c1c;}
+#naver_common_editor .tab_category li a:hover {text-decoration:none;}
+#naver_common_editor .tab_category li a:visited{text-decoration:none;}
+#naver_common_editor .tab_category li a:active{text-decoration:none;}
+#naver_common_editor .tab_category li.off a {background:url(http://cafeimgs.naver.net/editor/bg_template_btn_off.gif) right no-repeat !important;}
+#naver_common_editor .tab_category li.off {background:url(http://cafeimgs.naver.net/editor/bg_template_btn_l_off.gif) left no-repeat;}
+#naver_common_editor .tab_category li.off.first {background:url(http://cafeimgs.naver.net/editor/bg_template_btn_first_l_off.gif) left bottom no-repeat;}
+#naver_common_editor .tab_category li.off a.more {padding-right:18px;background:url(http://cafeimgs.naver.net/editor/bg_template_btn_more_off.gif) right no-repeat;}
+#naver_common_editor .tab_category li.on {background:url(http://cafeimgs.naver.net/editor/bg_template_btn_l.gif) left no-repeat;}
+#naver_common_editor .tab_category li.on a {background:url(http://cafeimgs.naver.net/editor/bg_template_btn.gif) right top no-repeat;font-weight:bold;}
+#naver_common_editor .tab_category li.on.first {background:url(http://cafeimgs.naver.net/editor/bg_template_btn_first_l.gif) left bottom no-repeat;}
+#naver_common_editor .tab_category li.on.first a {background:url(http://cafeimgs.naver.net/editor/bg_template_btn_gray.gif) right no-repeat;}
+#naver_common_editor .tab_category li.on a.more {background:url(http://cafeimgs.naver.net/editor/bg_template_btn_more.gif) right no-repeat;}
+
+#naver_common_editor .tab_category li ul {position:relative;width:100px;background-color:#fbfbfb;border-style:solid;border-width:1px;border-color:#c5c5c5 #9f9f9f #9f9f9f #c5c5c5;z-index:2;}
+#naver_common_editor .tab_category li li {float:none;height:19px;margin:0;padding:0;background:none}
+#naver_common_editor .tab_category li li a {display:block;float:none;height:15px;_height:19px;padding:4px 0 0 3px;background:none}
+#naver_common_editor .tab_category li li a:hover {background-color:#c1f471;}
+#naver_common_editor .tab_category li li.tab_editor {border-top:1px solid #e7e7e7}
+#naver_common_editor .tab_category .tab_layer_popup{ position:absolute; overflow:visible; margin:24px 0 0 -3px;_margin:24px 0 0 -68px;filter:progid:DXImageTransform.Microsoft.Shadow(color=#999999,direction=135,strength=2);}
+#naver_common_editor .tab_category li .shadow{ position:absolute; width:100%; height:100%; overflow:visible; z-index:1; _display:none;}
+*:first-child+html #naver_common_editor .tab_category li .shadow{ display:none;}
+#naver_common_editor .tab_category li .shadow1{ left:3px; top:3px; background:url(http://static.naver.net/common/layer/shadow1.png);}
+#naver_common_editor .tab_category li .shadow2{ left:2px; top:2px; background:url(http://static.naver.net/common/layer/shadow2.png);}
+#naver_common_editor .tab_category li .shadow3{ left:1px; top:1px; background:url(http://static.naver.net/common/layer/shadow3.png);}
+
+.layer_hashfilter{padding:20px 0 15px 0;border:1px solid #888;background:#fff;letter-spacing:-1px;line-height:15px;text-align:left !important}
+.layer_hashfilter h2{margin:0;padding:1px 0 16px 0;font-size:12px}
+.layer_hashfilter p{color:#666;margin:0;padding:0}
+.layer_hashfilter .vaccine_link{display:inline-block;padding:5px 7px 0 0;color:#5BC139 !important; text-decoration:underline;font-size:11px;background:url(http://cafeimgs.naver.net/img/malware/bul_arrow_green.gif) no-repeat 100% 7px}
+.layer_hashfilter .file {padding:0 0 15px 0}
+.layer_hashfilter .file img{vertical-align:middle;margin:-2px 6px 0 0}
+.layer_hashfilter .info_text{margin-top:18px;padding:19px 0 10px 0;color:#999;font-size:11px;border-top:1px solid #EDEDED}
+.layer_hashfilter .close{position:absolute;top:8px;right:8px}
+.layer_hashfilter .btns {margin-top:5px;padding-top:7px;border-top:1px solid #E8E8E8; text-align:center}
+
+.infected_img{margin-left:5px}
+
+/* 상거래 게시판 배너 */
+.bner_sec{position:relative;width:708px;padding-left:5px}
+.bner_sec img{display:block}
+.bner_sec .btn_more{overflow:hidden;position:absolute;top:36px;left:447px;width:74px;height:25px;background:#fff;text-indent:-999px;opacity:0;filter:alpha(opacity=0)}
+
+/* og 첨부 레이어 팝업 */
+#naver_common_editor button{border:0;cursor:pointer}
+#naver_common_editor button span{visibility:hidden;overflow:hidden;position:absolute;top:0;font-size:0;line-height:0}
+#naver_common_editor .og .btn_close,#naver_common_editor .se2_og_btns button,#naver_common_editor .se2_og_layer .se2_og_input button,#naver_common_editor .se2_og_layer .se2_og_input .se2_delete{background:url("http://cafeimgs.naver.net/cafe4/sp_og.png") no-repeat}
+#naver_common_editor .se2_og_layer{overflow:hidden;position:absolute;top:250px;left:50%;z-index:300;width:513px;padding:62px 22px 22px;margin-left:-279px;background:#fff;border: 1px solid #000;word-break:break-all;white-space:normal}
+#naver_common_editor .se2_og_layer h3{position:absolute;top:0;left:0;width:537px;height:26px;padding:13px 0 0 20px;background:#f4f4f4;border-bottom:1px solid #ededed}
+#naver_common_editor .se2_og_layer h3 strong{font-size:14px;font-weight:bold;color:#444}
+#naver_common_editor .se2_og_layer .se2_og_input{overflow:hidden}
+#naver_common_editor .se2_og_layer .se2_og_input .se2_og_url,#naver_common_editor .se2_og_layer .se2_og_input button{float:left;vertical-align:top}
+#naver_common_editor .se2_og_layer .se2_og_input .se2_og_url{position:relative;width:411px;height:19px;padding-top:6px;*height:20px;*padding-top:5px;margin-right:6px;padding-right:25px;border:1px solid #f0f0f0}
+#naver_common_editor .se2_og_layer .se2_og_input input{width:100%;padding-left:7px;border:0;font-family:"돋움",dotum;color:#a9a9a9}
+#naver_common_editor .se2_og_layer .se2_og_input .se2_delete{position:absolute;top:9px;right:5px;width:8px;height:7px;background-position:-34px -23px}
+#naver_common_editor .se2_og_layer .se2_og_input .se2_delete span{display:none}
+#naver_common_editor .se2_og_layer .se2_og_input input.on{color:#1155cc;text-decoration:underline}
+#naver_common_editor .se2_og_layer .se2_og_input button{width:69px;height:27px;background-position:-1px -66px}
+#naver_common_editor .se2_og_layer .se2_og_content,#naver_common_editor .se2_og_layer .se2_og_loading{margin-top:22px}
+#naver_common_editor .se2_og_loading{position:relative;display:none;height:136px;text-align:center}
+#naver_common_editor .se2_og_loading img{position:absolute;top:50%;left:50%;margin:-27px 0 0 -27px}
+#naver_common_editor .se2_og_txt{display:none;padding-bottom:17px;margin-top:40px;font-size:12px;color:#999;text-align:center}
+#naver_common_editor .se2_og_btns{margin-top:22px;text-align:center}
+#naver_common_editor .se2_og_btns button{display:inline;float:none;width:48px;height:27px}
+#naver_common_editor .se2_og_btns .se2_apply{margin-right:3px;background-position:-1px -37px}
+#naver_common_editor .se2_og_btns .se2_cancel{background-position:-51px -37px}
+
+.og .btn_close{background:url("http://cafeimgs.naver.net/cafe4/sp_og.png") no-repeat}
+.og .box{display:block;position:relative;background:#fff}
+.og .thumb{overflow:hidden;position:relative;text-align:center;font-size:0}
+.og .thumb .bd{display:block;position:absolute;left:0;top:0;right:0;bottom:0;border:1px solid #000;filter:alpha(opacity=8);opacity:.08}
+.og .thumb.mov .bd{display:block;position:absolute;left:0;top:0;right:0;bottom:0;background:#000;filter:alpha(opacity=15);opacity:.15}
+.og .thumb img{width:100%}
+.og .btn_close{z-index:10;position:absolute;top:7px;right:7px;width:11px;height:11px;background-position:-18px -22px;text-indent:-5000px}
+.og .thumb a{top:0;right:0;width:22px;height:22px;background-position:-77px -1px}
+.og .thumb .ico_video{display:block;overflow:hidden;position:absolute;left:0;top:0;right:0;bottom:0;background:url("http://cafeimgs.naver.net/cafe4/ico_og_media.png") 50% 50% no-repeat;color:transparent}
+.og .s_size{float:left;width:136px;height:136px}
+.og .b_size{height:268px}
+.og .b_size img{margin-top:-20px}
+.og .txt{position:relative;overflow:hidden;height:102px;padding:16px;border:1px solid #ddd;font-family:'돋움',Dotum,Helvetica,sans-serif}
+.og .txt div:first:child{margin-top:0}
+.og .s_size + .txt{border-width:1px 1px 1px 0}
+.og .b_size + .txt{border-width:0 1px 1px 1px}
+.og .tit{font-weight:bold;font-size:14px;color:#000;line-height:20px !important;text-align:left}
+.og .dsc{margin-top:5px;font-size:12px;color:#7d7d7d;line-height:17px !important;text-align:left}
+.og .cp{margin-top:6px;font-size:11px;color:#aaafb8;text-align:left}
+.og .link{display:block;overflow:hidden;position:absolute;left:0;top:0;right:0;bottom:0;background:url(http://static.naver.net/blank.gif);cursor:pointer;color:transparent !important}

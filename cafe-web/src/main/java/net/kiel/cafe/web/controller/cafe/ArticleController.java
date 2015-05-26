@@ -5,10 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import net.kiel.cafe.entity.Article;
-import net.kiel.cafe.entity.Board;
-import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeUser;
+import net.kiel.cafe.entity.*;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
@@ -49,6 +46,30 @@ public class ArticleController {
         
         return "article_read";
     }
+
+    @RequestMapping("new")
+    public String newArticle(
+            @PathVariable String domain,
+            Model model) {
+
+        model.addAllAttributes(getCafeInfo(domain));
+
+        return "article_new";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String create(
+            @PathVariable String domain,
+            Article article,
+            Long boardId,
+            Model model) {
+
+        article = articleService.create(boardId, article.getTitle(), article.getContent());
+
+        return "redirect:/" + domain + "/articles/" + article.getId();
+    }
+
+
     
     private Map<String, Object> getCafeInfo(String domain) {
         Map<String, Object> cafeBaseAttributes = new HashMap<String, Object>();

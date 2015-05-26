@@ -7,10 +7,10 @@
         <p class="gm-tcol-t">카페정보</p>
       </li>
       <li class="tit-action" id="ia-action">
-        <p><a href="#" class="_rosRestrict" onclick="showMyAction();return false;">나의활동</a></p>
+        <p><a href="#" onclick="showMyAction();return false;">나의활동</a></p>
       </li>
       <li class="tit-bookmark">
-        <a class="_rosRestrict" href="#" title="즐겨찾는 카페 등록"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="27" height="28" alt="즐겨찾는 카페 등록" class="btn-bookmark-off" id="favoriteCafeInCafeInfo"></a>
+        <a href="#" title="즐겨찾는 카페 등록"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="27" height="28" alt="즐겨찾는 카페 등록" class="btn-bookmark-off" id="favoriteCafeInCafeInfo"></a>
       </li>
     </ul>
         
@@ -59,9 +59,9 @@
                 </li>
           </ul>
         </div>
-            
+
         <div class="ia-info-data3" id="cafePopularityLog"></div>
-            
+
         <div class="ia-info-btn">
           <ul class="ia-info-list">
             <li>
@@ -77,7 +77,7 @@
       <div class="box_g_b"></div>
         
       <div class="cafe-write-btn">
-        <a href="#" class="_rosRestrict" onclick="writeBoard();clickcr(this, 'mnu.write', '', '', event);return false;"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="171" height="34" alt="카페 글쓰기" class="btn-write"></a>
+        <a href="/${cafe.domain}/articles/new"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="171" height="34" alt="카페 글쓰기" class="btn-write"></a>
       </div>
     </div>
 
@@ -105,7 +105,7 @@
             <div id="myAppListDIV" class="layer_myjoinapp" style="display: none;"></div>
         </div>
         <div class="cafe-write-btn">
-            <a href="#" class="_rosRestrict" onclick="writeBoard();clickcr(this, 'mnu.write', '', '', event);return false;"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="171" height="34" alt="카페 글쓰기" class="btn-write"></a>
+            <a href="/${cafe.domain}/articles/new><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="171" height="34" alt="카페 글쓰기" class="btn-write"></a>
         </div>
     </div>
 </div>

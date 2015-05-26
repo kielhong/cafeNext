@@ -3,6 +3,7 @@ package net.kiel.cafe.web.controller.cafe.dto;
 import java.time.ZoneId;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import net.kiel.cafe.entity.Article;
 import net.kiel.cafe.entity.User;
 
@@ -40,7 +41,8 @@ public class ArticleDto {
     public Long getCommentCount() {
         return article.getCommentCount();
     }
-    
+
+    @JsonProperty("create_datetime")
     public Date getCreateDatetime() {
         return Date.from(article.getCreateDatetime().atZone(ZoneId.systemDefault()).toInstant());
     }

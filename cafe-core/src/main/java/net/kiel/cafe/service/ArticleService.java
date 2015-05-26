@@ -7,6 +7,7 @@ import net.kiel.cafe.entity.Board;
 import net.kiel.cafe.entity.Comment;
 import net.kiel.cafe.entity.User;
 import net.kiel.cafe.repository.ArticleRepository;
+import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.repository.CommentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,19 @@ public class ArticleService {
     private ArticleRepository articleRepository;
     @Autowired
     private CommentRepository commentRepository;
+    @Autowired
+    private BoardRepository boardRepository;
+    @Autowired
+    private UserService userService;
     
     
     public Long getArticleCountByCafeId(Integer cafeId) {
         return articleRepository.countByBoardCafeId(cafeId);
     }
     
-    public Article create(User user, Board board, String title, String contet) {
+    public Article create(Long boardId, String title, String contet) {
+        User user = userService.getUserByContext();
+        Board board = boardRepository.findOne(boardId);
         Article article = new Article(user, board, title, contet);
 
         return articleRepository.save(article);
