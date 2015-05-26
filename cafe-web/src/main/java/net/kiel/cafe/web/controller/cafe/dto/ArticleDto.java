@@ -17,6 +17,10 @@ public class ArticleDto {
     public Long getId() {
         return article.getId();
     }
+
+    public Long getBoardId() {
+        return article.getBoard().getId();
+    }
     
     public String getTitle() {
         return article.getTitle();
@@ -42,7 +46,6 @@ public class ArticleDto {
         return article.getCommentCount();
     }
 
-    @JsonProperty("create_datetime")
     public Date getCreateDatetime() {
         return Date.from(article.getCreateDatetime().atZone(ZoneId.systemDefault()).toInstant());
     }

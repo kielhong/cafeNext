@@ -25,6 +25,14 @@ import org.springframework.data.annotation.LastModifiedDate;
 @Data
 public class Article {
     public Article() {}
+    public Article(Long id, User user, Board board, String title, String content) {
+        this.id = id;
+        this.user = user;
+        this.board = board;
+        this.title = title;
+        this.content = content;
+    }
+
     public Article(User user, Board board, String title, String content) {
         this.user = user;
         this.board = board;

@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import lombok.extern.slf4j.Slf4j;
 import net.kiel.cafe.entity.*;
+import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("{domain}/articles")
+@Slf4j
 public class ArticleController {
     @Autowired
     private CafeService cafeService;
@@ -29,6 +32,8 @@ public class ArticleController {
     private ArticleService articleService;
     @Autowired
     private CafeMemberService cafeMemberService;
+    @Autowired
+    private BoardRepository boardRepository;
     
     
     @RequestMapping(value = "{articleId}", method = RequestMethod.GET)
@@ -48,7 +53,7 @@ public class ArticleController {
     }
 
     @RequestMapping("new")
-    public String newArticle(
+    public String newArticle (
             @PathVariable String domain,
             Model model) {
 
@@ -58,7 +63,7 @@ public class ArticleController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String create(
+    public String createArticle (
             @PathVariable String domain,
             Article article,
             Long boardId,
@@ -69,6 +74,32 @@ public class ArticleController {
         return "redirect:/" + domain + "/articles/" + article.getId();
     }
 
+    @RequestMapping("{articleId}/edit")
+    public String editArticle(
+            @PathVariable String domain,
+            @PathVariable Long articleId,
+            Model model) {
+
+        Article article = articleService.read(articleId);
+
+        model.addAllAttributes(getCafeInfo(domain));
+        model.addAttribute("article", new ArticleDto(article));
+
+        return "article_edit";
+    }
+
+    @RequestMapping(value = "{articleId}", method = RequestMethod.PUT)
+    public String updateArticle(
+            @PathVariable String domain,
+            Article article,
+            Long boardId,
+            Model model) {
+
+        article = articleService.update(article.getId(), boardId, article.getTitle(), article.getContent());
+
+        return "redirect:/" + domain + "/articles/" + article.getId();
+
+    }
 
     
     private Map<String, Object> getCafeInfo(String domain) {

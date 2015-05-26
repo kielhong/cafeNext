@@ -2,7 +2,7 @@
     <div class="box-special-menu">
         <ul class="special-menu" id="special-menu-item">
             <li class="default" id="special-menu-0">
-              <p><a href="/ArticleList.nhn?search.clubid=10000001&search.boardtype=L" target="cafe_main" onclick="goMenu(0);targetCleaner(this);" class="off" id="special-menuLink-0">전체글보기</a></p>
+              <p><a href="/${cafe.domain}" class="off" id="special-menuLink-0">전체글보기</a></p>
             </li>
             <li class="default" id="special-menu--1">
               <p><a href="/BestArticleList.nhn?clubid=10000001&period=week&listtype=commentcount" target="cafe_main" onclick="goMenu(-1);targetCleaner(this);" class="off" id="special-menuLink--1">베스트게시물</a></p>

@@ -8,7 +8,7 @@
             <div class="fl">
                 <table cellspacing="0" cellpadding="0" border="0">
                     <tr valign="top">
-                        <td><span class="b m-tcol-c">aaaa</span></td>
+                        <td><span class="b m-tcol-c">${article.title}</span></td>
                         <td nowrap class="m-tcol-c filter-30">&#124;</td>
                         <td nowrap class="m-tcol-c"><a href="/${cafe.domain}/boards/${board.id}" class="m-tcol-c">${board.title}</a></td>
                         </tr>
@@ -73,12 +73,10 @@
   <#-- operation -->
   <div class="list-btn-nor">
     <div class="fr">   
-      <div id="writeFormBtn" class="btn _rosRestrict"><span></span><p><strong><a href="#" class="m-tcol-c b" ><img src="http://cafeimgs.naver.net/cafe4/ico-btn-write.gif" width="10" height="10" alt="">글쓰기</a></strong></p></div>
-      <div id="replyFormBtn" class="btn _rosRestrict"><span></span><p><a href="#" class="m-tcol-c" ><img src="http://cafeimgs.naver.net/cafe4/ico-btn-check.gif" width="9" height="8" alt="">답글</a></p></div>
-      <div id="modifyFormBtn" class="btn _rosRestrict"><span></span><p><a href="#" class="m-tcol-c" >수정</a></p></div>
-      <div class="btn _rosRestrict" onclick="javascript:checkLogin('move');"><span></span><p><a href="#" class="m-tcol-c" >이동</a></p></div>
-      <div class="btn _rosRestrict" onclick="javascript:checkLogin('delete');"><span></span><p><a href="#" class="m-tcol-c" >삭제</a></p></div>
-      <div class="btn" onclick="goList();"><span></span><p><a href="#" class="m-tcol-c" >목록</a></p></div>
+      <div id="writeFormBtn" class="btn"><span></span><p><strong><a href="/${cafe.domain}/articles/new" class="m-tcol-c b" ><img src="http://cafeimgs.naver.net/cafe4/ico-btn-write.gif" width="10" height="10" alt="">글쓰기</a></strong></p></div>
+      <div id="modifyFormBtn" class="btn"><span></span><p><a href="/${cafe.domain}/articles/${article.id}/edit" class="m-tcol-c" >수정</a></p></div>
+      <div class="btn"><span></span><p><a href="#" class="m-tcol-c" >삭제</a></p></div>
+      <div class="btn"><span></span><p><a href="/${cafe.domain}/boards/${board.id}" class="m-tcol-c" >목록</a></p></div>
     </div>
   </div>
                       

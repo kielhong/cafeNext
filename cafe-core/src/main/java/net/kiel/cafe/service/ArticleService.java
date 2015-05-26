@@ -40,6 +40,15 @@ public class ArticleService {
         return articleRepository.save(article);
     }
 
+    public Article update(Long articleId, Long boardId, String title, String contet) {
+        User user = userService.getUserByContext();
+        Board board = boardRepository.findOne(boardId);
+        Article article = new Article(articleId, user, board, title, contet);
+        article.setUser(user);
+
+        return articleRepository.save(article);
+    }
+
     public Article read(Long id) {
         Article article = articleRepository.findOne(id);
         article.setReadCount(article.getReadCount() + 1);
