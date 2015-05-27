@@ -26,11 +26,11 @@ public class SectionCafeController {
     private UserService userService;
     
     
-    @RequestMapping(value="create", method=RequestMethod.GET)
-    public String create(Model model) {
+    @RequestMapping(value="new", method=RequestMethod.GET)
+    public String newCafe(Model model) {
         
         model.addAttribute("categories", categoryRepository.findAll());
-        return "create_cafe";
+        return "cafe_new";
     }
     
     @RequestMapping(value="create", method=RequestMethod.POST)
@@ -38,13 +38,13 @@ public class SectionCafeController {
         if (result.hasErrors()) {
             System.out.println("errors:" + result.getFieldErrorCount());
             result.getAllErrors().stream().forEach(System.out::println);
-            return "create_cafe";
+            return "cafe_new";
         }
        
         User user = userService.getUserByContext();
         
         cafe = cafeService.createCafe(cafe.getDomain(), cafe.getName(), cafe.getCategory(), cafe.getDescription(), user);
         
-        return "redirect:" + "/cafe/" + cafe.getDomain();
+        return "redirect:/" + cafe.getDomain();
     }
 }

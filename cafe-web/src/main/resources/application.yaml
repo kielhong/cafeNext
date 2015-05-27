@@ -19,6 +19,8 @@ spring:
     show-sql: true
     hibertnate.ddl-auto: create-drop
   jackson.property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+  thymeleaf.cache: false
+  freemarker.cache: false
 ---
 spring:
   profiles: dev
