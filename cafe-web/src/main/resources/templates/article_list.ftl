@@ -67,7 +67,7 @@
   <div class="prev-next">
     <table summary="페이지 네비게이션" class="Nnavi" align="center">    
       <tr>  
-        <#list 0..page.totalPages as p>
+        <#list 0..<page.totalPages as p>
         <td><a href="?page=${p}" class="<#if p == page.number>m-tcol-p<#else>m-tcol-c</#if>">${p + 1}</a></td>
         </#list>
         <!--  
