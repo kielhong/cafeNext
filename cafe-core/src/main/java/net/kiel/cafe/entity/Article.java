@@ -1,37 +1,15 @@
 package net.kiel.cafe.entity;
 
-import java.time.LocalDateTime;
-
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
-
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import net.kiel.cafe.entity.converter.LocalDateTimePersistenceConverter;
 
-import org.springframework.data.annotation.LastModifiedDate;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@ToString(exclude = {"board"})
 @Data
 public class Article {
     public Article() {}
-    public Article(Long id, User user, Board board, String title, String content) {
-        this.id = id;
-        this.user = user;
-        this.board = board;
-        this.title = title;
-        this.content = content;
-    }
 
     public Article(User user, Board board, String title, String content) {
         this.user = user;
@@ -63,7 +41,7 @@ public class Article {
     private Integer recommendCount = 0;
     
     @Transient
-    private Long commentCount;
+    private Long commentCount = 0L;
     
     @Column(name = "create_datetime")
     @Convert(converter = LocalDateTimePersistenceConverter.class)

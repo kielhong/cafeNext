@@ -18,10 +18,10 @@ public class ArticleDto {
         return article.getId();
     }
 
-    public Long getBoardId() {
-        return article.getBoard().getId();
+    public BoardDto getBoard() {
+        return new BoardDto(article.getBoard());
     }
-    
+
     public String getTitle() {
         return article.getTitle();
     }

@@ -1,9 +1,6 @@
 package net.kiel.cafe.service
 
 import net.kiel.cafe.CafeCoreApplication
-import net.kiel.cafe.entity.Article
-import net.kiel.cafe.entity.Board
-import net.kiel.cafe.entity.Cafe
 import net.kiel.cafe.repository.ArticleRepository
 import net.kiel.cafe.repository.BoardRepository
 import net.kiel.cafe.repository.CafeRepository

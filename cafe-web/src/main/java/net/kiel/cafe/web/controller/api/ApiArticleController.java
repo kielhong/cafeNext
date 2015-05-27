@@ -6,7 +6,6 @@ import net.kiel.cafe.entity.Comment;
 import net.kiel.cafe.entity.User;
 import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.CommentRepository;
-
 import net.kiel.cafe.repository.UserRepository;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.UserService;

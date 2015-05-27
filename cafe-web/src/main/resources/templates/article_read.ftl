@@ -29,7 +29,7 @@
         <div class="h-10"></div>
         
         <div class="tbody m-tcol-c" id="tbody">
-          ${article.content}
+          ${article.content?replace("\n", "</br>")}
         </div>
                 
         <div class="h-35"></div>

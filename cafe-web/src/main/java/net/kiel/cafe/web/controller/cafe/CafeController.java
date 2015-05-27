@@ -1,10 +1,5 @@
 package net.kiel.cafe.web.controller.cafe;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import lombok.extern.slf4j.Slf4j;
 import net.kiel.cafe.entity.Article;
 import net.kiel.cafe.entity.Board;
@@ -13,17 +8,12 @@ import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.repository.CommentRepository;
-import static net.kiel.cafe.repository.specification.ArticleSpecification.isBoard;
-import static net.kiel.cafe.repository.specification.ArticleSpecification.isCafe;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
 import net.kiel.cafe.web.controller.cafe.dto.ArticleDto;
 import net.kiel.cafe.web.controller.cafe.dto.BoardDto;
 import net.kiel.cafe.web.controller.cafe.dto.CafeDto;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +23,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static net.kiel.cafe.repository.specification.ArticleSpecification.isBoard;
+import static net.kiel.cafe.repository.specification.ArticleSpecification.isCafe;
 
 @Controller
 @Slf4j

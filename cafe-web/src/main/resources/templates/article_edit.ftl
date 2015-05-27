@@ -13,9 +13,9 @@
 					<li>
 					    <label class="item" for="board">카테고리</label>
 						<div>
-			                <select id="board" name="boardId" class="step01" style="width: 156px;" >
+			                <select id="board" name="board.id" class="step01" style="width: 156px;" >
 			                    <#list boards as board>
-			                    <option value="${board.id}" <#if board.id == article.boardId>selected</#if>>${board.title}</option>
+			                    <option value="${board.id}" <#if board.id == article.board.id>selected</#if>>${board.title}</option>
 			                    </#list>
 							</select>
 						</div>
@@ -27,7 +27,6 @@
 					    </div>
 					</li>
 				</ul>
-
 
 				<table width="740" cellspacing="0" cellpadding="0" class="wrap" id="toolbox">
             		<tr>

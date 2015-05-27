@@ -1,12 +1,10 @@
 package net.kiel.cafe.web.controller.cafe;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import lombok.extern.slf4j.Slf4j;
-import net.kiel.cafe.entity.*;
+import net.kiel.cafe.entity.Article;
+import net.kiel.cafe.entity.Board;
+import net.kiel.cafe.entity.Cafe;
+import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.service.ArticleService;
 import net.kiel.cafe.service.CafeMemberService;
@@ -14,13 +12,18 @@ import net.kiel.cafe.service.CafeService;
 import net.kiel.cafe.web.controller.cafe.dto.ArticleDto;
 import net.kiel.cafe.web.controller.cafe.dto.BoardDto;
 import net.kiel.cafe.web.controller.cafe.dto.CafeDto;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("{domain}/articles")
@@ -65,11 +68,10 @@ public class ArticleController {
     @RequestMapping(method = RequestMethod.POST)
     public String createArticle (
             @PathVariable String domain,
-            Article article,
-            Long boardId,
+            Article articleCommand,
             Model model) {
 
-        article = articleService.create(boardId, article.getTitle(), article.getContent());
+        Article article = articleService.create(articleCommand);
 
         return "redirect:/" + domain + "/articles/" + article.getId();
     }
@@ -91,11 +93,10 @@ public class ArticleController {
     @RequestMapping(value = "{articleId}", method = RequestMethod.PUT)
     public String updateArticle(
             @PathVariable String domain,
-            Article article,
-            Long boardId,
+            @ModelAttribute Article articleCommand,
             Model model) {
 
-        article = articleService.update(article.getId(), boardId, article.getTitle(), article.getContent());
+        Article article = articleService.update(articleCommand);
 
         return "redirect:/" + domain + "/articles/" + article.getId();
 
