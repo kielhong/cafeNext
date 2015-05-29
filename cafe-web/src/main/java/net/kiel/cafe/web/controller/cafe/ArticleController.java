@@ -28,16 +28,11 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("{domain}/articles")
 @Slf4j
-public class ArticleController {
+public class ArticleController extends CafeBaseController {
     @Autowired
     private CafeService cafeService;
     @Autowired
     private ArticleService articleService;
-    @Autowired
-    private CafeUserService cafeUserService;
-    @Autowired
-    private BoardRepository boardRepository;
-    
     
     @RequestMapping(value = "{articleId}", method = RequestMethod.GET)
     public String readArticle(
@@ -100,20 +95,5 @@ public class ArticleController {
 
         return "redirect:/" + domain + "/articles/" + article.getId();
 
-    }
-
-    
-    private Map<String, Object> getCafeInfo(String domain) {
-        Map<String, Object> cafeBaseAttributes = new HashMap<String, Object>();
-        
-        Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
-        List<Board> boards = cafe.getBoards();
-        CafeUser cafeManager = cafeUserService.findCafeManager(cafe.getId());
-        
-        cafeBaseAttributes.put("cafe", new CafeDto(cafe));
-        cafeBaseAttributes.put("cafeManager", cafeManager);
-        cafeBaseAttributes.put("boards",boards.stream().map(BoardDto::new).collect(Collectors.toList()));
-        
-        return cafeBaseAttributes;
     }
 }

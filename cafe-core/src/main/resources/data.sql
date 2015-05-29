@@ -14,6 +14,8 @@ INSERT INTO user_role(username, role) VALUES ('user', 'ROLE_USER');
 
 /** Cafe User **/
 INSERT INTO cafe_user (cafe_id, user_id, create_datetime, role) VALUES (1, 1, '2011-11-21 00:00:00', 'MANAGER');
+INSERT INTO cafe_user (cafe_id, user_id, create_datetime, role) VALUES (2, 1, '2011-11-21 00:00:00', 'MANAGER');
+INSERT INTO cafe_user (cafe_id, user_id, create_datetime, role) VALUES (3, 1, '2015-03-21 00:00:00', 'MANAGER');
 
 /** Board **/
 INSERT INTO board (id, cafe_id, title, description, type, create_datetime) VALUES (1, 1, 'test board', 'test board', 'GENERAL', '2014-11-10 00:00:00');

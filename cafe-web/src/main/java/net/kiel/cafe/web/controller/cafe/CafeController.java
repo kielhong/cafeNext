@@ -29,19 +29,13 @@ import static net.kiel.cafe.repository.specification.ArticleSpecification.isCafe
 
 @Controller
 @Slf4j
-public class CafeController {
+public class CafeController extends CafeBaseController {
     @Autowired
     private CafeService cafeService;
     @Autowired
     private ArticleService articleService;
     @Autowired
-    private UserService userService;
-    @Autowired
-    private CafeUserService cafeUserService;
-    @Autowired
     private ArticleRepository articleRepository;
-    @Autowired
-    private CommentRepository commentRepository;
     @Autowired
     private BoardRepository boardRepository;
     
@@ -75,23 +69,5 @@ public class CafeController {
         model.addAttribute("page", page);
         
         return "article_list";
-    }
-
-    private Map<String, Object> getCafeInfo(String domain) {
-        Map<String, Object> cafeBaseAttributes = new HashMap<String, Object>();
-        
-        Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
-        List<Board> boards = cafe.getBoards();
-        CafeUser cafeManager = cafeUserService.findCafeManager(cafe.getId());
-
-        User user = userService.getUserByContext();
-        Boolean isCafeUser = cafeUserService.isCafeUser(cafe, user);
-        
-        cafeBaseAttributes.put("cafe", new CafeDto(cafe));
-        cafeBaseAttributes.put("cafeManager", cafeManager);
-        cafeBaseAttributes.put("boards",boards.stream().map(BoardDto::new).collect(Collectors.toList()));
-        cafeBaseAttributes.put("isCafeUser", isCafeUser);
-        
-        return cafeBaseAttributes;
     }
 }

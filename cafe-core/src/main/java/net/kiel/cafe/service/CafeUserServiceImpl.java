@@ -29,7 +29,6 @@ public class CafeUserServiceImpl implements CafeUserService {
     public CafeUser findCafeManager(Integer cafeId) {
         List<CafeUser> cafeMembers = cafeUserRepository.findByCafeIdAndRole(cafeId, Role.MANAGER);
 
-
         return cafeMembers.get(0);
     }
 
