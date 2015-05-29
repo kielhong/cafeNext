@@ -1,16 +1,11 @@
 package net.kiel.cafe.web.controller.cafe;
 
 import lombok.extern.slf4j.Slf4j;
-import net.kiel.cafe.entity.Article;
-import net.kiel.cafe.entity.Board;
-import net.kiel.cafe.entity.Cafe;
-import net.kiel.cafe.entity.CafeUser;
+import net.kiel.cafe.entity.*;
 import net.kiel.cafe.repository.ArticleRepository;
 import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.repository.CommentRepository;
-import net.kiel.cafe.service.ArticleService;
-import net.kiel.cafe.service.CafeMemberService;
-import net.kiel.cafe.service.CafeService;
+import net.kiel.cafe.service.*;
 import net.kiel.cafe.web.controller.cafe.dto.ArticleDto;
 import net.kiel.cafe.web.controller.cafe.dto.BoardDto;
 import net.kiel.cafe.web.controller.cafe.dto.CafeDto;
@@ -40,7 +35,9 @@ public class CafeController {
     @Autowired
     private ArticleService articleService;
     @Autowired
-    private CafeMemberService cafeMemberService;
+    private UserService userService;
+    @Autowired
+    private CafeUserService cafeUserService;
     @Autowired
     private ArticleRepository articleRepository;
     @Autowired
@@ -85,11 +82,15 @@ public class CafeController {
         
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
         List<Board> boards = cafe.getBoards();
-        CafeUser cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        CafeUser cafeManager = cafeUserService.findCafeManager(cafe.getId());
+
+        User user = userService.getUserByContext();
+        Boolean isCafeUser = cafeUserService.isCafeUser(cafe, user);
         
         cafeBaseAttributes.put("cafe", new CafeDto(cafe));
         cafeBaseAttributes.put("cafeManager", cafeManager);
         cafeBaseAttributes.put("boards",boards.stream().map(BoardDto::new).collect(Collectors.toList()));
+        cafeBaseAttributes.put("isCafeUser", isCafeUser);
         
         return cafeBaseAttributes;
     }

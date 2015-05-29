@@ -90,7 +90,8 @@ public class Cafe {
     private void preUpdate() {
         updateDatetime = LocalDateTime.now();
     }
-    
+
+
     @Override
     public String toString() {
         return "Cafe [id=" + id + ", domain=" + domain + ", name=" + name + ", description=" + description

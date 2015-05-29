@@ -42,7 +42,7 @@
 			</div>
 
 			<div class="btn_post">
-				<input type="submit"/>
+				<input type="submit" value="작성"/>
 			</div>
 		</div>
 	</form>

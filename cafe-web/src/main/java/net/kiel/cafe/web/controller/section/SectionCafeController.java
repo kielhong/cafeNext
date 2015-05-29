@@ -6,6 +6,7 @@ import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.entity.User;
 import net.kiel.cafe.repository.CafeCategoryRepository;
 import net.kiel.cafe.service.CafeService;
+import net.kiel.cafe.service.CafeServiceImpl;
 import net.kiel.cafe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;

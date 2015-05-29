@@ -65,10 +65,10 @@
         <div class="ia-info-btn">
           <ul class="ia-info-list">
             <li>
-              <a href="#" class="gm-tcol-c _rosRestrict">초대</a>
+              <a href="#" class="gm-tcol-c">가입</a>
             </li>
             <li>
-                <a href="#"class="gm-tcol-c _tabletRestrict(채팅)">채팅하기</a>
+                <a href="#"class="gm-tcol-c">채팅하기</a>
             </li>
            </ul>
         </div>
@@ -77,7 +77,11 @@
       <div class="box_g_b"></div>
         
       <div class="cafe-write-btn">
+        <#if isCafeUser>
         <a href="/${cafe.domain}/articles/new"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="171" height="34" alt="카페 글쓰기" class="btn-write"></a>
+        <#else>
+        <a href="/${cafe.domain}/users/new"><img src="http://cafeimgs.naver.net/cafe4/hidden.gif" width="171" height="34" alt="카페 가입하기" class="btn-join"></a>
+        </#if>
       </div>
     </div>
 

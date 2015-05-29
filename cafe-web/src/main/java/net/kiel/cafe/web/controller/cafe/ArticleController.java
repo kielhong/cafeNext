@@ -7,8 +7,8 @@ import net.kiel.cafe.entity.Cafe;
 import net.kiel.cafe.entity.CafeUser;
 import net.kiel.cafe.repository.BoardRepository;
 import net.kiel.cafe.service.ArticleService;
-import net.kiel.cafe.service.CafeMemberService;
 import net.kiel.cafe.service.CafeService;
+import net.kiel.cafe.service.CafeUserService;
 import net.kiel.cafe.web.controller.cafe.dto.ArticleDto;
 import net.kiel.cafe.web.controller.cafe.dto.BoardDto;
 import net.kiel.cafe.web.controller.cafe.dto.CafeDto;
@@ -34,7 +34,7 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
     @Autowired
-    private CafeMemberService cafeMemberService;
+    private CafeUserService cafeUserService;
     @Autowired
     private BoardRepository boardRepository;
     
@@ -108,7 +108,7 @@ public class ArticleController {
         
         Cafe cafe = cafeService.findCafeWithDataByDomain(domain);
         List<Board> boards = cafe.getBoards();
-        CafeUser cafeManager = cafeMemberService.findCafeManager(cafe.getId());
+        CafeUser cafeManager = cafeUserService.findCafeManager(cafe.getId());
         
         cafeBaseAttributes.put("cafe", new CafeDto(cafe));
         cafeBaseAttributes.put("cafeManager", cafeManager);
